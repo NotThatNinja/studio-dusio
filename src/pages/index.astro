@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 
 import Hero from "../components/Hero.astro";
-import Section from "../components/Section.astro";
 import P from "../components/Typography/P.astro";
 import Icon from "../components/Typography/Icon.astro";
 import H3 from "../components/Typography/H3.astro";
@@ -16,7 +15,7 @@ import illustrazione2 from "../assets/illustrations/2.png";
 
 <Layout>
     <Hero />
-    <Section>
+    <section class="flex px-36 py-12 gap-2 bg-section items-center">
         <div class="flex flex-col gap-2">
             <Icon icon="fa-heart" />
             <H3>Ascolto e Attenzione</H3>
@@ -33,8 +32,8 @@ import illustrazione2 from "../assets/illustrations/2.png";
                 dictum, ipsum laoreet
             </P>
         </div>
-    </Section>
-    <Section>
+    </section>
+    <section class="flex px-36 py-12 gap-20 bg-section items-center">
         <div class="flex flex-col gap-4">
             <H4>Percorso professionale</H4>
             <H3>
@@ -55,8 +54,8 @@ import illustrazione2 from "../assets/illustrations/2.png";
             src={illustrazione1}
             alt="Illustrazione 1"
         />
-    </Section>
-    <Section>
+    </section>
+    <section class="flex px-36 py-12 gap-20 bg-section items-center">
         <Image
             class="max-h-96 w-auto"
             src={illustrazione2}
@@ -80,5 +79,5 @@ import illustrazione2 from "../assets/illustrations/2.png";
                 <i class="fas fa-chevron-right font-bold"></i>
             </Button>
         </div>
-    </Section>
+    </section>
 </Layout>

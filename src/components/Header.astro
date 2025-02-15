@@ -1,3 +1,10 @@
+---
+import Button from "./Button.astro";
+
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+---
+
 <header>
     <div class="bg-green flex py-2 align-middle justify-center gap-11">
         <div class="flex gap-3.5 items-baseline">
@@ -23,5 +30,30 @@
             >
         </div>
     </div>
-    <div></div>
+
+    <div class="flex py-2 items-center justify-center gap-20">
+        <a href="/studio-dusio">
+            <Image src={logo} alt="Studio Dusio" width="192" height="64" />
+        </a>
+
+        <nav class="flex gap-10 items-center">
+            <a
+                class="text-blue font-bold text-lg hover:text-green"
+                href="/studio-dusio/lo-studio">LO STUDIO</a
+            >
+            <a
+                class="text-blue font-bold text-lg hover:text-green"
+                href="/studio-dusio/servizi">SERVIZI</a
+            >
+            <a
+                class="text-blue font-bold text-lg hover:text-green"
+                href="/studio-dusio/avvisi">AVVISI</a
+            >
+            <a
+                class="text-blue font-bold text-lg hover:text-green"
+                href="/studio-dusio/contatti">CONTATTI</a
+            >
+            <Button href="https://www.cupmedico.it/">PRENOTA</Button>
+        </nav>
+    </div>
 </header>

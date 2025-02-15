@@ -1,9 +1,23 @@
 ---
-const { href } = Astro.props;
+const { href, primary = false } = Astro.props;
 ---
 
 <a
-    class="text-white bg-blue px-4 py-1.5 rounded-lg text-lg font-bold"
+    class:list={[
+        "w-fit",
+        "flex",
+        "items-center",
+        "gap-2.5",
+        "px-4",
+        "py-1.5",
+        "rounded-lg",
+        "text-lg",
+        "font-bold",
+        { "text-white": primary },
+        { "bg-blue": primary },
+        { "text-blue": !primary },
+        { "bg-white": !primary },
+    ]}
     href={href}
 >
     <slot />

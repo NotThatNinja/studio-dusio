@@ -1,0 +1,29 @@
+---
+import Button from "./Button.astro";
+
+import { Image } from "astro:assets";
+import heroImage from "../assets/hero.png";
+---
+
+<section class="relative">
+    <Image class="h-[80vh] object-cover" src={heroImage} alt="Lo Studio" />
+
+    <div class="flex flex-col gap-6 absolute bottom-28 px-36">
+        <div class="flex gap-5">
+            <i class="fas fa-stethoscope text-white text-3xl"></i>
+            <h1 class="text-white font-bold text-3xl">Studio Medico Dusio</h1>
+        </div>
+        <h2 class="text-white text-6xl font-bold">
+            La <span class="text-hero">tua salute</span> al centro<br />
+            delle <span class="text-hero">nostre cure</span>
+        </h2>
+        <p class="text-white text-xl">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br />
+            Cras molestie ante varius enim tristique aliquet. Aliquam erat volutpat.
+        </p>
+        <Button href="#">
+            SCOPRI DI PIÙ
+            <i class="fas fa-chevron-right font-bold"></i>
+        </Button>
+    </div>
+</section>

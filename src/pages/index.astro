@@ -1,21 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import Hero from "../components/Hero.astro";
+import Hero from "../components/Sections/Hero.astro";
 import P from "../components/Typography/P.astro";
 import Icon from "../components/Typography/Icon.astro";
 import H3 from "../components/Typography/H3.astro";
 import H4 from "../components/Typography/H4.astro";
 import Button from "../components/Button.astro";
+import FAQ from "../components/Sections/FAQ.astro";
 
 import { Image } from "astro:assets";
 import illustrazione1 from "../assets/illustrations/1.png";
 import illustrazione2 from "../assets/illustrations/2.png";
+import illustrazione3 from "../assets/illustrations/3.png";
 ---
 
 <Layout>
     <Hero />
-    <section class="flex px-36 py-12 gap-2 bg-section items-center">
+    <section class="flex px-36 py-12 gap-2 bg-blue-2 items-center">
         <div class="flex flex-col gap-2">
             <Icon icon="fa-heart" />
             <H3>Ascolto e Attenzione</H3>
@@ -33,7 +35,7 @@ import illustrazione2 from "../assets/illustrations/2.png";
             </P>
         </div>
     </section>
-    <section class="flex px-36 py-12 gap-20 bg-section items-center">
+    <section class="flex px-36 py-12 gap-20 bg-blue-2 items-center">
         <div class="flex flex-col gap-4">
             <H4>Percorso professionale</H4>
             <H3>
@@ -55,7 +57,7 @@ import illustrazione2 from "../assets/illustrations/2.png";
             alt="Illustrazione 1"
         />
     </section>
-    <section class="flex px-36 py-12 gap-20 bg-section items-center">
+    <section class="flex px-36 py-12 gap-20 bg-blue-2 items-center">
         <Image
             class="max-h-96 w-auto"
             src={illustrazione2}
@@ -80,4 +82,28 @@ import illustrazione2 from "../assets/illustrations/2.png";
             </Button>
         </div>
     </section>
+    <section class="flex flex-col px-36 py-12 gap-2 items-center">
+        <H4>Sezione Servizi homepage</H4>
+        <H3>Lorem ipsum dolor <span class="text-green">sit amet</span></H3>
+    </section>
+    <section class="flex px-36 py-12 bg-blue-2 items-center justify-between">
+        <div class="flex flex-col gap-4">
+            <H4>Ultimi avvisi</H4>
+            <H3>Lorem ipsum dolor <span class="text-green">sit amet</span></H3>
+            <P>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit
+                amet condimentum ante, Lorem ipsum dolor sit amet...
+            </P>
+            <Button href="#" primary>
+                LEGGI TUTTO
+                <i class="fas fa-chevron-right font-bold"></i>
+            </Button>
+        </div>
+        <Image
+            class="max-h-60 w-auto"
+            src={illustrazione3}
+            alt="Illustrazione 3"
+        />
+    </section>
+    <FAQ />
 </Layout>

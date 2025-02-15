@@ -4,7 +4,8 @@
     --font-sans: "Open Sans Variable", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
     --color-blue: #15427C;
+    --color-blue-2: rgba(21, 66, 124, 0.22);
+    --color-blue-3: rgba(21, 66, 124, 0.22);
     --color-green: #009540;
     --color-hero: #00DC5F;
-    --color-section: rgba(21, 66, 124, 0.22);
 }

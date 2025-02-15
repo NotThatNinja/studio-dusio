@@ -2,56 +2,83 @@
 import Layout from "../layouts/Layout.astro";
 
 import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import P from "../components/Typography/P.astro";
+import Icon from "../components/Typography/Icon.astro";
+import H3 from "../components/Typography/H3.astro";
+import H4 from "../components/Typography/H4.astro";
+import Button from "../components/Button.astro";
 
 import { Image } from "astro:assets";
-import dottorePazienteImage from "../assets/illustrations/dottore-paziente.png";
+import illustrazione1 from "../assets/illustrations/1.png";
+import illustrazione2 from "../assets/illustrations/2.png";
 ---
 
 <Layout>
     <Hero />
-    <section class="flex px-36 py-12 gap-2 bg-section">
+    <Section>
         <div class="flex flex-col gap-2">
-            <i class="fas fa-heart text-blue text-3xl font-bold"></i>
-            <h3 class="text-blue text-3xl font-bold">Ascolto e Attenzione</h3>
-            <p class="text-blue text-xl">
+            <Icon icon="fa-heart" />
+            <H3>Ascolto e Attenzione</H3>
+            <P>
                 Ci prendiamo cura di ogni paziente come di una persona unica,
                 con ascolto e attenzione dedicata.
-            </p>
+            </P>
         </div>
         <div class="flex flex-col gap-2">
-            <i class="fas fa-comment-medical text-blue text-3xl font-bold"></i>
-            <h3 class="text-blue text-3xl font-bold">Fiducia e Esperienza</h3>
-            <p class="text-blue text-xl">
+            <Icon icon="fa-comment-medical" />
+            <H3>Fiducia e Esperienza</H3>
+            <P>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
                 dictum, ipsum laoreet
-            </p>
+            </P>
         </div>
-    </section>
-    <section class="flex px-36 py-12 bg-section gap-20">
+    </Section>
+    <Section>
         <div class="flex flex-col gap-4">
-            <div class="flex gap-4 items-center">
-                <i class="fas fa-stethoscope text-blue font-bold text-2xl"></i>
-                <h4 class="text-blue font-bold text-2xl">
-                    Percorso professionale
-                </h4>
-            </div>
-            <h3 class="text-blue font-bold text-3xl">
+            <H4>Percorso professionale</H4>
+            <H3>
                 Lorem ipsum <span class="text-green">dolor</span>
-            </h3>
-            <p class="text-blue text-xl">
+            </H3>
+            <P>
                 Mi sono laureato e abilitato nel 1988. Dopo aver iniziato come
                 medico di guardia nel 1990, sono diventato Medico di Medicina
                 Generale nel 1994.
-            </p>
-            <p class="text-blue text-xl">
+            </P>
+            <P>
                 Ho conseguito anche un diploma in diagnosi e terapia delle
                 cefalee, e ho lavorato in Geriatria all’Ospedale di Asti.
-            </p>
+            </P>
         </div>
         <Image
             class="max-h-96 w-auto"
-            src={dottorePazienteImage}
-            alt="Dottore e Paziente"
+            src={illustrazione1}
+            alt="Illustrazione 1"
         />
-    </section>
+    </Section>
+    <Section>
+        <Image
+            class="max-h-96 w-auto"
+            src={illustrazione2}
+            alt="Illustrazione 2"
+        />
+        <div class="flex flex-col gap-4">
+            <H4>La mia filosofia</H4>
+            <H3>
+                Curare il <span class="text-green">malato</span> e non la <span
+                    class="text-green">malattia</span
+                >
+            </H3>
+            <P>
+                Considero l’attività di cura simile al “ confezionamento
+                sartoriale di un abito su misura”. Etiam laoreet leo in pharetra
+                rhoncus. Quisque dui nulla, scelerisque non gravida eleifend,
+                cursus quis nisl.
+            </P>
+            <Button href="#" primary>
+                PRENOTA UNA VISITA
+                <i class="fas fa-chevron-right font-bold"></i>
+            </Button>
+        </div>
+    </Section>
 </Layout>

@@ -2,8 +2,56 @@
 import Layout from "../layouts/Layout.astro";
 
 import Hero from "../components/Hero.astro";
+
+import { Image } from "astro:assets";
+import dottorePazienteImage from "../assets/illustrations/dottore-paziente.png";
 ---
 
 <Layout>
     <Hero />
+    <section class="flex px-36 py-12 gap-2 bg-section">
+        <div class="flex flex-col gap-2">
+            <i class="fas fa-heart text-blue text-3xl font-bold"></i>
+            <h3 class="text-blue text-3xl font-bold">Ascolto e Attenzione</h3>
+            <p class="text-blue text-xl">
+                Ci prendiamo cura di ogni paziente come di una persona unica,
+                con ascolto e attenzione dedicata.
+            </p>
+        </div>
+        <div class="flex flex-col gap-2">
+            <i class="fas fa-comment-medical text-blue text-3xl font-bold"></i>
+            <h3 class="text-blue text-3xl font-bold">Fiducia e Esperienza</h3>
+            <p class="text-blue text-xl">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                dictum, ipsum laoreet
+            </p>
+        </div>
+    </section>
+    <section class="flex px-36 py-12 bg-section gap-20">
+        <div class="flex flex-col gap-4">
+            <div class="flex gap-4 items-center">
+                <i class="fas fa-stethoscope text-blue font-bold text-2xl"></i>
+                <h4 class="text-blue font-bold text-2xl">
+                    Percorso professionale
+                </h4>
+            </div>
+            <h3 class="text-blue font-bold text-3xl">
+                Lorem ipsum <span class="text-green">dolor</span>
+            </h3>
+            <p class="text-blue text-xl">
+                Mi sono laureato e abilitato nel 1988. Dopo aver iniziato come
+                medico di guardia nel 1990, sono diventato Medico di Medicina
+                Generale nel 1994.
+            </p>
+            <p class="text-blue text-xl">
+                Ho conseguito anche un diploma in diagnosi e terapia delle
+                cefalee, e ho lavorato in Geriatria all’Ospedale di Asti.
+            </p>
+        </div>
+        <Image
+            class="max-h-96 w-auto"
+            src={dottorePazienteImage}
+            alt="Dottore e Paziente"
+        />
+    </section>
 </Layout>

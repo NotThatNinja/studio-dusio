@@ -1,0 +1,25 @@
+---
+import H3 from "../Typography/H3.astro";
+import P from "../Typography/P.astro";
+
+import { Image } from "astro:assets";
+import ordineProvincialeImage from "../../assets/certifications/ordine-provinciale.png";
+import regionePiemonteImage from "../../assets/certifications/regione-piemonte.png";
+---
+
+<section class="flex flex-col gap-7 justify-center items-center py-12 px-36">
+    <H3>Certificazioni</H3>
+    <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet</P>
+    <div class="flex gap-36 justify-center items-center">
+        <Image
+            class="w-1/3 h-fit"
+            src={ordineProvincialeImage}
+            alt="Ordine Provinciale"
+        />
+        <Image
+            class="w-1/4 h-fit"
+            src={regionePiemonteImage}
+            alt="Regione Piemonte"
+        />
+    </div>
+</section>

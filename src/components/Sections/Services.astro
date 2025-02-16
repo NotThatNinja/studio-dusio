@@ -1,0 +1,89 @@
+---
+import H4 from "../Typography/H4.astro";
+import H3 from "../Typography/H3.astro";
+
+import { Image } from "astro:assets";
+import illustration10 from "../../assets/illustrations/10.png";
+---
+
+<section class="flex flex-col px-36 py-12 gap-2 items-center relative">
+    <H4>Sezione Servizi homepage</H4>
+    <H3>Lorem ipsum dolor <span class="text-green">sit amet</span></H3>
+    <div class="flex flex-col gap-10 mt-8 max-w-5xl w-full">
+        <div class="flex justify-between">
+            <p
+                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
+            >
+                Visite ambulatoriali
+            </p>
+            <p
+                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
+            >
+                Visite domiciliari
+            </p>
+            <p
+                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
+            >
+                Ricette
+            </p>
+            <p
+                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
+            >
+                Certificati
+            </p>
+        </div>
+        <div class="flex justify-between">
+            <p
+                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
+            >
+                Vaccinazioni
+            </p>
+            <p
+                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
+            >
+                Attività infermieristica
+            </p>
+            <p
+                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
+            >
+                Terapia delle Cefalee
+            </p>
+        </div>
+        <div class="flex justify-between">
+            <p
+                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
+            >
+                Spirometria
+            </p>
+            <p
+                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
+            >
+                Medicina di Gruppo
+            </p>
+            <p
+                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
+            >
+                Tutor scuola di Medicina Generale
+            </p>
+        </div>
+        <div class="flex justify-between">
+            <p
+                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
+            >
+                Medico Sentinella Influenza
+            </p>
+        </div>
+    </div>
+    <Image
+        src={illustration10}
+        alt="Illustrazione 10"
+        class="absolute bottom-0 left-4 opacity-25"
+        width="269"
+    />
+    <Image
+        src={illustration10}
+        alt="Illustrazione 10"
+        class="absolute bottom-0 right-4 opacity-25"
+        width="269"
+    />
+</section>

@@ -6,6 +6,7 @@ import H3 from "../components/Typography/H3.astro";
 import H4 from "../components/Typography/H4.astro";
 import P from "../components/Typography/P.astro";
 import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
 import Certifications from "../components/Sections/Certifications.astro";
 
 import { Image } from "astro:assets";
@@ -15,6 +16,7 @@ import illustration7 from "../assets/illustrations/7.png";
 import illustration8 from "../assets/illustrations/8.png";
 import illustration9 from "../assets/illustrations/9.png";
 import photo2 from "../assets/photos/2.jpg";
+import photo3 from "../assets/photos/3.png";
 ---
 
 <Layout>
@@ -125,7 +127,37 @@ import photo2 from "../assets/photos/2.jpg";
             >
         </H3>
     </section>
-    <section class="px-36 py-12 flex gap-20 items-center">
+    <section class="px-36 py-12 flex flex-col gap-5 items-center">
+        <H4>Il Team dello Studio</H4>
+        <H3>Lorem ipsum dolor <span class="text-green">sit amet</span></H3>
+        <div class="flex mt-7 gap-10">
+            <Card
+                class="h-96 w-64"
+                title="Nome Cognome"
+                subtitle="SEGRETARIA"
+                href="#"
+                photo={photo3}
+                alt="Nome Persona"
+            />
+            <Card
+                class="h-96 w-64"
+                title="Nome Cognome"
+                subtitle="SEGRETARIA"
+                href="#"
+                photo={photo3}
+                alt="Nome Persona"
+            />
+            <Card
+                class="h-96 w-64"
+                title="Nome Cognome"
+                subtitle="SEGRETARIA"
+                href="#"
+                photo={photo3}
+                alt="Nome Persona"
+            />
+        </div>
+    </section>
+    <section class="px-36 py-12 flex gap-20 items-center bg-blue-2">
         <div class="flex flex-col gap-5">
             <H4>Il centro medico</H4>
             <H3>Lorem ipsum dolor <span class="text-green">sit amet</span></H3>
@@ -148,7 +180,7 @@ import photo2 from "../assets/photos/2.jpg";
         <Image class="max-h-96 w-auto rounded-lg" src={photo2} alt="Foto 2" />
     </section>
     <section
-        class="px-36 py-12 flex flex-col gap-2 items-center relative justify-center bg-blue-2"
+        class="px-36 py-12 flex flex-col gap-2 items-center relative justify-center"
     >
         <H4>Scopri i nostri servizi</H4>
         <H3>

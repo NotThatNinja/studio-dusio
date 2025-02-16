@@ -5,6 +5,7 @@ import PageTitle from "../components/PageTitle.astro";
 import H3 from "../components/Typography/H3.astro";
 import H4 from "../components/Typography/H4.astro";
 import P from "../components/Typography/P.astro";
+import Button from "../components/Button.astro";
 import Certifications from "../components/Sections/Certifications.astro";
 
 import { Image } from "astro:assets";
@@ -12,6 +13,8 @@ import photo1 from "../assets/photos/1.jpg";
 import illustration6 from "../assets/illustrations/6.png";
 import illustration7 from "../assets/illustrations/7.png";
 import illustration8 from "../assets/illustrations/8.png";
+import illustration9 from "../assets/illustrations/9.png";
+import photo2 from "../assets/photos/2.jpg";
 ---
 
 <Layout>
@@ -103,23 +106,70 @@ import illustration8 from "../assets/illustrations/8.png";
     <Certifications />
     <section class="px-36 py-12 bg-blue-2 relative">
         <Image
-            class="absolute left-0 -z-1 -bottom-11"
+            class="absolute -left-10 -z-1 bottom-0"
             src={illustration7}
             alt="Illustrazione 7"
             width="373"
         />
         <Image
-            class="absolute right-0 -z-1 -bottom-11"
+            class="absolute right-0 -z-1 bottom-0"
             src={illustration8}
             alt="Illustrazione 8"
             width="373"
         />
-        <p class="text-blue font-bold text-4xl text-center">
+        <H3 class="text-center max-w-6xl mx-auto">
             La mia missione è costruire un <span class="text-green"
                 >rapporto di fiducia</span
             > con ogni paziente, offrendo <span class="text-green"
                 >cure personalizzate</span
             >
-        </p>
+        </H3>
+    </section>
+    <section class="px-36 py-12 flex gap-20 items-center">
+        <div class="flex flex-col gap-5">
+            <H4>Il centro medico</H4>
+            <H3>Lorem ipsum dolor <span class="text-green">sit amet</span></H3>
+            <P>
+                Mi sono laureato e abilitato nel <span class="font-bold"
+                    >1988</span
+                >. Dopo aver iniziato come <span class="font-bold"
+                    >medico di guardia</span
+                > nel <span class="font-bold">1990</span>, sono diventato <span
+                    class="font-bold">Medico di Medicina Generale</span
+                > nel 1994.
+            </P>
+            <P>
+                Ho conseguito anche un diploma in diagnosi e terapia delle <span
+                    class="font-bold">cefalee</span
+                >, e ho lavorato in <span class="font-bold">Geriartria</span> all’Ospedale
+                di Asti.
+            </P>
+        </div>
+        <Image class="max-h-96 w-auto rounded-lg" src={photo2} alt="Foto 2" />
+    </section>
+    <section
+        class="px-36 py-12 flex flex-col gap-2 items-center relative justify-center bg-blue-2"
+    >
+        <H4>Scopri i nostri servizi</H4>
+        <H3>
+            Oltre <span class="text-green">20 discipline specialistiche</span> lorem
+            ipsum
+        </H3>
+        <Button class="mt-8" href="#" primary>
+            GUARDA TUTTO
+            <i class="fas fa-chevron-right font-bold"></i>
+        </Button>
+        <Image
+            class="absolute left-0 opacity-75"
+            src={illustration9}
+            alt="Illustrazione 9"
+            width="320"
+        />
+        <Image
+            class="absolute right-0 opacity-75"
+            src={illustration9}
+            alt="Illustrazione 9"
+            width="320"
+        />
     </section>
 </Layout>

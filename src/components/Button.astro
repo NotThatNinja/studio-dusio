@@ -1,5 +1,5 @@
 ---
-const { href, primary = false } = Astro.props;
+const { href, primary = false, class: className, ...rest } = Astro.props;
 ---
 
 <a
@@ -17,8 +17,10 @@ const { href, primary = false } = Astro.props;
         { "bg-blue": primary },
         { "text-blue": !primary },
         { "bg-white": !primary },
+        className,
     ]}
     href={href}
+    {...rest}
 >
     <slot />
 </a>

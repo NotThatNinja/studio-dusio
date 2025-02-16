@@ -1,0 +1,80 @@
+---
+import H4 from "../Typography/H4.astro";
+import H3 from "../Typography/H3.astro";
+import TABLE from "../Table/TABLE.astro";
+import TH from "../Table/TH.astro";
+import TD from "../Table/TD.astro";
+---
+
+<section class="flex px-36 py-12 gap-20 bg-blue-2">
+    <div class="flex flex-col gap-4 w-1/2">
+        <H4 icon="fa-clock">Orari</H4>
+        <H3>Visite ambulatoriali</H3>
+        <TABLE>
+            <tr>
+                <TH>Lunedì</TH>
+                <TD>15:00 - 19.00</TD>
+            </tr>
+            <tr>
+                <TH>Martedì</TH>
+                <TD>15:00 - 19.00</TD>
+            </tr>
+            <tr>
+                <TH>Mercoledì</TH>
+                <TD>14:30 - 16.30</TD>
+            </tr>
+            <tr>
+                <TH>Giovedì</TH>
+                <TD>09:00 - 12.30</TD>
+            </tr>
+            <tr>
+                <TH>Venerdì</TH>
+                <TD>10:00 - 13.00</TD>
+            </tr>
+            <tr>
+                <TH>Sabato</TH>
+                <TD>Chiuso</TD>
+            </tr>
+            <tr>
+                <TH>Domenica</TH>
+                <TD>Chiuso</TD>
+            </tr>
+        </TABLE>
+    </div>
+    <div class="flex flex-col gap-4 w-1/2">
+        <H4 icon="fa-clock">Orari</H4>
+        <H3>Segreteria</H3>
+        <TABLE>
+            <tbody>
+                <tr>
+                    <TH>Lunedì</TH>
+                    <TD>15:00 - 19.00</TD>
+                </tr>
+                <tr>
+                    <TH>Martedì</TH>
+                    <TD>15:00 - 19.00</TD>
+                </tr>
+                <tr>
+                    <TH>Mercoledì</TH>
+                    <TD>14:30 - 16.30</TD>
+                </tr>
+                <tr>
+                    <TH>Giovedì</TH>
+                    <TD>09:00 - 12.30</TD>
+                </tr>
+                <tr>
+                    <TH>Venerdì</TH>
+                    <TD>10:00 - 13.00</TD>
+                </tr>
+                <tr>
+                    <TH>Sabato</TH>
+                    <TD>Chiuso</TD>
+                </tr>
+                <tr>
+                    <TH>Domenica</TH>
+                    <TD>Chiuso</TD>
+                </tr>
+            </tbody>
+        </TABLE>
+    </div>
+</section>

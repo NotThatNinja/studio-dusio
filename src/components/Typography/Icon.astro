@@ -2,4 +2,4 @@
 const { icon, class: className = "text-3xl", ...rest } = Astro.props;
 ---
 
-<i class:list={["fas text-blue font-bold", icon, className]}></i>
+<i class:list={["fas text-blue font-bold", icon, className]} {...rest}></i>

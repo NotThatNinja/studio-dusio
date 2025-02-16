@@ -1,0 +1,125 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import PageTitle from "../components/PageTitle.astro";
+import H3 from "../components/Typography/H3.astro";
+import H4 from "../components/Typography/H4.astro";
+import P from "../components/Typography/P.astro";
+import Certifications from "../components/Sections/Certifications.astro";
+
+import { Image } from "astro:assets";
+import photo1 from "../assets/photos/1.jpg";
+import illustration6 from "../assets/illustrations/6.png";
+import illustration7 from "../assets/illustrations/7.png";
+import illustration8 from "../assets/illustrations/8.png";
+---
+
+<Layout>
+    <PageTitle
+        breadcrumbs="HOME - LO STUDIO"
+        title="Lorem Ipsum Dolor"
+        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    />
+    <section class="flex px-36 py-12 gap-20 items-center">
+        <Image
+            class="rounded-lg max-h-96 w-1/2 object-cover"
+            src={photo1}
+            alt="Il Dottor Dusio"
+        />
+        <div class="flex flex-col gap-5">
+            <H4>La mia storia</H4>
+            <H3>Sono il <span class="text-green">Dottor Dusio</span></H3>
+            <P>
+                Mi sono laureato e abilitato nel <span class="font-bold"
+                    >1988</span
+                >. Dopo aver iniziato come <span class="font-bold"
+                    >medico di guardia</span
+                > nel <span class="font-bold">1990</span>, sono diventato <span
+                    class="font-bold">Medico di Medicina Generale</span
+                > nel 1994.
+            </P>
+            <P>
+                Ho conseguito anche un diploma in diagnosi e terapia delle <span
+                    class="font-bold">cefalee</span
+                >, e ho lavorato in <span class="font-bold">Geriartria</span> all’Ospedale
+                di Asti.
+            </P>
+            <Image
+                src={illustration6}
+                alt="Illustrazione 6"
+                width="267"
+                height="150"
+            />
+        </div>
+    </section>
+    <section class="flex flex-col px-36 py-12 gap-5 items-center">
+        <H4>Percorso Professionale</H4>
+        <H3>Il mio <span class="text-green">percorso Professionale</span></H3>
+        <div class="grid grid-cols-3 gap-5">
+            <div class="flex flex-col gap-2">
+                <h5 class="text-blue font-bold text-3xl">1992</h5>
+                <P
+                    >Ci prendiamo cura di ogni paziente come di una persona
+                    unica, con ascolto e attenzione dedicata.</P
+                >
+            </div>
+            <div class="flex flex-col gap-2">
+                <h5 class="text-blue font-bold text-3xl">1998</h5>
+                <P
+                    >Ci prendiamo cura di ogni paziente come di una persona
+                    unica, con ascolto e attenzione dedicata.</P
+                >
+            </div>
+            <div class="flex flex-col gap-2">
+                <h5 class="text-blue font-bold text-3xl">1999</h5>
+                <P
+                    >Ci prendiamo cura di ogni paziente come di una persona
+                    unica, con ascolto e attenzione dedicata.</P
+                >
+            </div>
+            <div class="flex flex-col gap-2">
+                <h5 class="text-blue font-bold text-3xl">2002</h5>
+                <P
+                    >Ci prendiamo cura di ogni paziente come di una persona
+                    unica, con ascolto e attenzione dedicata.</P
+                >
+            </div>
+            <div class="flex flex-col gap-2">
+                <h5 class="text-blue font-bold text-3xl">2007</h5>
+                <P
+                    >Ci prendiamo cura di ogni paziente come di una persona
+                    unica, con ascolto e attenzione dedicata.</P
+                >
+            </div>
+            <div class="flex flex-col gap-2">
+                <h5 class="text-blue font-bold text-3xl">1999</h5>
+                <P
+                    >Ci prendiamo cura di ogni paziente come di una persona
+                    unica, con ascolto e attenzione dedicata.</P
+                >
+            </div>
+        </div>
+    </section>
+    <Certifications />
+    <section class="px-36 py-12 bg-blue-2 relative">
+        <Image
+            class="absolute left-0 -z-1 -bottom-11"
+            src={illustration7}
+            alt="Illustrazione 7"
+            width="373"
+        />
+        <Image
+            class="absolute right-0 -z-1 -bottom-11"
+            src={illustration8}
+            alt="Illustrazione 8"
+            width="373"
+        />
+        <p class="text-blue font-bold text-4xl text-center">
+            La mia missione è costruire un <span class="text-green"
+                >rapporto di fiducia</span
+            > con ogni paziente, offrendo <span class="text-green"
+                >cure personalizzate</span
+            >
+        </p>
+    </section>
+</Layout>

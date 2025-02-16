@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import illustration5 from "../../assets/illustrations/5.png";
+---
+
+<footer class="flex px-36 py-5 bg-blue justify-between">
+    <div class="flex gap-7">
+        <Image
+            src={illustration5}
+            alt="Illustration 5"
+            width="183"
+            height="89"
+        />
+        <div class="flex flex-col gap-2">
+            <h5 class="text-white text-2xl font-bold">STUDIO MEDICO DUSIO</h5>
+            <p class="text-white">
+                Dott. Ferruccio Dusio<br />
+                Medico di Medicina Generale - PI 02180410801 - OdM CO 6360 - Cod.
+                Reg. 50635C
+            </p>
+            <p class="text-white">
+                Tutti i diritti riservati - Privacy Policy - Cookie Policy
+            </p>
+        </div>
+    </div>
+    <div class="flex flex-col gap-3.5">
+        <h5 class="text-white text-2xl font-bold">LINK RAPIDI</h5>
+        <div class="flex gap-3.5">
+            <a class="text-white text-lg" href="/studio-dusio/contatti"
+                >CONTATTI</a
+            >
+            <a class="text-white text-lg" href="#">PRENOTAZIONI</a>
+        </div>
+        <div class="flex gap-3.5">
+            <a class="text-white text-lg" href="/studio-dusio/servizi"
+                >SERVIZI</a
+            >
+            <a class="text-white text-lg" href="/studio-dusio/avvisi">AVVISI</a>
+        </div>
+    </div>
+</footer>

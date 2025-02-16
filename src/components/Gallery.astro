@@ -1,0 +1,56 @@
+---
+const { photos } = Astro.props;
+
+import { Image } from "astro:assets";
+---
+
+<div class="relative w-full" id="gallery">
+    {
+        photos.map((photo, i) => (
+            <Image
+                src={photo}
+                alt="Galleria"
+                class="hidden w-full"
+                id={`img-${i}`}
+            />
+        ))
+    }
+
+    <button
+        type="button"
+        class="absolute top-1/2 -translate-y-1/2 left-0 bg-white rounded-br-lg rounded-tr-lg py-8 px-2 opacity-90 cursor-pointer"
+        id="prev"
+    >
+        <i class="fas fa-chevron-left text-blue text-3xl"></i>
+    </button>
+    <button
+        type="button"
+        class="absolute top-1/2 -translate-y-1/2 right-0 bg-white rounded-bl-lg rounded-tl-lg py-8 px-2 opacity-90 cursor-pointer"
+        id="next"
+    >
+        <i class="fas fa-chevron-right text-blue text-3xl"></i>
+    </button>
+</div>
+
+<script>
+    let current = 0;
+
+    function changeImg(n) {
+        const images = document.querySelectorAll("#gallery img");
+        images[current].classList.add("hidden");
+        current = (current + n + images.length) % images.length;
+        images[current].classList.remove("hidden");
+    }
+
+    document
+        .getElementById("prev")
+        .addEventListener("click", () => changeImg(-1));
+    document
+        .getElementById("next")
+        .addEventListener("click", () => changeImg(1));
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const images = document.querySelectorAll("#gallery img");
+        images[0].classList.remove("hidden");
+    });
+</script>

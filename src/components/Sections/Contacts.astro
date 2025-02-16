@@ -1,0 +1,55 @@
+---
+import H4 from "../Typography/H4.astro";
+import H3 from "../Typography/H3.astro";
+import P from "../Typography/P.astro";
+import Icon from "../Typography/Icon.astro";
+
+import { Image } from "astro:assets";
+import illustration4 from "../../assets/illustrations/4.png";
+---
+
+<section class="flex flex-col px-36 py-12 gap-5 bg-blue-2 items-center">
+    <H4>Contatti</H4>
+    <H3>Lorem ipsum dolor <span class="text-green">sit amet</span></H3>
+    <div class="flex gap-5">
+        <div class="flex flex-col gap-4 bg-blue-2 p-5 rounded-lg w-1/3">
+            <div class="flex gap-4 items-center">
+                <Icon class="text-lg" icon="fa-phone" />
+                <a class="text-blue font-bold text-lg" href="tel:+390141351232">
+                    +39 014 135 1232
+                </a>
+            </div>
+            <P>
+                Per prenotare <span class="font-bold">visite ambulatoriali</span
+                >, per richiesta <span class="font-bold">ricette</span> urgenti e
+                per <span class="font-bold">consigli</span> telefonici
+            </P>
+        </div>
+        <div class="flex flex-col gap-4 bg-blue-2 p-5 rounded-lg w-1/3">
+            <div class="flex gap-4 items-center">
+                <Icon class="text-lg" icon="fa-phone" />
+                <a class="text-blue font-bold text-lg" href="tel:+39360443191">
+                    +39 360 443 191
+                </a>
+            </div>
+            <P>
+                Per prenotare <span class="font-bold">visite domiciliari</span>
+            </P>
+        </div>
+        <div class="flex flex-col gap-4 bg-blue-2 p-5 rounded-lg w-1/3">
+            <div class="flex gap-4 items-center">
+                <Icon class="text-lg" icon="fa-phone" />
+                <a
+                    class="text-blue font-bold text-lg"
+                    href="mailto:studiodusio137@gmail.com"
+                >
+                    studiodusio137@gmail.com
+                </a>
+            </div>
+            <P>
+                Per richiesta <span class="font-bold">ricette non urgenti</span>
+            </P>
+        </div>
+    </div>
+    <Image class="max-h-60 w-fit" src={illustration4} alt="Illustrazione 4" />
+</section>

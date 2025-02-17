@@ -7,7 +7,7 @@ import H4 from "../components/Typography/H4.astro";
 import P from "../components/Typography/P.astro";
 import Button from "../components/Button.astro";
 import Gallery from "../components/Gallery.astro";
-import Card from "../components/Card.astro";
+import PersonCard from "../components/PersonCard.astro";
 import Certifications from "../components/Sections/Certifications.astro";
 
 import { Image } from "astro:assets";
@@ -135,28 +135,28 @@ import photo6 from "../assets/photos/6.png";
         <H4>Il Team dello Studio</H4>
         <H3>Lorem ipsum dolor <span class="text-green">sit amet</span></H3>
         <div class="flex mt-7 gap-10">
-            <Card
+            <PersonCard
                 class="h-96 w-64"
                 title="Nome Cognome"
                 subtitle="SEGRETARIA"
                 href="#"
-                photo={photo3}
+                image={photo3}
                 alt="Nome Persona"
             />
-            <Card
+            <PersonCard
                 class="h-96 w-64"
                 title="Nome Cognome"
                 subtitle="SEGRETARIA"
                 href="#"
-                photo={photo3}
+                image={photo3}
                 alt="Nome Persona"
             />
-            <Card
+            <PersonCard
                 class="h-96 w-64"
                 title="Nome Cognome"
                 subtitle="SEGRETARIA"
                 href="#"
-                photo={photo3}
+                image={photo3}
                 alt="Nome Persona"
             />
         </div>

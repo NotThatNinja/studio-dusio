@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import PageTitle from "../components/PageTitle.astro";
+import H3 from "../components/Typography/H3.astro";
+import H4 from "../components/Typography/H4.astro";
+import P from "../components/Typography/P.astro";
+import LI from "../components/Typography/LI.astro";
+
+import { Image } from "astro:assets";
+import illustration11 from "../assets/illustrations/11.png";
+---
+
+<Layout>
+    <PageTitle
+        breadcrumbs="HOME - AVVISI"
+        title="Avvisi e Comunicazioni dallo Studio Dusio"
+    >
+        Rimani aggiornato/a sulle ultime novità dello studio medico, variazioni
+        di orario e iniziative per la tua salute
+    </PageTitle>
+    <section class="flex py-12 px-36 gap-20">
+        <Image
+            class="max-h-96 w-auto"
+            src={illustration11}
+            alt="Illustrazione 11"
+        />
+        <div class="flex flex-col gap-5">
+            <H4 icon="fa-bell">In evidenza</H4>
+            <H3
+                ><span class="text-green">Chiusura straordinaria</span> dello Studio</H3
+            >
+            <P class="font-bold">Scritto il 05/01/2025</P>
+            <div class="flex flex-col">
+                <P>
+                    Lo studio <span class="font-bold"
+                        >riaprirà il 7 Gennaio 2025</span
+                    > con il <span class="font-bold">medico titolare</span>.Si
+                    avvisa che le richieste inviate via email dal <span
+                        class="font-bold">27/12</span
+                    > non verranno prese in carico. Per necessità, rivolgersi ai
+                    medici sostituti indicati.<br />
+                    Sostituzioni Mediche:
+                </P>
+                <ul class="list-disc pl-10">
+                    <LI>
+                        <span class="font-bold">30-31 Dicembre 2024:</span><br
+                        />
+                        Dottor Mario Di Magro sostituirà il medico titolare. Per
+                        appuntamenti, chiamare entro le 10:00 al 0362340488.
+                    </LI>
+                    <LI>
+                        <span class="font-bold">2-3 Gennaio 2025:</span><br />
+                        Dottoressa Zaira Benini sostituirà il medico titolare. Per
+                        appuntamenti, chiamare entro le 10:00 al 3515382252.
+                    </LI>
+                </ul>
+            </div>
+        </div>
+    </section>
+</Layout>

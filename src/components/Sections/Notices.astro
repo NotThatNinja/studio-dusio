@@ -1,0 +1,78 @@
+---
+import H3 from "../Typography/H3.astro";
+import NoticeCard from "../NoticeCard.astro";
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<section
+    class:list={["flex flex-col gap-4 py-12 px-36 items-center", className]}
+    {...rest}
+>
+    <H3>Tutti gli avvisi</H3>
+    <div class="flex gap-7">
+        <button
+            id="recentEventsButton"
+            class="text-white bg-green px-5 py-2 rounded-2xl cursor-pointer"
+            type="button">Avvisi recenti</button
+        >
+        <button
+            id="pastEventsButton"
+            class="text-blue bg-blue-2 px-5 py-2 rounded-2xl cursor-pointer"
+            type="button">Avvisi precedenti</button
+        >
+    </div>
+    <div class="grid grid-cols-3 gap-10">
+        <NoticeCard
+            title="Disponibilità Certificati Sportivi"
+            date="07/12/2024"
+        >
+            Si informa che lo studio è disponibile per il rilascio di
+            certificati medici sportivi...
+        </NoticeCard>
+        <NoticeCard title="Vaccinazioni Antinfluenzali" date="03/08/2024">
+            Informiamo i pazienti che è attiva la campagna di vaccinazioni
+            antinfluenzali...
+        </NoticeCard>
+        <NoticeCard title="Nuovi orari Ambulatorio" date="19/04/2024">
+            Si comunica che, a partire dal 22 Gennaio 2025, gli orari di
+            apertura dello studio.....
+        </NoticeCard>
+    </div>
+</section>
+
+<script>
+    // Text that appears when the user selects "Sono registrato/a" and "Non sono registrato/a"
+    function changeEvents(recent: boolean) {
+        const activeButtonStyle =
+            "bg-green text-white px-5 py-2 rounded-2xl cursor-pointer";
+        const inactiveButtonStyle =
+            "bg-blue-2 text-blue px-5 py-2 rounded-2xl cursor-pointer";
+
+        const pastEventsButton = document.getElementById(
+            "pastEventsButton",
+        ) as HTMLButtonElement;
+        const recentEventsButton = document.getElementById(
+            "recentEventsButton",
+        ) as HTMLButtonElement;
+
+        if (recent) {
+            pastEventsButton.className = activeButtonStyle;
+            recentEventsButton.className = inactiveButtonStyle;
+        } else {
+            pastEventsButton.className = inactiveButtonStyle;
+            recentEventsButton.className = activeButtonStyle;
+        }
+    }
+
+    document
+        .getElementById("pastEventsButton")
+        ?.addEventListener("click", () => {
+            changeEvents(true);
+        });
+    document
+        .getElementById("recentEventsButton")
+        ?.addEventListener("click", () => {
+            changeEvents(false);
+        });
+</script>

@@ -22,7 +22,7 @@ const { class: className, ...rest } = Astro.props;
             type="button">Avvisi precedenti</button
         >
     </div>
-    <div class="grid grid-cols-3 gap-10">
+    <div id="recentNotices" class="grid grid-cols-3 gap-10">
         <NoticeCard
             title="Disponibilità Certificati Sportivi"
             date="07/12/2024"
@@ -35,6 +35,20 @@ const { class: className, ...rest } = Astro.props;
             antinfluenzali...
         </NoticeCard>
         <NoticeCard title="Nuovi orari Ambulatorio" date="19/04/2024">
+            Si comunica che, a partire dal 22 Gennaio 2025, gli orari di
+            apertura dello studio.....
+        </NoticeCard>
+    </div>
+    <div id="pastNotices" class="grid grid-cols-3 gap-10 hidden">
+        <NoticeCard title="Vecchio avviso 1" date="07/12/2024">
+            Si informa che lo studio è disponibile per il rilascio di
+            certificati medici sportivi...
+        </NoticeCard>
+        <NoticeCard title="Vecchio avviso 2" date="03/08/2024">
+            Informiamo i pazienti che è attiva la campagna di vaccinazioni
+            antinfluenzali...
+        </NoticeCard>
+        <NoticeCard title="Vecchio avviso 3" date="19/04/2024">
             Si comunica che, a partire dal 22 Gennaio 2025, gli orari di
             apertura dello studio.....
         </NoticeCard>
@@ -55,13 +69,23 @@ const { class: className, ...rest } = Astro.props;
         const recentEventsButton = document.getElementById(
             "recentEventsButton",
         ) as HTMLButtonElement;
+        const recentNotices = document.getElementById(
+            "recentNotices",
+        ) as HTMLDivElement;
+        const pastNotices = document.getElementById(
+            "pastNotices",
+        ) as HTMLDivElement;
 
         if (recent) {
             pastEventsButton.className = activeButtonStyle;
             recentEventsButton.className = inactiveButtonStyle;
+            recentNotices.classList.add("hidden");
+            pastNotices.classList.remove("hidden");
         } else {
             pastEventsButton.className = inactiveButtonStyle;
             recentEventsButton.className = activeButtonStyle;
+            recentNotices.classList.remove("hidden");
+            pastNotices.classList.add("hidden");
         }
     }
 

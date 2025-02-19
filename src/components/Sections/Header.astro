@@ -6,7 +6,9 @@ import logo from "../../assets/logo.png";
 ---
 
 <header>
-    <div class="bg-green flex py-2 align-middle justify-center gap-11">
+    <div
+        class="bg-green py-2 align-middle justify-center gap-11 hidden md:flex"
+    >
         <div class="flex gap-3.5 items-baseline">
             <i class="fas fa-phone text-white"></i>
             <a class="text-white font-semibold" href="tel:+3903315783369"
@@ -31,12 +33,26 @@ import logo from "../../assets/logo.png";
         </div>
     </div>
 
-    <div class="flex py-2 items-center justify-around px-36">
-        <a href="/studio-dusio">
-            <Image src={logo} alt="Studio Dusio" width="192" height="64" />
-        </a>
+    <div
+        class="flex flex-col md:flex-row gap-8 md:gap-0 items-center md:justify-around py-2 px-4 md:px-36"
+    >
+        <div class="flex flex-row justify-between w-full md:w-auto">
+            <a href="/studio-dusio">
+                <Image
+                    class="md:w-[192px] md:h-[64px] w-[154px] h-[51px]"
+                    src={logo}
+                    alt="Studio Dusio"
+                />
+            </a>
 
-        <nav class="flex gap-10 items-center">
+            <button id="nav-toggle" type="button" class="md:hidden">
+                <i class="fas fa-bars text-blue text-2xl"></i>
+            </button>
+        </div>
+
+        <nav
+            class="flex-col md:flex-row gap-8 md:gap-10 md:items-center hidden md:flex w-full md:w-auto"
+        >
             <a
                 class="text-blue font-bold text-lg hover:text-green"
                 href="/studio-dusio/lo-studio">LO STUDIO</a
@@ -57,3 +73,10 @@ import logo from "../../assets/logo.png";
         </nav>
     </div>
 </header>
+
+<script>
+    document.getElementById("nav-toggle")?.addEventListener("click", () => {
+        document.querySelector("nav")?.classList.toggle("hidden");
+        document.querySelector("nav")?.classList.toggle("flex");
+    });
+</script>

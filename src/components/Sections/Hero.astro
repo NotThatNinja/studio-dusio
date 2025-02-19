@@ -3,15 +3,21 @@ import P from "../Typography/P.astro";
 import Button from "../Button.astro";
 
 import { Image } from "astro:assets";
-import heroImage from "../../assets/hero.png";
+import heroImage from "../../assets/hero.webp";
 ---
 
 <section class="relative">
     <Image
-        class="h-[60vh] md:h-[80vh] object-cover"
+        class="h-[60vh] md:h-[80vh] object-cover brightness-75"
         src={heroImage}
         alt="Lo Studio"
     />
+
+    <!-- Overlay -->
+    <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(21,66,124,0.59)] to-60% z-0"
+    >
+    </div>
 
     <div
         class="flex flex-col gap-4 md:gap-6 absolute top-1/2 -translate-y-1/2 md:bottom-28 md:px-36 px-4"

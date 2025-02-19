@@ -1,5 +1,10 @@
-<p
-    class="text-blue text-lg md:text-2xl font-medium px-3 py-1 md:px-5 md:py-2 border-2 border-blue rounded-xl w-fit"
+---
+const { href } = Astro.props;
+---
+
+<a
+    href={href}
+    class="text-blue text-lg md:text-2xl font-medium px-3 py-1 md:px-5 md:py-2 border-2 border-blue rounded-xl w-fit cursor-pointer"
 >
     <slot />
-</p>
+</a>

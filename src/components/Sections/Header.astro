@@ -7,8 +7,9 @@ import logo from "../../assets/logo.png";
 const currentPath = Astro.url.pathname;
 ---
 
-<header>
+<header class="sticky top-0 bg-white z-100">
     <div
+        id="topBar"
         class="bg-green py-2 align-middle justify-center gap-11 hidden md:flex"
     >
         <div class="flex gap-3.5 items-baseline">
@@ -94,4 +95,20 @@ const currentPath = Astro.url.pathname;
         document.querySelector("nav")?.classList.toggle("hidden");
         document.querySelector("nav")?.classList.toggle("flex");
     });
+
+    let lastScrollY = 0;
+    const topDiv = document.getElementById("topBar");
+
+    window.onscroll = () => {
+        if (window.scrollY > lastScrollY) {
+            topDiv.style.display = "none";
+        } else {
+            // Only show topbar on desktop screens
+            if (window.innerWidth >= 1000) {
+                topDiv.style.display = "flex";
+            }
+        }
+
+        lastScrollY = window.scrollY;
+    };
 </script>

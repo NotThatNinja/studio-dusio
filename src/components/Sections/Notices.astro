@@ -6,7 +6,10 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <section
-    class:list={["flex flex-col gap-4 py-12 px-36 items-center", className]}
+    class:list={[
+        "flex flex-col gap-4 px-4 py-8 md:py-12 md:px-36 items-center",
+        className,
+    ]}
     {...rest}
 >
     <H3>Tutti gli avvisi</H3>
@@ -22,7 +25,7 @@ const { class: className, ...rest } = Astro.props;
             type="button">Avvisi precedenti</button
         >
     </div>
-    <div id="recentNotices" class="grid grid-cols-3 gap-10">
+    <div id="recentNotices" class="grid md:grid-cols-3 gap-10">
         <NoticeCard
             title="Disponibilità Certificati Sportivi"
             date="07/12/2024"
@@ -39,7 +42,7 @@ const { class: className, ...rest } = Astro.props;
             apertura dello studio.....
         </NoticeCard>
     </div>
-    <div id="pastNotices" class="grid grid-cols-3 gap-10 hidden">
+    <div id="pastNotices" class="grid md:grid-cols-3 gap-10 hidden">
         <NoticeCard title="Vecchio avviso 1" date="07/12/2024">
             Si informa che lo studio è disponibile per il rilascio di
             certificati medici sportivi...

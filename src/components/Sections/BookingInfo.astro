@@ -7,11 +7,14 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <section
-    class:list={["flex flex-col gap-4 py-12 px-36 items-center", className]}
+    class:list={[
+        "flex flex-col gap-4 px-4 py-8 md:py-12 md:px-36 items-center",
+        className,
+    ]}
     {...rest}
 >
     <H4>Sezione Servizi homepage</H4>
-    <H3>
+    <H3 class="text-center">
         Prenota il tuo <span class="text-green">appuntamento online</span>
     </H3>
     <div class="flex gap-7">
@@ -26,9 +29,7 @@ const { class: className, ...rest } = Astro.props;
             type="button">Sono registrato/a</button
         >
     </div>
-    <div
-        class="w-3/4 h-24 px-5 py-2 rounded-lg border border-green overflow-scroll"
-    >
+    <div class="md:w-3/4 px-5 py-2 rounded-lg border border-green">
         <P id="userRegisteredText">
             Non sei ancora registrato. Per accedere ai nostri servizi, ti
             invitiamo a completare la registrazione. Una volta registrato,

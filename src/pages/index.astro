@@ -23,7 +23,9 @@ import illustration3 from "../assets/illustrations/3.png";
 
 <Layout>
     <Hero />
-    <!-- <section class="flex px-36 py-12 gap-2 bg-blue-2 items-center">
+    <section
+        class="flex flex-col md:flex-row px-4 md:px-36 py-8 md:py-12 gap-2 bg-blue-2 items-center"
+    >
         <div class="flex flex-col gap-2">
             <Icon icon="fa-heart" />
             <H3>Ascolto e Attenzione</H3>
@@ -41,7 +43,9 @@ import illustration3 from "../assets/illustrations/3.png";
             </P>
         </div>
     </section>
-    <section class="flex px-36 py-12 gap-20 bg-blue-2 items-center">
+    <section
+        class="flex flex-col md:flex-row px-4 py-8 md:px-36 md:py-12 gap-10 md:gap-20 bg-blue-2 items-center"
+    >
         <div class="flex flex-col gap-4">
             <H4>Percorso professionale</H4>
             <H3>
@@ -63,7 +67,9 @@ import illustration3 from "../assets/illustrations/3.png";
             alt="Illustrazione 1"
         />
     </section>
-    <section class="flex px-36 py-12 gap-20 bg-blue-2 items-center">
+    <section
+        class="flex flex-col-reverse md:flex-row px-4 py-8 md:px-36 md:py-12 gap-0 md:gap-20 bg-blue-2 items-center"
+    >
         <Image
             class="max-h-96 w-auto"
             src={illustration2}
@@ -89,7 +95,9 @@ import illustration3 from "../assets/illustrations/3.png";
         </div>
     </section>
     <Services />
-    <section class="flex px-36 py-12 bg-blue-2 items-center justify-between">
+    <section
+        class="flex flex-col md:flex-row px-4 py-8 md:px-36 md:py-12 gap-8 bg-blue-2 items-center justify-between"
+    >
         <div class="flex flex-col gap-4">
             <H4>Ultimi avvisi</H4>
             <H3>Lorem ipsum dolor <span class="text-green">sit amet</span></H3>
@@ -113,5 +121,5 @@ import illustration3 from "../assets/illustrations/3.png";
     <Certifications />
     <Contacts class="bg-blue-2" />
     <Hours />
-    <Reviews /> -->
+    <Reviews />
 </Layout>

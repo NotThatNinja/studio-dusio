@@ -1,77 +1,36 @@
 ---
 import H4 from "../Typography/H4.astro";
 import H3 from "../Typography/H3.astro";
+import ServiceCard from "../ServiceCard.astro";
 
 import { Image } from "astro:assets";
 import illustration10 from "../../assets/illustrations/10.png";
 ---
 
-<section class="flex flex-col px-36 py-12 gap-2 items-center relative">
+<section
+    class="flex flex-col px-4 py-8 md:px-36 md:py-12 gap-2 items-center relative"
+>
     <H4>Sezione Servizi homepage</H4>
     <H3>Lorem ipsum dolor <span class="text-green">sit amet</span></H3>
-    <div class="flex flex-col gap-10 mt-8 max-w-5xl w-full">
-        <div class="flex justify-between">
-            <p
-                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
-            >
-                Visite ambulatoriali
-            </p>
-            <p
-                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
-            >
-                Visite domiciliari
-            </p>
-            <p
-                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
-            >
-                Ricette
-            </p>
-            <p
-                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
-            >
-                Certificati
-            </p>
+    <div class="flex flex-col gap-4 md:gap-10 mt-8 max-w-5xl w-full">
+        <div class="flex flex-wrap justify-evenly md:justify-between gap-4">
+            <ServiceCard>Visite ambulatoriali</ServiceCard>
+            <ServiceCard>Visite domiciliari</ServiceCard>
+            <ServiceCard>Ricette</ServiceCard>
+            <ServiceCard>Certificati</ServiceCard>
         </div>
-        <div class="flex justify-between">
-            <p
-                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
-            >
-                Vaccinazioni
-            </p>
-            <p
-                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
-            >
-                Attività infermieristica
-            </p>
-            <p
-                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
-            >
-                Terapia delle Cefalee
-            </p>
+        <div class="flex flex-wrap justify-evenly md:justify-between gap-4">
+            <ServiceCard>Vaccinazioni</ServiceCard>
+            <ServiceCard>Attività infermieristica</ServiceCard>
+            <ServiceCard>Terapia delle Cefalee</ServiceCard>
         </div>
-        <div class="flex justify-between">
-            <p
-                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
-            >
-                Spirometria
-            </p>
-            <p
-                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
-            >
-                Medicina di Gruppo
-            </p>
-            <p
-                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
-            >
-                Tutor scuola di Medicina Generale
-            </p>
+        <div class="flex flex-wrap justify-evenly md:justify-between gap-4">
+            <ServiceCard>Spirometria</ServiceCard>
+            <ServiceCard>Medicina di Gruppo</ServiceCard>
+            <ServiceCard>Tutor scuola di Medicina Generale</ServiceCard>
         </div>
-        <div class="flex justify-between">
-            <p
-                class="text-blue text-2xl font-medium px-5 py-2 border-2 border-blue rounded-xl w-fit"
-            >
-                Medico Sentinella Influenza
-            </p>
+        <div class="flex flex-wrap justify-evenly md:justify-between gap-4">
+            <ServiceCard>Medico Sentinella Influenza</ServiceCard>
         </div>
     </div>
     <Image

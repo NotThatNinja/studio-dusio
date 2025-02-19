@@ -4,8 +4,8 @@ const { breadcrumbs, title } = Astro.props;
 import P from "./Typography/P.astro";
 ---
 
-<section class="flex flex-col px-36 py-12 gap-2.5 bg-blue-2">
+<section class="flex flex-col px-4 py-8 md:px-36 md:py-12 gap-2.5 bg-blue-2">
     <P class="font-bold">{breadcrumbs}</P>
-    <h1 class="text-blue text-5xl font-bold">{title}</h1>
+    <h1 class="text-blue text-3xl md:text-5xl font-bold">{title}</h1>
     <P><slot /></P>
 </section>

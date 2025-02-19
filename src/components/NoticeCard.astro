@@ -1,19 +1,72 @@
 ---
-import Button from "./Button.astro";
+import JSButton from "./JSButton.astro";
+import Icon from "./Typography/Icon.astro";
 
-const { title, date } = Astro.props;
+const { title, date, text } = Astro.props;
 ---
 
-<div class="flex flex-col gap-4 bg-green rounded-lg px-4 py-5 items-center">
+<notice-card
+    class="flex flex-col gap-4 bg-green rounded-lg px-4 py-5 items-center"
+>
     <h5 class="text-xl md:text-3xl text-white font-bold text-center">
         {title}
     </h5>
     <p class="text-white font-bold">Scritto il {date}</p>
     <p class="text-white font-bold text-center">
-        <slot />
+        {text.length > 100 ? `${text.substring(0, 100)}...` : text}
     </p>
-    <Button href="#">
+    <JSButton id="openModalButton">
         Leggi tutto
         <i class="fas fa-arrow-right"></i>
-    </Button>
-</div>
+    </JSButton>
+
+    <!-- Modal -->
+    <div
+        id="modal"
+        class="fixed w-full h-full top-0 left-0 bg-[rgba(0,0,0,0.5)] z-100 hidden"
+    >
+        <div
+            class="flex flex-col gap-5 absolute w-full top-1/2 -translate-y-1/2 left-0 bg-white px-4 py-8 md:px-36 md:py-12"
+        >
+            <button
+                id="closeModalButton"
+                class="absolute top-5 right-5 text-4xl text-blue cursor-pointer"
+                type="button"
+                aria-label="Chiudi"
+            >
+                <i class="fas fa-times"></i>
+            </button>
+
+            <h5 class="text-3xl md:text-4xl text-blue font-bold">{title}</h5>
+            <div class="flex gap-5 items-center">
+                <Icon icon="fa-clock" />
+                <h6 class="text-2xl text-blue font-bold">
+                    Scritto il {date}
+                </h6>
+            </div>
+            <p class="md:text-xl text-blue">{text}</p>
+        </div>
+    </div>
+</notice-card>
+
+<script>
+    class NoticeCard extends HTMLElement {
+        connectedCallback() {
+            this.querySelector("#openModalButton")?.addEventListener(
+                "click",
+                () => {
+                    this.querySelector("#modal")?.classList.remove("hidden");
+                },
+            );
+
+            this.querySelector("#closeModalButton")?.addEventListener(
+                "click",
+                () => {
+                    this.querySelector("#modal")?.classList.add("hidden");
+                },
+            );
+        }
+    }
+
+    customElements.define("notice-card", NoticeCard);
+</script>

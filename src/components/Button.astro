@@ -4,15 +4,7 @@ const { href, primary = false, class: className, ...rest } = Astro.props;
 
 <a
     class:list={[
-        "w-fit",
-        "flex",
-        "items-center",
-        "gap-2.5",
-        "px-4",
-        "py-1.5",
-        "rounded-lg",
-        "text-lg",
-        "font-bold",
+        "w-fit flex items-center gap-2.5 px-4 py-1.5 rounded-lg text-base md:text-lg font-bold",
         { "text-white": primary },
         { "bg-blue": primary },
         { "text-blue": !primary },

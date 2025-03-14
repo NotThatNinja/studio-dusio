@@ -1,8 +1,9 @@
 ---
-const { placeholder } = Astro.props;
+const { name, placeholder } = Astro.props;
 ---
 
 <textarea
+    name={name}
     placeholder={placeholder}
     class="outline-0 px-3 py-2 md:py-3 md:px-3 md:text-lg bg-green-2 rounded-md w-full text-white min-h-10 h-20 md:h-32"
 ></textarea>

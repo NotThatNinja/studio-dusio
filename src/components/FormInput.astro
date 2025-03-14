@@ -1,8 +1,9 @@
 ---
-const { placeholder } = Astro.props;
+const { name, placeholder } = Astro.props;
 ---
 
 <input
+    name={name}
     type="text"
     placeholder={placeholder}
     class="outline-0 px-3 py-2 md:py-3 md:px-3 md:text-lg bg-green-2 rounded-md w-full text-white"

@@ -80,11 +80,14 @@ import FormCheckbox from "../FormCheckbox.astro";
 
                 <form class="flex flex-col gap-4">
                     <div class="flex flex-col md:flex-row gap-4">
-                        <FormInput placeholder="Nome" />
-                        <FormInput placeholder="Cognome" />
+                        <FormInput name="review-name" placeholder="Nome" />
+                        <FormInput
+                            name="review-surname"
+                            placeholder="Cognome"
+                        />
                     </div>
-                    <FormTextArea placeholder="Recensione" />
-                    <FormCheckbox name="privacy">
+                    <FormTextArea name="review-text" placeholder="Recensione" />
+                    <FormCheckbox name="review-gdpr">
                         Accetto le modalità di trattamento dei dati personali
                     </FormCheckbox>
                     <JSButton type="submit" primary>INVIA</JSButton>

@@ -78,16 +78,25 @@ import FormCheckbox from "../FormCheckbox.astro";
                     capacità, professionalità ed empatia dei medici.
                 </p>
 
-                <form class="flex flex-col gap-4">
+                <form id="reviewForm" class="flex flex-col gap-4">
                     <div class="flex flex-col md:flex-row gap-4">
-                        <FormInput name="review-name" placeholder="Nome" />
+                        <FormInput
+                            name="review-name"
+                            placeholder="Nome"
+                            required
+                        />
                         <FormInput
                             name="review-surname"
                             placeholder="Cognome"
+                            required
                         />
                     </div>
-                    <FormTextArea name="review-text" placeholder="Recensione" />
-                    <FormCheckbox name="review-gdpr">
+                    <FormTextArea
+                        name="review-text"
+                        placeholder="Recensione"
+                        required
+                    />
+                    <FormCheckbox name="review-gdpr" required>
                         Accetto le modalità di trattamento dei dati personali
                     </FormCheckbox>
                     <JSButton type="submit" primary>INVIA</JSButton>
@@ -117,4 +126,43 @@ import FormCheckbox from "../FormCheckbox.astro";
     }
 
     customElements.define("reviews-section", Reviews);
+
+    const form = document.getElementById("reviewForm");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Get form data
+        const formData = {
+            name: document.getElementById("review-name").value,
+            surname: document.getElementById("review-surname").value,
+            reviewText: document.getElementById("review-text").value,
+            gdprConsent: document.getElementById("review-gdpr").checked ? 1 : 0,
+        };
+
+        try {
+            // Send data to the API
+            const response = await fetch("api_submit_review.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // Show success message
+                alert(result.message);
+                form.reset();
+            } else {
+                // Show error message
+                alert(result.message || "Errore nell'invio della recensione.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Si è verificato un problema. Riprova più tardi.");
+        }
+    });
 </script>

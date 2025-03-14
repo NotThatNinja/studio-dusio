@@ -1,5 +1,5 @@
 ---
-const { name } = Astro.props;
+const { name, required = false } = Astro.props;
 ---
 
 <div class="flex items-center gap-2">
@@ -8,6 +8,7 @@ const { name } = Astro.props;
         name={name}
         type="checkbox"
         class="custom-checkbox flex-shrink-0"
+        required={required}
     />
     <label for={name} class="text-green-2 md:text-lg">
         <slot />

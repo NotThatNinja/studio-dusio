@@ -1,44 +1,117 @@
 ---
 import H3 from "../Typography/H3.astro";
 import P from "../Typography/P.astro";
-import Button from "../Button.astro";
+import JSButton from "../JSButton.astro";
+import FormInput from "../FormInput.astro";
+import FormTextArea from "../FormTextArea.astro";
+import FormCheckbox from "../FormCheckbox.astro";
 ---
 
-<section
-    class="flex flex-col px-4 py-8 md:px-36 md:py-12 gap-5 md:gap-10 items-center"
->
-    <H3>Dicono <span class="text-green">di noi</span></H3>
-    <P class="text-center">
-        Leggi cosa scrivono i pazienti della loro esperienza con i dottori dello
-        Studio Medico G. Un gesto o una parola che ci <span class="font-bold"
-            >rendono orgogliosi del nostro lavoro.</span
+<reviews-section>
+    <section
+        class="flex flex-col px-4 py-8 md:px-36 md:py-12 gap-5 md:gap-10 items-center"
+    >
+        <H3>Dicono <span class="text-green">di noi</span></H3>
+        <P class="text-center">
+            Leggi cosa scrivono i pazienti della loro esperienza con i dottori
+            dello Studio Medico G. Un gesto o una parola che ci <span
+                class="font-bold">rendono orgogliosi del nostro lavoro.</span
+            >
+        </P>
+        <div class="flex flex-col md:flex-row gap-5 md:gap-10">
+            <div
+                class="flex flex-col gap-2 p-5 bg-gray rounded-2xl items-center"
+            >
+                <P
+                    >Leggi cosa scrivono i pazienti della loro esperienza con i
+                    dottori dello Studio Medico G. Un gesto o una parola che ci
+                    rendono orgogliosi del nostro lavoro.</P
+                >
+                <p class="text-blue-3 text-lg">Isabella F</p>
+            </div>
+            <div
+                class="flex flex-col gap-2 p-5 bg-gray rounded-2xl items-center"
+            >
+                <P
+                    >Leggi cosa scrivono i pazienti della loro esperienza con i
+                    dottori dello Studio Medico G. Un gesto o una parola che ci
+                    rendono orgogliosi del nostro lavoro.</P
+                >
+                <p class="text-blue-3 text-lg">Isabella F</p>
+            </div>
+            <div
+                class="flex flex-col gap-2 p-5 bg-gray rounded-2xl items-center"
+            >
+                <P
+                    >Leggi cosa scrivono i pazienti della loro esperienza con i
+                    dottori dello Studio Medico G. Un gesto o una parola che ci
+                    rendono orgogliosi del nostro lavoro.</P
+                >
+                <p class="text-blue-3 text-lg">Isabella F</p>
+            </div>
+        </div>
+        <JSButton id="openModalButton" primary>SCRIVI UNA RECENSIONE</JSButton>
+
+        <!-- Modal -->
+        <div
+            id="modal"
+            class="fixed w-full h-full top-0 left-0 bg-[rgba(0,0,0,0.5)] z-100 hidden"
         >
-    </P>
-    <div class="flex flex-col md:flex-row gap-5 md:gap-10">
-        <div class="flex flex-col gap-2 p-5 bg-gray rounded-2xl items-center">
-            <P
-                >Leggi cosa scrivono i pazienti della loro esperienza con i
-                dottori dello Studio Medico G. Un gesto o una parola che ci
-                rendono orgogliosi del nostro lavoro.</P
+            <div
+                class="flex flex-col gap-5 absolute w-full top-1/2 -translate-y-1/2 left-0 bg-white px-4 py-8 md:px-36 md:py-12"
             >
-            <p class="text-blue-3 text-lg">Isabella F</p>
+                <button
+                    id="closeModalButton"
+                    class="absolute top-5 right-5 text-3xl md:text-4xl text-blue cursor-pointer"
+                    type="button"
+                    aria-label="Chiudi"
+                >
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <h5 class="max-w-5/6 text-3xl md:text-4xl text-blue font-bold">
+                    Lascia la tua recensione
+                </h5>
+                <p class="md:text-xl text-blue">
+                    Chiediamo cortesemente ai pazienti dello Studi Medico G di
+                    lasciare una recensione per aiutare a capire meglio
+                    capacità, professionalità ed empatia dei medici.
+                </p>
+
+                <form class="flex flex-col gap-4">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <FormInput placeholder="Nome" />
+                        <FormInput placeholder="Cognome" />
+                    </div>
+                    <FormTextArea placeholder="Recensione" />
+                    <FormCheckbox name="privacy">
+                        Accetto le modalità di trattamento dei dati personali
+                    </FormCheckbox>
+                    <JSButton type="submit" primary>INVIA</JSButton>
+                </form>
+            </div>
         </div>
-        <div class="flex flex-col gap-2 p-5 bg-gray rounded-2xl items-center">
-            <P
-                >Leggi cosa scrivono i pazienti della loro esperienza con i
-                dottori dello Studio Medico G. Un gesto o una parola che ci
-                rendono orgogliosi del nostro lavoro.</P
-            >
-            <p class="text-blue-3 text-lg">Isabella F</p>
-        </div>
-        <div class="flex flex-col gap-2 p-5 bg-gray rounded-2xl items-center">
-            <P
-                >Leggi cosa scrivono i pazienti della loro esperienza con i
-                dottori dello Studio Medico G. Un gesto o una parola che ci
-                rendono orgogliosi del nostro lavoro.</P
-            >
-            <p class="text-blue-3 text-lg">Isabella F</p>
-        </div>
-    </div>
-    <Button href="#" primary>SCRIVI UNA RECENSIONE</Button>
-</section>
+    </section>
+</reviews-section>
+
+<script>
+    class Reviews extends HTMLElement {
+        connectedCallback() {
+            this.querySelector("#openModalButton")?.addEventListener(
+                "click",
+                () => {
+                    this.querySelector("#modal")?.classList.remove("hidden");
+                },
+            );
+
+            this.querySelector("#closeModalButton")?.addEventListener(
+                "click",
+                () => {
+                    this.querySelector("#modal")?.classList.add("hidden");
+                },
+            );
+        }
+    }
+
+    customElements.define("reviews-section", Reviews);
+</script>

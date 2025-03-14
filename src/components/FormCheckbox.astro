@@ -1,0 +1,45 @@
+---
+const { name } = Astro.props;
+---
+
+<div class="flex items-center gap-2">
+    <input
+        id={name}
+        name={name}
+        type="checkbox"
+        class="custom-checkbox flex-shrink-0"
+    />
+    <label for={name} class="text-green-2 md:text-lg">
+        <slot />
+    </label>
+</div>
+
+<style>
+    .custom-checkbox {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: var(--color-green-2);
+        border-radius: 0.5rem;
+        width: 2rem;
+        height: 2rem;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .custom-checkbox:checked {
+        background-color: var(--color-green-2);
+    }
+
+    .custom-checkbox:checked::after {
+        content: "";
+        position: absolute;
+        left: 0.7rem;
+        top: 0.4rem;
+        width: 0.5rem;
+        height: 1rem;
+        border: solid var(--color-white);
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+</style>

@@ -2,18 +2,16 @@ version: '3'
 
 services:
   php:
-    image: php:8.2-apache
+    image: php:8.4-apache
     ports:
       - "80:80"
     volumes:
       - ./src/:/var/www/html/
     command: >
-      bash -c "docker-php-ext-install pdo pdo_mysql &&
-               a2enmod rewrite &&
-               apache2-foreground"
+      bash -c "docker-php-ext-install pdo pdo_mysql && apache2-foreground"
 
   db:
-    image: mysql:8.0
+    image: mysql:9.2
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -23,10 +21,10 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./mysql:/docker-entrypoint-initdb.d
 
   phpmyadmin:
-    image: phpmyadmin:5.2.1
+    image: phpmyadmin:5.2.2
     restart: always
     ports:
       - "8080:80"

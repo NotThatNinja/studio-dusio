@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alerts` (
   `id` int NOT NULL,
-  `date` int NOT NULL,
+  `date` datetime NOT NULL,
   `title` varchar(255) NOT NULL,
   `text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

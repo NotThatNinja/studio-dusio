@@ -1,4 +1,9 @@
 <?php
+// Enable CORS TODO: Remove this in production
+header("Access-Control-Allow-Origin: http://localhost:4321");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type");
+
 header('Content-Type: application/json; charset=utf-8');
 
 if (isset($_GET['what'])) {

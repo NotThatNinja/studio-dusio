@@ -18,7 +18,7 @@ import FormCheckbox from "../FormCheckbox.astro";
                 class="font-bold">rendono orgogliosi del nostro lavoro.</span
             >
         </P>
-        <div id="reviewsContainer" class="flex flex-col md:flex-row gap-5 md:gap-10">
+        <div id="reviewsContainer" class="grid md:grid-cols-3 gap-5 md:gap-10">
             <!-- Reviews will appear here -->
         </div>
         <JSButton id="openModalButton" primary>SCRIVI UNA RECENSIONE</JSButton>
@@ -138,6 +138,27 @@ import FormCheckbox from "../FormCheckbox.astro";
         }
     });
 
-    // Reviews fetching
-    reviews = [];
+    // Fetch reviews
+    let reviews = [];
+    async function fetchReviews() {
+        const response = await fetch("http://localhost:80/get.php?what=reviews");
+        reviews = await response.json();
+        renderReviews();
+    }
+
+    function renderReviews() {
+        const container = document.getElementById("reviewsContainer");
+        container.innerHTML = "";
+        
+        reviews.forEach(review => {
+            container.innerHTML += `
+            <div class="flex flex-col gap-2 p-5 bg-gray rounded-2xl items-center">
+                <p class="text-blue md:text-xl">${review.text}</p>
+                <p class="text-blue-3 text-lg">${review.name} ${review.surname.charAt(0)}</p>
+            </div>
+            `;
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchReviews);
 </script>

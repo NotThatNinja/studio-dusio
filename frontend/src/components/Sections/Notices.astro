@@ -25,44 +25,11 @@ const { class: className, ...rest } = Astro.props;
             type="button">Avvisi precedenti</button
         >
     </div>
-    <div id="recentNotices" class="grid md:grid-cols-3 gap-10">
-        <NoticeCard
-            title="Disponibilità Certificati Sportivi"
-            date="07/12/2024"
-            text="Sed sed diam ultricies neque malesuada vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer at sem felis. Integer eleifend, tellus varius scelerisque tincidunt, purus ex posuere leo, non auctor metus ex ut orci. Nullam vitae massa id dolor congue lacinia vitae sit amet enim. Praesent pulvinar sapien in leo semper, sed pharetra nulla faucibus. Quisque id rhoncus nibh."
-        />
-        <NoticeCard
-            title="Vaccinazioni antinfluenzali"
-            date="07/12/2024"
-            text="Sed sed diam ultricies neque malesuada vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer at sem felis. Integer eleifend, tellus varius scelerisque tincidunt, purus ex posuere leo, non auctor metus ex ut orci. Nullam vitae massa id dolor congue lacinia vitae sit amet enim. Praesent pulvinar sapien in leo semper, sed pharetra nulla faucibus. Quisque id rhoncus nibh."
-        />
-        <NoticeCard
-            title="Altra notifica"
-            date="07/12/2024"
-            text="Sed sed diam ultricies neque malesuada vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer at sem felis. Integer eleifend, tellus varius scelerisque tincidunt, purus ex posuere leo, non auctor metus ex ut orci. Nullam vitae massa id dolor congue lacinia vitae sit amet enim. Praesent pulvinar sapien in leo semper, sed pharetra nulla faucibus. Quisque id rhoncus nibh."
-        />
-    </div>
-    <div id="pastNotices" class="grid md:grid-cols-3 gap-10 hidden">
-        <NoticeCard
-            title="Vecchia notifica 1"
-            date="07/12/2024"
-            text="Sed sed diam ultricies neque malesuada vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer at sem felis. Integer eleifend, tellus varius scelerisque tincidunt, purus ex posuere leo, non auctor metus ex ut orci. Nullam vitae massa id dolor congue lacinia vitae sit amet enim. Praesent pulvinar sapien in leo semper, sed pharetra nulla faucibus. Quisque id rhoncus nibh."
-        />
-        <NoticeCard
-            title="Vecchio alert 2"
-            date="07/12/2024"
-            text="Sed sed diam ultricies neque malesuada vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer at sem felis. Integer eleifend, tellus varius scelerisque tincidunt, purus ex posuere leo, non auctor metus ex ut orci. Nullam vitae massa id dolor congue lacinia vitae sit amet enim. Praesent pulvinar sapien in leo semper, sed pharetra nulla faucibus. Quisque id rhoncus nibh."
-        />
-        <NoticeCard
-            title="Test test test"
-            date="07/12/2024"
-            text="Sed sed diam ultricies neque malesuada vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer at sem felis. Integer eleifend, tellus varius scelerisque tincidunt, purus ex posuere leo, non auctor metus ex ut orci. Nullam vitae massa id dolor congue lacinia vitae sit amet enim. Praesent pulvinar sapien in leo semper, sed pharetra nulla faucibus. Quisque id rhoncus nibh."
-        />
-    </div>
+    <div id="recentNotices" class="grid md:grid-cols-3 gap-10 hidden"></div>
+    <div id="pastNotices" class="grid md:grid-cols-3 gap-10 hidden"></div>
 </section>
 
 <script>
-    // Text that appears when the user selects "Sono registrato/a" and "Non sono registrato/a"
     function changeEvents(recent: boolean) {
         const activeButtonStyle =
             "bg-green text-white px-5 py-2 rounded-2xl cursor-pointer";
@@ -105,4 +72,124 @@ const { class: className, ...rest } = Astro.props;
         ?.addEventListener("click", () => {
             changeEvents(false);
         });
+    
+    
+    function createNoticeCard(notice) {
+        const template = document.createElement('template');
+        template.innerHTML = `
+            <notice-card class="flex flex-col gap-4 bg-green rounded-lg px-4 py-5 items-center">
+                <h5 class="text-xl md:text-3xl text-white font-bold text-center">
+                    ${notice.title}
+                </h5>
+                <p class="text-white font-bold">Scritto il ${formatDate(notice.date)}</p>
+                <p class="text-white font-bold text-center">
+                    ${notice.text.length > 100 ? `${notice.text.substring(0, 100)}...` : notice.text}
+                </p>
+                <button id="openModalButton" class="bg-white text-green px-5 py-2 rounded-2xl cursor-pointer">
+                    Leggi tutto
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+
+                <!-- Modal -->
+                <div
+                    id="modal"
+                    class="fixed w-full h-full top-0 left-0 bg-[rgba(0,0,0,0.5)] z-100 hidden"
+                >
+                    <div
+                        class="flex flex-col gap-5 absolute w-full top-1/2 -translate-y-1/2 left-0 bg-white px-4 py-8 md:px-36 md:py-12"
+                    >
+                        <button
+                            id="closeModalButton"
+                            class="absolute top-5 right-5 text-3xl md:text-4xl text-blue cursor-pointer"
+                            type="button"
+                            aria-label="Chiudi"
+                        >
+                            <i class="fas fa-times"></i>
+                        </button>
+
+                        <h5 class="max-w-5/6 text-3xl md:text-4xl text-blue font-bold">
+                            ${notice.title}
+                        </h5>
+                        <div class="flex gap-5 items-center">
+                            <i class="fas fa-clock text-blue"></i>
+                            <h6 class="text-2xl text-blue font-bold">
+                                Scritto il ${formatDate(notice.date)}
+                            </h6>
+                        </div>
+                        <p class="md:text-xl text-blue">${notice.text}</p>
+                    </div>
+                </div>
+            </notice-card>
+        `;
+        return template.content.firstElementChild;
+    }
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('it-IT', {
+            day: '2-digit',
+            month: '2-digit', 
+            year: 'numeric'
+        });
+    }
+
+    let notices = [];
+    async function fetchNotices() {
+        // Fetch alerts from the PHP endpoint
+        const response = await fetch("http://localhost/get.php?what=alerts");
+        notices = await response.json();
+
+        renderNotices();
+    }
+
+    function renderNotices() {
+        const recentNoticesContainer = document.getElementById("recentNotices");
+        const pastNoticesContainer = document.getElementById("pastNotices");
+
+        // Split notices into recent (3 latest) and past (all others)
+        const recentNotices = notices.slice(0, 3);
+        const pastNotices = notices.slice(3);
+        
+        // Display recent notices
+        recentNotices.forEach(notice => {
+            const card = createNoticeCard(notice);
+            recentNoticesContainer.appendChild(card);
+        });
+        
+        // Display past notices
+        pastNotices.forEach(notice => {
+            const card = createNoticeCard(notice);
+            pastNoticesContainer.appendChild(card);
+        });
+        
+        // Show recent notices by default
+        recentNoticesContainer.classList.remove("hidden");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        fetchNotices();
+    });
+
+    // Initialize the custom element for the notice cards
+    if (!customElements.get('notice-card')) {
+        class NoticeCard extends HTMLElement {
+            connectedCallback() {
+                this.querySelector("#openModalButton")?.addEventListener(
+                    "click",
+                    () => {
+                        this.querySelector("#modal")?.classList.remove("hidden");
+                    },
+                );
+
+                this.querySelector("#closeModalButton")?.addEventListener(
+                    "click",
+                    () => {
+                        this.querySelector("#modal")?.classList.add("hidden");
+                    },
+                );
+            }
+        }
+
+        customElements.define("notice-card", NoticeCard);
+    }
 </script>

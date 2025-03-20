@@ -9,12 +9,12 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 }
 
 // Fetch unapproved reviews
-$stmt = $pdo->prepare('SELECT id, date, author, title, text FROM reviews WHERE approved = 0 ORDER BY date DESC');
+$stmt = $pdo->prepare('SELECT id, date, name, surname, text FROM reviews WHERE approved = 0 ORDER BY date DESC');
 $stmt->execute();
 $unapproved_reviews = $stmt->fetchAll();
 
 // Fetch already approved reviews (for the deletion feature)
-$stmt = $pdo->prepare('SELECT id, date, author, title, text FROM reviews WHERE approved = 1 ORDER BY date DESC');
+$stmt = $pdo->prepare('SELECT id, date, name, surname, text FROM reviews WHERE approved = 1 ORDER BY date DESC');
 $stmt->execute();
 $all_reviews = $stmt->fetchAll();
 
@@ -118,17 +118,17 @@ $alerts = $stmt->fetchAll();
         <?php if (count($unapproved_reviews) > 0): ?>
             <?php foreach ($unapproved_reviews as $review): ?>
                 <div class="card">
-                    <h3><?php echo htmlspecialchars($review['title']); ?></h3>
-                    <p><strong>Autore:</strong> <?php echo htmlspecialchars($review['author']); ?></p>
+                    <p><strong>Nome:</strong> <?php echo htmlspecialchars($review['name']); ?></p>
+                    <p><strong>Cognome:</strong> <?php echo htmlspecialchars($review['surname']); ?></p>
                     <p><strong>Data:</strong> <?php echo htmlspecialchars($review['date']); ?></p>
                     <p><?php echo nl2br(htmlspecialchars($review['text'])); ?></p>
                     <div class="actions">
-                        <form method="post" action="post.php" style="display: inline;">
+                        <form method="post" action="admin-action.php" style="display: inline;">
                             <input type="hidden" name="action" value="approve_review">
                             <input type="hidden" name="review_id" value="<?php echo $review['id']; ?>">
                             <button type="submit" class="approve">Approva</button>
                         </form>
-                        <form method="post" action="post.php" style="display: inline;">
+                        <form method="post" action="admin-action.php" style="display: inline;">
                             <input type="hidden" name="action" value="delete_review">
                             <input type="hidden" name="review_id" value="<?php echo $review['id']; ?>">
                             <button type="submit" class="delete" onclick="return confirm('Sei sicuro di voler eliminare questa recensione?')">Elimina</button>
@@ -147,12 +147,12 @@ $alerts = $stmt->fetchAll();
         <?php if (count($all_reviews) > 0): ?>
             <?php foreach ($all_reviews as $review): ?>
                 <div class="card">
-                    <h3><?php echo htmlspecialchars($review['title']); ?></h3>
-                    <p><strong>Autore:</strong> <?php echo htmlspecialchars($review['author']); ?></p>
+                    <p><strong>Nome:</strong> <?php echo htmlspecialchars($review['name']); ?></p>
+                    <p><strong>Cognome:</strong> <?php echo htmlspecialchars($review['surname']); ?></p>
                     <p><strong>Data:</strong> <?php echo htmlspecialchars($review['date']); ?></p>
                     <p><?php echo nl2br(htmlspecialchars($review['text'])); ?></p>
                     <div class="actions">
-                        <form method="post" action="post.php" style="display: inline;">
+                        <form method="post" action="admin-action.php" style="display: inline;">
                             <input type="hidden" name="action" value="delete_review">
                             <input type="hidden" name="review_id" value="<?php echo $review['id']; ?>">
                             <button type="submit" class="delete" onclick="return confirm('Sei sicuro di voler eliminare questa recensione?')">Elimina</button>
@@ -175,7 +175,7 @@ $alerts = $stmt->fetchAll();
                     <p><strong>Data:</strong> <?php echo htmlspecialchars($alert['date']); ?></p>
                     <p><?php echo nl2br(htmlspecialchars($alert['text'])); ?></p>
                     <div class="actions">
-                        <form method="post" action="post.php" style="display: inline;">
+                        <form method="post" action="admin-action.php" style="display: inline;">
                             <input type="hidden" name="action" value="delete_alert">
                             <input type="hidden" name="alert_id" value="<?php echo $alert['id']; ?>">
                             <button type="submit" class="delete" onclick="return confirm('Sei sicuro di voler eliminare questo avviso?')">Elimina</button>
@@ -190,7 +190,7 @@ $alerts = $stmt->fetchAll();
 
     <div class="container">
         <h2>Crea Nuovo Alert</h2>
-        <form method="post" action="post.php">
+        <form method="post" action="admin-action.php">
             <input type="hidden" name="action" value="create_alert">
             
             <div class="form-group">

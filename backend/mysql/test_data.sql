@@ -5,9 +5,9 @@ INSERT INTO `alerts` (`id`, `date`, `title`, `text`) VALUES
 (3, NOW(), 'Security Update', 'A critical security update has been applied to the system.');
 
 -- Insert example data into `reviews` table
-INSERT INTO `reviews` (`id`, `date`, `author`, `title`, `text`, `approved`) VALUES
-(1, NOW(), 'John Doe', 'Great Service', 'I am very satisfied with the service provided.', 1),
-(2, NOW(), 'Jane Smith', 'Average Experience', 'The experience was okay, but there is room for improvement.', 0),
-(3, NOW(), 'Alice Johnson', 'Excellent Support', 'The support team was very helpful and resolved my issue quickly.', 1),
-(4, NOW(), 'Bob Brown', 'Not Satisfied', 'I am not satisfied with the product quality.', 0),
-(5, NOW(), 'Charlie White', 'Highly Recommend', 'I highly recommend this service to everyone.', 1);
+INSERT INTO `reviews` (`id`, `date`, `name`, `surname`, `text`, `approved`) VALUES
+(1, NOW(), 'John', 'Doe', 'I am very satisfied with the service provided.', 1),
+(2, NOW(), 'Jane', 'Smith', 'The experience was okay, but there is room for improvement.', 0),
+(3, NOW(), 'Alice', 'Johnson', 'The support team was very helpful and resolved my issue quickly.', 1),
+(4, NOW(), 'Bob', 'Brown', 'I am not satisfied with the product quality.', 0),
+(5, NOW(), 'Charlie', 'White', 'I highly recommend this service to everyone.', 1);

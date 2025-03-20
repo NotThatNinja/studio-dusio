@@ -18,37 +18,8 @@ import FormCheckbox from "../FormCheckbox.astro";
                 class="font-bold">rendono orgogliosi del nostro lavoro.</span
             >
         </P>
-        <div class="flex flex-col md:flex-row gap-5 md:gap-10">
-            <div
-                class="flex flex-col gap-2 p-5 bg-gray rounded-2xl items-center"
-            >
-                <P
-                    >Leggi cosa scrivono i pazienti della loro esperienza con i
-                    dottori dello Studio Medico G. Un gesto o una parola che ci
-                    rendono orgogliosi del nostro lavoro.</P
-                >
-                <p class="text-blue-3 text-lg">Isabella F</p>
-            </div>
-            <div
-                class="flex flex-col gap-2 p-5 bg-gray rounded-2xl items-center"
-            >
-                <P
-                    >Leggi cosa scrivono i pazienti della loro esperienza con i
-                    dottori dello Studio Medico G. Un gesto o una parola che ci
-                    rendono orgogliosi del nostro lavoro.</P
-                >
-                <p class="text-blue-3 text-lg">Isabella F</p>
-            </div>
-            <div
-                class="flex flex-col gap-2 p-5 bg-gray rounded-2xl items-center"
-            >
-                <P
-                    >Leggi cosa scrivono i pazienti della loro esperienza con i
-                    dottori dello Studio Medico G. Un gesto o una parola che ci
-                    rendono orgogliosi del nostro lavoro.</P
-                >
-                <p class="text-blue-3 text-lg">Isabella F</p>
-            </div>
+        <div id="reviewsContainer" class="flex flex-col md:flex-row gap-5 md:gap-10">
+            <!-- Reviews will appear here -->
         </div>
         <JSButton id="openModalButton" primary>SCRIVI UNA RECENSIONE</JSButton>
 
@@ -107,6 +78,7 @@ import FormCheckbox from "../FormCheckbox.astro";
 </reviews-section>
 
 <script>
+    // Modal
     class Reviews extends HTMLElement {
         connectedCallback() {
             this.querySelector("#openModalButton")?.addEventListener(
@@ -124,9 +96,9 @@ import FormCheckbox from "../FormCheckbox.astro";
             );
         }
     }
-
     customElements.define("reviews-section", Reviews);
 
+    // Form submission
     const form = document.getElementById("reviewForm");
 
     form.addEventListener("submit", async (e) => {
@@ -142,7 +114,7 @@ import FormCheckbox from "../FormCheckbox.astro";
 
         try {
             // Send data to the API
-            const response = await fetch("api_submit_review.php", {
+            const response = await fetch("http://localhost:80/submit-review.php", { // TODO: Correct the URL for production
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -165,4 +137,7 @@ import FormCheckbox from "../FormCheckbox.astro";
             alert("Si è verificato un problema. Riprova più tardi.");
         }
     });
+
+    // Reviews fetching
+    reviews = [];
 </script>

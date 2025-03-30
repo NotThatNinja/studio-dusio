@@ -55,37 +55,37 @@ const currentPath = Astro.url.pathname;
         </div>
 
         <nav
-            class="top-[67px] absolute md:static py-2 md:py-0 bg-white flex-col md:flex-row gap-8 md:gap-10 items-center hidden md:flex w-full md:w-auto"
+            class="top-[67px] absolute md:static py-4 md:py-0 bg-blue md:bg-white flex-col md:flex-row gap-8 md:gap-10 items-center hidden md:flex w-full md:w-auto"
         >
             <a
                 class:list={[
-                    "text-blue font-bold text-lg hover:text-green",
-                    { "text-green": currentPath === "/studio-dusio/lo-studio" },
+                    "text-white md:text-blue font-bold text-lg hover:text-green",
+                    { "md:text-green": currentPath === "/studio-dusio/lo-studio" },
                 ]}
                 href="/studio-dusio/lo-studio">LO STUDIO</a
             >
             <a
                 class:list={[
-                    "text-blue font-bold text-lg hover:text-green",
-                    { "text-green": currentPath === "/studio-dusio/servizi" },
+                    "text-white md:text-blue font-bold text-lg hover:text-green",
+                    { "md:text-green": currentPath === "/studio-dusio/servizi" },
                 ]}
                 href="/studio-dusio/servizi">SERVIZI</a
             >
             <a
                 class:list={[
-                    "text-blue font-bold text-lg hover:text-green",
-                    { "text-green": currentPath === "/studio-dusio/avvisi" },
+                    "text-white md:text-blue font-bold text-lg hover:text-green",
+                    { "md:text-green": currentPath === "/studio-dusio/avvisi" },
                 ]}
                 href="/studio-dusio/avvisi">AVVISI</a
             >
             <a
                 class:list={[
-                    "text-blue font-bold text-lg hover:text-green",
-                    { "text-green": currentPath === "/studio-dusio/contatti" },
+                    "text-white md:text-blue font-bold text-lg hover:text-green",
+                    { "md:text-green": currentPath === "/studio-dusio/contatti" },
                 ]}
                 href="/studio-dusio/contatti">CONTATTI</a
             >
-            <Button href="https://www.cupmedico.it/" primary>PRENOTA</Button>
+            <Button class="bg-green md:bg-blue" href="https://www.cupmedico.it/" primary>PRENOTA</Button>
         </nav>
     </div>
 </header>

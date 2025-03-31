@@ -19,7 +19,7 @@ $stmt->execute();
 $all_reviews = $stmt->fetchAll();
 
 // Fetch all alerts
-$stmt = $pdo->prepare('SELECT id, date, title, text FROM alerts ORDER BY date DESC');
+$stmt = $pdo->prepare('SELECT id, date, title, text, featured FROM alerts ORDER BY date DESC');
 $stmt->execute();
 $alerts = $stmt->fetchAll();
 ?>
@@ -175,6 +175,13 @@ $alerts = $stmt->fetchAll();
                     <p><strong>Data:</strong> <?php echo htmlspecialchars($alert['date']); ?></p>
                     <p><?php echo nl2br(htmlspecialchars($alert['text'])); ?></p>
                     <div class="actions">
+                        <?php if (!$alert['featured']): ?>
+                            <form method="post" action="admin-action.php" style="display: inline;">
+                                <input type="hidden" name="action" value="set_as_featured">
+                                <input type="hidden" name="alert_id" value="<?php echo $alert['id']; ?>">
+                                <button type="submit" class="approve" onclick="return confirm('Impostare questo avviso come avviso in evidenza? Sovrascriverà l\'avviso attualmente in evidenza se presente.')">Imposta in Evidenza</button>
+                            </form>
+                        <?php endif; ?>
                         <form method="post" action="admin-action.php" style="display: inline;">
                             <input type="hidden" name="action" value="delete_alert">
                             <input type="hidden" name="alert_id" value="<?php echo $alert['id']; ?>">
@@ -201,6 +208,12 @@ $alerts = $stmt->fetchAll();
             <div class="form-group">
                 <label for="text">Testo:</label>
                 <textarea id="text" name="text" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="set_featured"> Imposta come avviso in evidenza
+                </label>
             </div>
             
             <button type="submit" class="submit-btn">Crea Avviso</button>

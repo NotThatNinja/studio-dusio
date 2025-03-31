@@ -24,6 +24,12 @@ if (isset($_GET['what'])) {
             $notices = $stmt->fetchAll();
             echo json_encode($notices);
             break;
+        case 'featured-alert':
+            // Return only the featured alert
+            $stmt = $pdo->prepare('SELECT id, date, title, text FROM alerts WHERE featured = true');
+            $stmt->execute();
+            $notice = $stmt->fetchAll();
+            echo json_encode($notice[0]);
     }
 }
 ?>

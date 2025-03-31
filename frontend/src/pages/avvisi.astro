@@ -28,38 +28,46 @@ import illustration11 from "../assets/illustrations/11.png";
             src={illustration11}
             alt="Illustrazione 11"
         />
-        <div class="flex flex-col gap-5">
-            <H4 icon="fa-bell">In evidenza</H4>
-            <H3
-                ><span class="text-green">Chiusura straordinaria</span> dello Studio</H3
-            >
-            <P class="font-bold">Scritto il 05/01/2025</P>
-            <div class="flex flex-col">
-                <P>
-                    Lo studio <span class="font-bold"
-                        >riaprirà il 7 Gennaio 2025</span
-                    > con il <span class="font-bold">medico titolare</span>.Si
-                    avvisa che le richieste inviate via email dal <span
-                        class="font-bold">27/12</span
-                    > non verranno prese in carico. Per necessità, rivolgersi ai
-                    medici sostituti indicati.<br />
-                    Sostituzioni Mediche:
-                </P>
-                <ul class="list-disc pl-10">
-                    <LI>
-                        <span class="font-bold">30-31 Dicembre 2024:</span><br
-                        />
-                        Dottor Mario Di Magro sostituirà il medico titolare. Per
-                        appuntamenti, chiamare entro le 10:00 al 0362340488.
-                    </LI>
-                    <LI>
-                        <span class="font-bold">2-3 Gennaio 2025:</span><br />
-                        Dottoressa Zaira Benini sostituirà il medico titolare. Per
-                        appuntamenti, chiamare entro le 10:00 al 3515382252.
-                    </LI>
-                </ul>
-            </div>
-        </div>
+        <!-- Avviso in evidenza -->
+        <div id="featured-notice" class="flex flex-col gap-5"></div>
     </section>
     <Notices />
 </Layout>
+
+<script>
+    let featuredNotice = null;
+    async function fetchFeaturedNotice() {
+        const response = await fetch("http://localhost:80/get.php?what=featured-alert");
+        featuredNotice = await response.json();
+        renderFeaturedNotice();
+    }
+
+    function renderFeaturedNotice() {
+        const container = document.getElementById("featured-notice");
+        const date = new Date(featuredNotice.date).toLocaleDateString("it-IT", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+        });
+
+        container.innerHTML = `
+            <div class="flex gap-4 items-center">
+                <i class="fas text-blue font-bold text-xl md:text-2xl fa-bell"></i>
+                <h4 class="text-blue font-bold text-xl md:text-2xl">
+                    In evidenza
+                </h4>
+            </div>
+            <h3 class="text-blue font-bold text-2xl md:text-3xl">
+                ${featuredNotice.title}
+            </h3>
+            <p class="text-blue md:text-xl">
+                ${date}
+            </p>
+            <p class="text-blue md:text-xl">
+                ${featuredNotice.text}
+            </p>
+        `;
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchFeaturedNotice);
+</script>

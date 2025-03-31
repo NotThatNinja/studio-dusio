@@ -1,7 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: "Helvetica Rounded";
+    src: url("/studio-dusio/fonts/helvetica-rounded-bold.otf") format("opentype");
+}
+
 @theme {
     --font-sans: "Open Sans Variable", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-display: "Helvetica Rounded", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
     --color-blue: #15427C;
     --color-blue-2: rgba(21, 66, 124, 0.22);

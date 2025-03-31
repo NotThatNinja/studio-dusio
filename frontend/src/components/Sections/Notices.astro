@@ -77,11 +77,11 @@ const { class: className, ...rest } = Astro.props;
         const template = document.createElement('template');
         template.innerHTML = `
             <notice-card class="flex flex-col gap-4 bg-green rounded-lg px-4 py-5 items-center">
-                <h5 class="text-xl md:text-3xl text-white font-bold text-center">
+                <h5 class="text-xl md:text-3xl text-white font-display text-center">
                     ${notice.title}
                 </h5>
-                <p class="text-white font-bold">Scritto il ${formatDate(notice.date)}</p>
-                <p class="text-white font-bold text-center">
+                <p class="text-white font-display">Scritto il ${formatDate(notice.date)}</p>
+                <p class="text-white font-display text-center">
                     ${notice.text.length > 100 ? `${notice.text.substring(0, 100)}...` : notice.text}
                 </p>
                 <button id="openModalButton" class="bg-white text-green px-5 py-2 rounded-2xl cursor-pointer">
@@ -106,12 +106,12 @@ const { class: className, ...rest } = Astro.props;
                             <i class="fas fa-times"></i>
                         </button>
 
-                        <h5 class="max-w-5/6 text-3xl md:text-4xl text-blue font-bold">
+                        <h5 class="max-w-5/6 text-3xl md:text-4xl text-blue font-display">
                             ${notice.title}
                         </h5>
                         <div class="flex gap-5 items-center">
                             <i class="fas fa-clock text-blue"></i>
-                            <h6 class="text-2xl text-blue font-bold">
+                            <h6 class="text-2xl text-blue font-display">
                                 Scritto il ${formatDate(notice.date)}
                             </h6>
                         </div>

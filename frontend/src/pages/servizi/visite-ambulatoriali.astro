@@ -6,6 +6,8 @@ import H3 from "../../components/Typography/H3.astro";
 import P from "../../components/Typography/P.astro";
 import LI from "../../components/Typography/LI.astro";
 import Services from "../../components/Sections/Services.astro";
+import Button from "../../components/Button.astro";
+import Icon from "../../components/Typography/Icon.astro";
 ---
 
 <Layout>
@@ -20,40 +22,34 @@ import Services from "../../components/Sections/Services.astro";
         >, individuare eventuali <span class="font-bold">disturbi</span> e creare
         un piano di <span class="font-bold">trattamento</span> su misura per te.
     </PageTitle>
-    <section
-        class="flex flex-col px-4 pt-8 md:px-36 md:pt-12"
-    >
+    <section class="flex flex-col px-4 pt-8 md:px-36 md:pt-12">
         <H3 class="mb-5">Cosa aspettarsi durante una visita ambulatoriale?</H3>
         <ol class="list-decimal marker:font-bold list-inside">
             <LI>
                 <span class="font-bold">Anamnesi:</span>
-                il medico ti farà alcune domande per raccogliere
-                informazioni sulla tua storia clinica, sui sintomi che stai
-                avvertendo, sulle tue abitudini quotidiane (alimentazione,
-                attività fisica, consumo di alcol o fumo) e sulle eventuali
-                terapie che stai seguendo o hai seguito in passato.
+                il medico ti farà alcune domande per raccogliere informazioni sulla
+                tua storia clinica, sui sintomi che stai avvertendo, sulle tue abitudini
+                quotidiane (alimentazione, attività fisica, consumo di alcol o fumo)
+                e sulle eventuali terapie che stai seguendo o hai seguito in passato.
             </LI>
             <LI>
                 <span class="font-bold">Esame obiettivo:</span>
-                verrà effettuato un controllo fisico per
-                valutare il tuo stato generale. Questo può includere la
-                misurazione della pressione arteriosa, il controllo del cuore e
-                dei polmoni, e l’osservazione di eventuali segni clinici legati
-                ai sintomi che hai riportato.
+                verrà effettuato un controllo fisico per valutare il tuo stato generale.
+                Questo può includere la misurazione della pressione arteriosa, il
+                controllo del cuore e dei polmoni, e l’osservazione di eventuali
+                segni clinici legati ai sintomi che hai riportato.
             </LI>
             <LI>
                 <span class="font-bold">Esami diagnostici (se servono):</span>
-                se necessario, ti potranno
-                essere prescritti esami di laboratorio (come analisi del sangue
-                o delle urine) oppure diagnostici, ad esempio ecografie,
-                radiografie o un elettrocardiogramma (ECG).
+                se necessario, ti potranno essere prescritti esami di laboratorio
+                (come analisi del sangue o delle urine) oppure diagnostici, ad esempio
+                ecografie, radiografie o un elettrocardiogramma (ECG).
             </LI>
             <LI>
                 <span class="font-bold">Piano terapeutico:</span>
-                alla fine della visita, il medico ti proporrà
-                un piano di cura personalizzato. Questo potrebbe includere
-                farmaci, consigli su come migliorare il tuo stile di vita o la
-                programmazione di ulteriori accertamenti.
+                alla fine della visita, il medico ti proporrà un piano di cura personalizzato.
+                Questo potrebbe includere farmaci, consigli su come migliorare il
+                tuo stile di vita o la programmazione di ulteriori accertamenti.
             </LI>
         </ol>
     </section>
@@ -61,14 +57,44 @@ import Services from "../../components/Sections/Services.astro";
         <H3 class="mb-5">Quando è importante farla?</H3>
         <P>La visita ambulatoriale è consigliata:</P>
         <ul class="list-disc marker:font-bold list-inside">
-            <LI><span class="font-bold">In caso di sintomi persistenti</span> o malesseri improvvisi</LI>
-            <LI>Per i controlli periodici di <span class="font-bold">prevenzione</span></LI>
-            <LI>Per monitorare <span class="font-bold">patologie croniche</span> o gestire cure post-operatorie</LI>
-            <LI>Quando è necessario ottenere un <span class="font-bold">certificato medico</span></LI>
+            <LI
+                ><span class="font-bold">In caso di sintomi persistenti</span> o
+                malesseri improvvisi</LI
+            >
+            <LI
+                >Per i controlli periodici di <span class="font-bold"
+                    >prevenzione</span
+                ></LI
+            >
+            <LI
+                >Per monitorare <span class="font-bold">patologie croniche</span
+                > o gestire cure post-operatorie</LI
+            >
+            <LI
+                >Quando è necessario ottenere un <span class="font-bold"
+                    >certificato medico</span
+                ></LI
+            >
         </ul>
     </section>
     <section class="flex flex-col px-4 pt-8 md:pt-12 md:px-36">
-        
+        <div class="flex flex-col p-3 md:p-5 rounded-lg gap-3 md:gap-5 bg-blue-2">
+            <H3>
+                Perché scegliere <span class="text-green"
+                    >Studio Medico Dusio</span
+                > per una visita ambulatoriale?
+            </H3>
+            <P>
+                Presso lo Studio Medico Dusio, garantiamo un’assistenza
+                personalizzata, attenta e professionale. Il nostro obiettivo è
+                mettere al centro la tua salute, offrendo un servizio medico di
+                alta qualità in un ambiente accogliente.
+            </P>
+            <Button href="#" primary>
+                PRENOTA ORA
+                <i class="fas fa-chevron-right font-bold"></i>
+            </Button>
+        </div>
     </section>
     <Services />
 </Layout>

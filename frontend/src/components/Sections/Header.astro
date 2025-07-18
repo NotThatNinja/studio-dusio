@@ -41,7 +41,7 @@ const currentPath = Astro.url.pathname;
         class="flex flex-col md:flex-row gap-8 md:gap-0 items-center md:justify-around py-2 px-5 xl:px-36 lg:px-18"
     >
         <div class="flex flex-row justify-between w-full md:w-auto">
-            <a href="/studio-dusio">
+            <a href="/">
                 <Image
                     class="lg:w-[192px] lg:h-[64px] w-[154px] h-[51px]"
                     src={logo}
@@ -60,30 +60,30 @@ const currentPath = Astro.url.pathname;
             <a
                 class:list={[
                     "text-white md:text-blue font-bold text-lg hover:text-green",
-                    { "md:text-green": currentPath === "/studio-dusio/lo-studio" },
+                    { "md:text-green": currentPath === "/lo-studio" },
                 ]}
-                href="/studio-dusio/lo-studio">LO STUDIO</a
+                href="/lo-studio">LO STUDIO</a
             >
             <a
                 class:list={[
                     "text-white md:text-blue font-bold text-lg hover:text-green",
-                    { "md:text-green": currentPath === "/studio-dusio/servizi" },
+                    { "md:text-green": currentPath === "/servizi" },
                 ]}
-                href="/studio-dusio/servizi">SERVIZI</a
+                href="/servizi">SERVIZI</a
             >
             <a
                 class:list={[
                     "text-white md:text-blue font-bold text-lg hover:text-green",
-                    { "md:text-green": currentPath === "/studio-dusio/avvisi" },
+                    { "md:text-green": currentPath === "/avvisi" },
                 ]}
-                href="/studio-dusio/avvisi">AVVISI</a
+                href="/avvisi">AVVISI</a
             >
             <a
                 class:list={[
                     "text-white md:text-blue font-bold text-lg hover:text-green",
-                    { "md:text-green": currentPath === "/studio-dusio/contatti" },
+                    { "md:text-green": currentPath === "/contatti" },
                 ]}
-                href="/studio-dusio/contatti">CONTATTI</a
+                href="/contatti">CONTATTI</a
             >
             <Button class="bg-green md:bg-blue" href="https://www.cupmedico.it/" primary>PRENOTA</Button>
         </nav>

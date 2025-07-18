@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "Helvetica Rounded";
-    src: url("/studio-dusio/fonts/helvetica-rounded-bold.otf") format("opentype");
+    src: url("/fonts/helvetica-rounded-bold.otf") format("opentype");
 }
 
 @theme {

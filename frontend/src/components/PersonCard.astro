@@ -2,9 +2,11 @@
 const {
     title,
     subtitle,
-    href,
     image,
     alt,
+    description,
+    skills,
+    phone,
     class: className,
     ...rest
 } = Astro.props;
@@ -12,26 +14,85 @@ const {
 import { Image } from "astro:assets";
 ---
 
-<div
-    class:list={["flex flex-col relative justify-end items-center", className]}
-    {...rest}
->
-    <div class="flex flex-col gap-3 py-6">
-        <h5 class="text-2xl text-white font-bold z-10">{title}</h5>
-        <p class="text-lg text-white font-bold z-10">{subtitle}</p>
-        <a href={href} class="text-white font-bold z-10">
-            Leggi di più
-            <i class="fas fa-arrow-right text-white"></i>
-        </a>
-    </div>
-    <Image
-        class="w-full h-full rounded-lg object-cover absolute"
-        src={image}
-        alt={alt}
-    />
-    <!-- Overlay -->
+<person-card>
     <div
-        class="absolute inset-0 bg-gradient-to-t from-[rgba(0,89,203,0.50)] to-transparent to-50% z-0"
+        class:list={[
+            "flex flex-col relative justify-end items-center",
+            className,
+        ]}
+        {...rest}
     >
+        <div class="flex flex-col gap-3 py-6 font-display">
+            <h5 class="text-2xl text-white z-10">{title}</h5>
+            <p class="text-lg text-white z-10">{subtitle}</p>
+            <a href="#" class="text-white z-10" id="readMoreLink">
+                Leggi di più
+                <i class="fas fa-arrow-right text-white"></i>
+            </a>
+        </div>
+        <Image
+            class="w-full h-full rounded-lg object-cover absolute"
+            src={image}
+            alt={alt}
+        />
+        <!-- Overlay -->
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-[rgba(0,89,203,0.50)] to-transparent to-50% z-0"
+        >
+        </div>
     </div>
-</div>
+
+    <!-- Modal -->
+    <div
+        class="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] lg:items-center lg:justify-center z-100 overflow-scroll hidden"
+        id="modal"
+    >
+        <div
+            class="absolute bg-white px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 flex flex-col gap-5"
+        >
+            <button
+                id="closeModalButton"
+                class="absolute top-5 right-5 text-3xl md:text-4xl text-blue cursor-pointer"
+                type="button"
+                aria-label="Chiudi"
+            >
+                <i class="fas fa-times"></i>
+            </button>
+            <h5 class="font-display text-blue text-3xl md:text-4xl">{title}</h5>
+            <p class="text-blue md:text-xl">{description}</p>
+            <h6 class="font-display text-blue text-2xl md:text-3xl">Competenze</h6>
+            <div class="flex gap-5 flex-col md:flex-row flex-wrap">
+                {skills.map(skill => (
+                    <div class="bg-blue-2 text-blue p-3 md:p-5 rounded-lg font-bold md:text-xl">
+                        <i class="fas fa-check"></i> {skill}
+                    </div>
+                ))}
+            </div>
+            <h6 class="font-display text-blue text-2xl md:text-3xl">Contatti</h6>
+            <p class="text-blue md:text-xl font-bold"><i class="fas fa-phone"></i> {phone}</p>
+        </div>
+    </div>
+</person-card>
+
+<script>
+    class PersonCard extends HTMLElement {
+        connectedCallback() {
+            const readMoreLink = this.querySelector("#readMoreLink");
+            const closeModalButton = this.querySelector("#closeModalButton");
+            const modal = this.querySelector("#modal");
+
+            readMoreLink?.addEventListener("click", (e) => {
+                e.preventDefault();
+                modal?.classList.remove("hidden");
+                modal?.classList.add("flex");
+            });
+
+            closeModalButton?.addEventListener("click", () => {
+                modal?.classList.add("hidden");
+                modal?.classList.remove("flex");
+            });
+        }
+    }
+
+    customElements.define("person-card", PersonCard);
+</script>

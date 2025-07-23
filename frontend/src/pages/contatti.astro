@@ -13,7 +13,10 @@ import FAQ from "../components/Sections/FAQ.astro";
 
 <Layout>
     <PageTitle
-        breadcrumbs="HOME - CONTATTI"
+        breadcrumbs={[
+            { text: "Home", url: "/" },
+            { text: "Contatti", url: "/contatti" },
+        ]}
         title="Tutte le informazioni di contatto"
     >
         Siamo qui per rispondere alle tue domande e fissare il tuo appuntamento.

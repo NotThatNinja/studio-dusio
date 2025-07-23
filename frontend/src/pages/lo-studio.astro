@@ -26,7 +26,7 @@ import photo9 from "../assets/people/5.jpg";
 ---
 
 <Layout>
-    <PageTitle breadcrumbs="HOME - LO STUDIO" title="Lorem Ipsum Dolor">
+    <PageTitle breadcrumbs={[{ text: "HOME", url: "/" }, { text: "LO STUDIO", url: "/lo-studio" }]} title="Lorem Ipsum Dolor">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </PageTitle>
     <section
@@ -117,13 +117,13 @@ import photo9 from "../assets/people/5.jpg";
     <Certifications />
     <section class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 bg-blue-2 relative">
         <Image
-            class="absolute -left-10 -z-1 bottom-0 opacity-50"
+            class="absolute -left-10 -z-1 bottom-0 opacity-30"
             src={illustration7}
             alt="Illustrazione 7"
             width="373"
         />
         <Image
-            class="absolute right-0 -z-1 bottom-0 opacity-50 hidden md:block"
+            class="absolute right-0 -z-1 bottom-0 opacity-30 hidden md:block"
             src={illustration8}
             alt="Illustrazione 8"
             width="373"

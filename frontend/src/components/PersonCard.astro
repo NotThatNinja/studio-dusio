@@ -16,8 +16,9 @@ import { Image } from "astro:assets";
 
 <person-card>
     <div
+        id="personCard"
         class:list={[
-            "flex flex-col relative justify-end items-center",
+            "flex flex-col relative justify-end items-center cursor-pointer",
             className,
         ]}
         {...rest}
@@ -37,7 +38,7 @@ import { Image } from "astro:assets";
         />
         <!-- Overlay -->
         <div
-            class="absolute inset-0 bg-gradient-to-t from-[rgba(0,89,203,0.50)] to-transparent to-50% z-0"
+            class="absolute inset-0 bg-gradient-to-t from-[rgba(0,89,203,0.50)] to-transparent to-50% z-0 rounded-lg"
         >
         </div>
     </div>
@@ -69,7 +70,7 @@ import { Image } from "astro:assets";
                 ))}
             </div>
             <h6 class="font-display text-blue text-2xl md:text-3xl">Contatti</h6>
-            <p class="text-blue md:text-xl font-bold"><i class="fas fa-phone"></i> {phone}</p>
+            <a href={`tel:${phone}`} class="text-blue md:text-xl font-bold"><i class="fas fa-phone"></i> {phone}</a>
         </div>
     </div>
 </person-card>
@@ -80,6 +81,12 @@ import { Image } from "astro:assets";
             const readMoreLink = this.querySelector("#readMoreLink");
             const closeModalButton = this.querySelector("#closeModalButton");
             const modal = this.querySelector("#modal");
+            const personCard = this.querySelector("#personCard");
+
+            personCard?.addEventListener("click", (e) => {
+                modal?.classList.remove("hidden");
+                modal?.classList.add("flex");
+            });
 
             readMoreLink?.addEventListener("click", (e) => {
                 e.preventDefault();

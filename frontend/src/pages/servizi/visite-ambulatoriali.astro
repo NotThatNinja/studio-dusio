@@ -12,7 +12,7 @@ import Icon from "../../components/Typography/Icon.astro";
 
 <Layout>
     <PageTitle
-        breadcrumbs="HOME - SERVIZI - VISITE AMBULATORIALI"
+        breadcrumbs={[{ text: "Home", url: "/" }, { text: "Servizi", url: "/servizi" }, { text: "Visite Ambulatoriali", url: "/servizi/visite-ambulatoriali" }]}
         title="Cos'è una visita ambulatoriale?"
     >
         La visita ambulatoriale è un <span class="font-bold"

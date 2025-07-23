@@ -7,7 +7,7 @@ import logo from "../../assets/logo.png";
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 bg-white z-20">
+<header class="sticky top-0 bg-white z-20 shadow-md">
     <div
         id="topBar"
         class="bg-green py-2 align-middle justify-center gap-11 hidden md:flex"
@@ -49,8 +49,12 @@ const currentPath = Astro.url.pathname;
                 />
             </a>
 
-            <button id="nav-toggle" type="button" class="md:hidden">
-                <i class="fas fa-bars text-blue text-2xl"></i>
+            <button id="nav-toggle" type="button" class="md:hidden p-2">
+                <div class="hamburger w-6 flex flex-col gap-[5px]">
+                    <span class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"></span>
+                    <span class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"></span>
+                    <span class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"></span>
+                </div>
             </button>
         </div>
 
@@ -90,21 +94,41 @@ const currentPath = Astro.url.pathname;
     </div>
 </header>
 
+<style>
+    .hamburger.open .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 5px);
+    }
+    
+    .hamburger.open .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.open .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -5px);
+    }
+</style>
+
 <script>
     document.getElementById("nav-toggle")?.addEventListener("click", () => {
-        document.querySelector("nav")?.classList.toggle("hidden");
-        document.querySelector("nav")?.classList.toggle("flex");
+        const nav = document.querySelector("nav");
+        const hamburger = document.querySelector(".hamburger");
+        
+        nav?.classList.toggle("hidden");
+        nav?.classList.toggle("flex");
+        
+        // Toggle hamburger animation
+        hamburger?.classList.toggle("open");
     });
 
     const topDiv = document.getElementById("topBar");
 
     window.onscroll = () => {
         if (window.scrollY > 0) {
-            topDiv.style.display = "none";
+            if (topDiv) topDiv.style.display = "none";
         } else {
             // Only show topbar on desktop screens
             if (window.innerWidth >= 1000) {
-                topDiv.style.display = "flex";
+                if (topDiv) topDiv.style.display = "flex";
             }
         }
     };

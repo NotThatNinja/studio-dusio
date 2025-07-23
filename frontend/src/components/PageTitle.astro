@@ -5,7 +5,14 @@ import P from "./Typography/P.astro";
 ---
 
 <section class="flex flex-col px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 gap-2.5 bg-blue-2">
-    <P class="font-display">{breadcrumbs}</P>
+    <div class="flex gap-2">
+        {breadcrumbs.map((item, index) => (
+            <>
+                <a class="font-display text-blue md:text-xl hover:underline" href={item.url}>{item.text.toUpperCase()}</a>
+                {index < breadcrumbs.length - 1 && <span class="font-display text-blue md:text-xl">-</span>}
+            </>
+        ))}
+    </div>
     <h1 class="text-blue text-3xl md:text-5xl font-display">{title}</h1>
     <P><slot /></P>
 </section>

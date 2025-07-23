@@ -10,7 +10,10 @@ import illustration11 from "../assets/illustrations/11.png";
 
 <Layout>
     <PageTitle
-        breadcrumbs="HOME - AVVISI"
+        breadcrumbs={[
+            { text: "Home", url: "/" },
+            { text: "Avvisi", url: "/avvisi" },
+        ]}
         title="Avvisi e Comunicazioni dallo Studio Dusio"
     >
         Rimani aggiornato/a sulle ultime novità dello studio medico, variazioni

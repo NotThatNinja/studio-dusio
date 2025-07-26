@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 
 <div
     class:list={[
-        "flex flex-col relative justify-center items-center",
+        "flex flex-col relative justify-center items-center rounded-lg bg-blue",
         className,
     ]}
     {...rest}
@@ -17,15 +17,5 @@ import { Image } from "astro:assets";
             Scopri di più
             <i class="fas fa-arrow-right text-white"></i>
         </a>
-    </div>
-    <Image
-        class="rounded-lg object-cover absolute h-full w-full"
-        src={image}
-        alt={alt}
-    />
-    <!-- Overlay -->
-    <div
-        class="absolute inset-0 bg-gradient-to-t from-[rgba(0,89,203,0.50)] to-transparent z-0 rounded-lg"
-    >
     </div>
 </div>

@@ -7,7 +7,7 @@ import logo from "../../assets/logo.png";
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 bg-white z-20 shadow-md">
+<header class="fixed w-full top-0 bg-white z-20">
     <div
         id="topBar"
         class="bg-green py-2 align-middle justify-center gap-11 hidden md:flex"
@@ -51,9 +51,15 @@ const currentPath = Astro.url.pathname;
 
             <button id="nav-toggle" type="button" class="md:hidden p-2">
                 <div class="hamburger w-6 flex flex-col gap-[5px]">
-                    <span class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"></span>
-                    <span class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"></span>
-                    <span class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"></span>
+                    <span
+                        class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"
+                    ></span>
+                    <span
+                        class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"
+                    ></span>
+                    <span
+                        class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"
+                    ></span>
                 </div>
             </button>
         </div>
@@ -89,7 +95,11 @@ const currentPath = Astro.url.pathname;
                 ]}
                 href="/contatti">CONTATTI</a
             >
-            <Button class="bg-green md:bg-blue" href="https://www.cupmedico.it/" primary>PRENOTA</Button>
+            <Button
+                class="bg-green md:bg-blue"
+                href="https://www.cupmedico.it/"
+                primary>PRENOTA</Button
+            >
         </nav>
     </div>
 </header>
@@ -98,11 +108,11 @@ const currentPath = Astro.url.pathname;
     .hamburger.open .hamburger-line:nth-child(1) {
         transform: rotate(45deg) translate(6px, 5px);
     }
-    
+
     .hamburger.open .hamburger-line:nth-child(2) {
         opacity: 0;
     }
-    
+
     .hamburger.open .hamburger-line:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -5px);
     }
@@ -112,24 +122,27 @@ const currentPath = Astro.url.pathname;
     document.getElementById("nav-toggle")?.addEventListener("click", () => {
         const nav = document.querySelector("nav");
         const hamburger = document.querySelector(".hamburger");
-        
+
         nav?.classList.toggle("hidden");
         nav?.classList.toggle("flex");
-        
+
         // Toggle hamburger animation
         hamburger?.classList.toggle("open");
     });
 
+    const header = document.querySelector("header");
     const topDiv = document.getElementById("topBar");
 
     window.onscroll = () => {
-        if (window.scrollY > 0) {
-            if (topDiv) topDiv.style.display = "none";
-        } else {
-            // Only show topbar on desktop screens
+        if (window.scrollY === 0 && window.innerWidth >= 1000) {
+            header.classList.remove("shadow-md");
+
             if (window.innerWidth >= 1000) {
-                if (topDiv) topDiv.style.display = "flex";
+                topDiv.style.display = "flex";
             }
+        } else {
+            topDiv.style.display = "none";
+            header.classList.add("shadow-md");
         }
     };
 </script>

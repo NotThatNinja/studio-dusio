@@ -2,16 +2,33 @@
 import P from "../Typography/P.astro";
 import Button from "../Button.astro";
 
-import { Image } from "astro:assets";
-import heroImage from "../../assets/hero.jpg";
+import fallbackImage from "../../assets/hero.jpg";
+import heroImage from "../../assets/hero.webp";
+import mobileHeroImage from "../../assets/hero-mobile.webp";
 ---
 
 <section class="relative">
-    <Image
-        class="h-[60vh] md:h-[80vh] object-cover brightness-75"
-        src={heroImage}
-        alt="Lo Studio"
-    />
+    <picture>
+        <source
+            srcset={mobileHeroImage.src}
+            width={mobileHeroImage.width}
+            height={mobileHeroImage.height}
+            media="(max-width: 768px)"
+        />
+        <source
+            srcset={heroImage.src}
+            width={heroImage.width}
+            height={heroImage.height}
+        />
+        <img
+            src={fallbackImage.src}
+            width={fallbackImage.width}
+            height={fallbackImage.height}
+            alt="Hero Image"
+            class="w-full h-[60vh] md:h-[80vh] object-cover brightness-75"
+            loading="eager"
+        />
+    </picture>
 
     <!-- Overlay -->
     <div

@@ -26,7 +26,13 @@ import photo9 from "../assets/people/5.jpg";
 ---
 
 <Layout>
-    <PageTitle breadcrumbs={[{ text: "HOME", url: "/" }, { text: "LO STUDIO", url: "/lo-studio" }]} title="Lorem Ipsum Dolor">
+    <PageTitle
+        breadcrumbs={[
+            { text: "HOME", url: "/" },
+            { text: "LO STUDIO", url: "/lo-studio" },
+        ]}
+        title="Lorem Ipsum Dolor"
+    >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </PageTitle>
     <section
@@ -115,7 +121,9 @@ import photo9 from "../assets/people/5.jpg";
         </div>
     </section>
     <Certifications />
-    <section class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 bg-blue-2 relative">
+    <section
+        class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 bg-blue-2 relative"
+    >
         <Image
             class="absolute -left-10 -z-1 bottom-0 opacity-30"
             src={illustration7}
@@ -149,7 +157,13 @@ import photo9 from "../assets/people/5.jpg";
                 image={photo3}
                 alt="Fabrizio Baglieri"
                 description="Fabrizio accoglie i pazienti dello Studio Medico del Dott. Dusio con professionalità e competenza, frutto di oltre 25 anni di esperienza in ambito infermieristico. La sua presenza garantisce assistenza qualificata e continuità nelle cure. Con un approccio empatico e rassicurante, Fabrizio si occupa della gestione integrata dei pazienti diabetici che monitorizza personalmente in collaborazione con il Dott. Dusio. Si occupa inoltre di terapie iniettive, vaccinazioni, medicazioni e supporto alle attività cliniche quotidiane. Nella gestione del paziente cerca un rapporto personale attento alle esigenze specifiche di ognuno, in un ambiente confortevole e professionale."
-                skills={["Diploma di Infermiere", "Certificazione BLSD", "Assistenza al medico", "Gestione ambulatorio", "Esperienza in cure palliative"]}
+                skills={[
+                    "Diploma di Infermiere",
+                    "Certificazione BLSD",
+                    "Assistenza al medico",
+                    "Gestione ambulatorio",
+                    "Esperienza in cure palliative",
+                ]}
                 phone="+39 333 4444 202"
             />
             <PersonCard
@@ -159,7 +173,13 @@ import photo9 from "../assets/people/5.jpg";
                 image={photo9}
                 alt="Sara Ferraris"
                 description="Sara è il volto accogliente che vi darà il benvenuto presso lo Studio Medico del Dott. Dusio. Come segretaria, coordina con efficienza gli appuntamenti e accoglie i pazienti con gentilezza e professionalità. La sua formazione in podologia e le certificazioni specialistiche le permettono di comprendere appieno le loro esigenze, offrendo informazioni precise. Grazie alla sua esperienza in ambito sanitario e al suo approccio empatico, Sara rende ogni accesso allo studio un'esperienza confortevole, dove i pazienti si sentono ascoltati e ben assistiti fin dal primo contatto."
-                skills={["Laura Podologia", "Capacità comunicative", "Coordinamento pazienti", "Certificazioni in ambito salute", "Esperienza in diabetologia"]}
+                skills={[
+                    "Laura Podologia",
+                    "Capacità comunicative",
+                    "Coordinamento pazienti",
+                    "Certificazioni in ambito salute",
+                    "Esperienza in diabetologia",
+                ]}
                 phone="+39 0141 351232"
             />
         </div>
@@ -201,13 +221,13 @@ import photo9 from "../assets/people/5.jpg";
             <i class="fas fa-chevron-right font-bold"></i>
         </Button>
         <Image
-            class="absolute left-0 hidden lg:block"
+            class="absolute left-0 hidden xl:block"
             src={illustration9}
             alt="Illustrazione 9"
             width="320"
         />
         <Image
-            class="absolute right-0 hidden lg:block"
+            class="absolute right-0 hidden xl:block"
             src={illustration9}
             alt="Illustrazione 9"
             width="320"

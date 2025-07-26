@@ -1,8 +1,8 @@
 <?php
-$host = 'db';
-$dbname = 'studio_dusio';
-$username = 'admin';
-$password = 'admin';
+$host = 'localhost:3306';
+$dbname = 'studi383_db';
+$username = 'studi383_admin';
+$password = 'board-book-simulator-bottle';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

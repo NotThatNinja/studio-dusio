@@ -120,7 +120,7 @@ import FormCheckbox from "../FormCheckbox.astro";
         try {
             // Send data to the API
             const response = await fetch(
-                "https://studiodusio.it/submit-review.php",
+                "https://www.studiodusio.it/submit-review.php",
                 {
                     method: "POST",
                     headers: {
@@ -150,7 +150,7 @@ import FormCheckbox from "../FormCheckbox.astro";
     let reviews = [];
     async function fetchReviews() {
         const response = await fetch(
-            "https://studiodusio.it/get.php?what=reviews",
+            "https://www.studiodusio.it/get.php?what=reviews",
         );
         reviews = await response.json();
         renderReviews();

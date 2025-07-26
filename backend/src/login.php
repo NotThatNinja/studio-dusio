@@ -11,7 +11,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
 }
 
 // Hard-coded admin credentials
-$admin_password = password_hash("admin", PASSWORD_DEFAULT);
+$admin_password = password_hash("board-book-simulator-bottle", PASSWORD_DEFAULT);
 
 // Check if user is already logged in
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {

@@ -134,7 +134,7 @@ const currentPath = Astro.url.pathname;
     const topDiv = document.getElementById("topBar");
 
     window.onscroll = () => {
-        if (window.scrollY === 0 && window.innerWidth >= 1000) {
+        if (window.scrollY === 0) {
             header.classList.remove("shadow-md");
 
             if (window.innerWidth >= 1000) {

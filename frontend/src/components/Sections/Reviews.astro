@@ -18,7 +18,10 @@ import FormCheckbox from "../FormCheckbox.astro";
                 class="font-bold">rendono orgogliosi del nostro lavoro.</span
             >
         </P>
-        <div id="reviewsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10">
+        <div
+            id="reviewsContainer"
+            class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10"
+        >
             <!-- Reviews will appear here -->
         </div>
         <JSButton id="openModalButton" primary>SCRIVI UNA RECENSIONE</JSButton>
@@ -40,7 +43,9 @@ import FormCheckbox from "../FormCheckbox.astro";
                     <i class="fas fa-times"></i>
                 </button>
 
-                <h5 class="max-w-5/6 text-3xl md:text-4xl text-blue font-display">
+                <h5
+                    class="max-w-5/6 text-3xl md:text-4xl text-blue font-display"
+                >
                     Lascia la tua recensione
                 </h5>
                 <p class="md:text-xl text-blue">
@@ -114,13 +119,16 @@ import FormCheckbox from "../FormCheckbox.astro";
 
         try {
             // Send data to the API
-            const response = await fetch("http://localhost:80/submit-review.php", { // TODO: Correct the URL for production
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
+            const response = await fetch(
+                "https://studiodusio.it/submit-review.php",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
                 },
-                body: JSON.stringify(formData),
-            });
+            );
 
             const result = await response.json();
 
@@ -141,7 +149,9 @@ import FormCheckbox from "../FormCheckbox.astro";
     // Fetch reviews
     let reviews = [];
     async function fetchReviews() {
-        const response = await fetch("http://localhost:80/get.php?what=reviews");
+        const response = await fetch(
+            "https://studiodusio.it/get.php?what=reviews",
+        );
         reviews = await response.json();
         renderReviews();
     }
@@ -149,8 +159,8 @@ import FormCheckbox from "../FormCheckbox.astro";
     function renderReviews() {
         const container = document.getElementById("reviewsContainer");
         container.innerHTML = "";
-        
-        reviews.forEach(review => {
+
+        reviews.forEach((review) => {
             container.innerHTML += `
             <div class="flex flex-col gap-2 p-5 bg-gray rounded-2xl items-center">
                 <p class="text-blue md:text-xl">${review.text}</p>
@@ -160,5 +170,5 @@ import FormCheckbox from "../FormCheckbox.astro";
         });
     }
 
-    document.addEventListener('DOMContentLoaded', fetchReviews);
+    document.addEventListener("DOMContentLoaded", fetchReviews);
 </script>

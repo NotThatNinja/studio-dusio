@@ -36,7 +36,9 @@ import illustration11 from "../assets/illustrations/11.png";
 <script>
     let featuredNotice = null;
     async function fetchFeaturedNotice() {
-        const response = await fetch("http://localhost:80/get.php?what=featured-alert");
+        const response = await fetch(
+            "https://studiodusio.it/get.php?what=featured-alert",
+        );
         featuredNotice = await response.json();
         renderFeaturedNotice();
     }
@@ -68,5 +70,5 @@ import illustration11 from "../assets/illustrations/11.png";
         `;
     }
 
-    document.addEventListener('DOMContentLoaded', fetchFeaturedNotice);
+    document.addEventListener("DOMContentLoaded", fetchFeaturedNotice);
 </script>

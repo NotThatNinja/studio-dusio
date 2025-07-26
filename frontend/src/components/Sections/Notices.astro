@@ -24,8 +24,16 @@ const { class: className, ...rest } = Astro.props;
             type="button">Avvisi precedenti</button
         >
     </div>
-    <div id="recentNotices" class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 hidden"></div>
-    <div id="pastNotices" class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 hidden"></div>
+    <div
+        id="recentNotices"
+        class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 hidden"
+    >
+    </div>
+    <div
+        id="pastNotices"
+        class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 hidden"
+    >
+    </div>
 </section>
 
 <script>
@@ -71,10 +79,9 @@ const { class: className, ...rest } = Astro.props;
         ?.addEventListener("click", () => {
             changeEvents(false);
         });
-    
-    
+
     function createNoticeCard(notice) {
-        const template = document.createElement('template');
+        const template = document.createElement("template");
         template.innerHTML = `
             <notice-card class="flex flex-col gap-4 bg-green rounded-lg px-4 py-5 items-center">
                 <h5 class="text-xl md:text-3xl text-white font-display text-center">
@@ -125,17 +132,19 @@ const { class: className, ...rest } = Astro.props;
 
     function formatDate(dateString) {
         const date = new Date(dateString);
-        return date.toLocaleDateString('it-IT', {
-            day: '2-digit',
-            month: '2-digit', 
-            year: 'numeric'
+        return date.toLocaleDateString("it-IT", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
         });
     }
 
     let notices = [];
     async function fetchNotices() {
         // Fetch alerts from the PHP endpoint
-        const response = await fetch("http://localhost/get.php?what=alerts");
+        const response = await fetch(
+            "https://studiodusio.it/get.php?what=alerts",
+        );
         notices = await response.json();
 
         renderNotices();
@@ -148,19 +157,19 @@ const { class: className, ...rest } = Astro.props;
         // Split notices into recent (3 latest) and past (all others)
         const recentNotices = notices.slice(0, 3);
         const pastNotices = notices.slice(3);
-        
+
         // Display recent notices
-        recentNotices.forEach(notice => {
+        recentNotices.forEach((notice) => {
             const card = createNoticeCard(notice);
             recentNoticesContainer.appendChild(card);
         });
-        
+
         // Display past notices
-        pastNotices.forEach(notice => {
+        pastNotices.forEach((notice) => {
             const card = createNoticeCard(notice);
             pastNoticesContainer.appendChild(card);
         });
-        
+
         // Show recent notices by default
         recentNoticesContainer.classList.remove("hidden");
     }
@@ -170,13 +179,15 @@ const { class: className, ...rest } = Astro.props;
     });
 
     // Initialize the custom element for the notice cards
-    if (!customElements.get('notice-card')) {
+    if (!customElements.get("notice-card")) {
         class NoticeCard extends HTMLElement {
             connectedCallback() {
                 this.querySelector("#openModalButton")?.addEventListener(
                     "click",
                     () => {
-                        this.querySelector("#modal")?.classList.remove("hidden");
+                        this.querySelector("#modal")?.classList.remove(
+                            "hidden",
+                        );
                     },
                 );
 

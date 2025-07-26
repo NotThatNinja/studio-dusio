@@ -1,8 +1,8 @@
 <?php
-// Enable CORS TODO: Remove this in production
-header("Access-Control-Allow-Origin: http://localhost:4321");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type");
+// Enable CORS (Remove this in production)
+// header("Access-Control-Allow-Origin: http://localhost:4321");
+// header("Access-Control-Allow-Headers: Content-Type");
+// header("Access-Control-Allow-Methods: POST");
 
 header('Content-Type: application/json');
 

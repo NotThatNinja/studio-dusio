@@ -31,15 +31,13 @@ const { class: className, ...rest } = Astro.props;
     </div>
     <div class="md:w-3/4 px-5 py-2 rounded-lg border border-green">
         <P id="userRegisteredText">
-            Non sei ancora registrato. Per accedere ai nostri servizi, ti
-            invitiamo a completare la registrazione. Una volta registrato,
-            potrai prenotare appuntamenti online, accedere a risorse esclusive e
-            ricevere aggiornamenti importanti. La registrazione è semplice e
-            veloce. Se hai bisogno di assistenza durante il processo, il nostro
-            team di supporto è a tua disposizione. Non perdere l'opportunità di
-            usufruire di tutti i vantaggi offerti dalla nostra piattaforma.
-            Registrati oggi stesso e inizia a esplorare tutto ciò che abbiamo da
-            offrire. Grazie per il tuo interesse!
+            Se è la <strong>prima volta</strong> che prenoti una visita in ambulatorio
+            (come <strong> non registrato</strong>), devi recarti in studio
+            negli orari di segreteria presentando alla segretaria il nuovo <strong
+                >tesserino sanitario cartaceo</strong
+            >. Dopo la registrazione puoi utilizzare il link <strong
+                >cupmedico.it</strong
+            >.
         </P>
     </div>
 </section>
@@ -47,11 +45,10 @@ const { class: className, ...rest } = Astro.props;
 <script>
     // Text that appears when the user selects "Sono registrato/a" and "Non sono registrato/a"
     function changeUserRegistered(registered: boolean) {
-        const userRegistered =
-            "La tua registrazione è stata approvata con successo. Ora puoi accedere a tutti i servizi disponibili sul nostro sito. Grazie per esserti registrato! Se hai bisogno di assistenza, non esitare a contattarci. Siamo qui per aiutarti con qualsiasi domanda o problema tu possa avere. Inoltre, ti invitiamo a esplorare le nostre risorse online, dove troverai informazioni utili e aggiornamenti sui nostri servizi. Grazie ancora per la tua fiducia e benvenuto nella nostra comunità!";
         const userNotRegistered =
-            "Non sei ancora registrato. Per accedere ai nostri servizi, ti invitiamo a completare la registrazione. Una volta registrato, potrai prenotare appuntamenti online, accedere a risorse esclusive e ricevere aggiornamenti importanti. La registrazione è semplice e veloce. Se hai bisogno di assistenza durante il processo, il nostro team di supporto è a tua disposizione. Non perdere l'opportunità di usufruire di tutti i vantaggi offerti dalla nostra piattaforma. Registrati oggi stesso e inizia a esplorare tutto ciò che abbiamo da offrire. Grazie per il tuo interesse!";
-
+            "Se è la <strong>prima volta</strong> che prenoti una visita in ambulatorio (come <strong> non registrato</strong>), devi recarti in studio negli orari di segreteria presentando alla segretaria il nuovo <strong>tesserino sanitario cartaceo</strong>. Dopo la registrazione puoi utilizzare il link <strong>cupmedico.it</strong>.";
+        const userRegistered =
+            "Puoi utilizzare <strong>cupmedico.it</strong> per <strong>prenotare</strong> online visite ambulatoriali, <strong>visualizzare</strong> il tuo appuntamento, modificarlo o <strong>disdirlo</strong> e controllare la <strong>disponibilità</strong> del dottore. Non sai come si fa? Guarda la guida <strong>QUI</strong>.";
         const activeButtonStyle =
             "bg-green text-white px-5 py-2 rounded-2xl cursor-pointer";
         const inactiveButtonStyle =
@@ -68,11 +65,11 @@ const { class: className, ...rest } = Astro.props;
         ) as HTMLButtonElement;
 
         if (registered) {
-            p.textContent = userRegistered;
+            p.innerHTML = userRegistered;
             userRegisteredButton.className = activeButtonStyle;
             userNotRegisteredButton.className = inactiveButtonStyle;
         } else {
-            p.textContent = userNotRegistered;
+            p.innerHTML = userNotRegistered;
             userRegisteredButton.className = inactiveButtonStyle;
             userNotRegisteredButton.className = activeButtonStyle;
         }

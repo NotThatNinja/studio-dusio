@@ -17,3 +17,9 @@
     --color-gray: #DEDEDE;
     --color-hero: #00DC5F;
 }
+
+@layer base {
+    h1 {
+        @apply text-3xl;
+    }
+}

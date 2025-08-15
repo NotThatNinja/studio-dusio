@@ -75,28 +75,28 @@ const currentPath = Astro.url.pathname;
             <a
                 class:list={[
                     "text-white md:text-blue font-bold text-lg hover:text-green",
-                    { "md:text-green": currentPath === "/lo-studio" },
+                    { "md:text-green md:underline md:decoration-[1.5px] underline-offset-7": currentPath === "/lo-studio/" },
                 ]}
                 href="/lo-studio">LO STUDIO</a
             >
             <a
                 class:list={[
                     "text-white md:text-blue font-bold text-lg hover:text-green",
-                    { "md:text-green": currentPath === "/servizi" },
+                    { "md:text-green md:underline md:decoration-[1.5px] underline-offset-7": currentPath === "/servizi/" },
                 ]}
                 href="/servizi">SERVIZI</a
             >
             <a
                 class:list={[
                     "text-white md:text-blue font-bold text-lg hover:text-green",
-                    { "md:text-green": currentPath === "/avvisi" },
+                    { "md:text-green md:underline md:decoration-[1.5px] underline-offset-7": currentPath === "/avvisi/" },
                 ]}
                 href="/avvisi">AVVISI</a
             >
             <a
                 class:list={[
                     "text-white md:text-blue font-bold text-lg hover:text-green",
-                    { "md:text-green": currentPath === "/contatti" },
+                    { "md:text-green md:underline md:decoration-[1.5px] underline-offset-7": currentPath === "/contatti/" },
                 ]}
                 href="/contatti">CONTATTI</a
             >
@@ -140,14 +140,14 @@ const currentPath = Astro.url.pathname;
 
     window.onscroll = () => {
         if (window.scrollY === 0) {
-            header.classList.remove("shadow-md");
+            header.classList.remove("shadow-2xl");
 
             if (window.innerWidth >= 1000) {
                 topDiv.style.display = "flex";
             }
         } else {
             topDiv.style.display = "none";
-            header.classList.add("shadow-md");
+            header.classList.add("shadow-2xl");
         }
     };
 </script>

@@ -1,0 +1,6 @@
+option batch abort
+option confirm off
+open studiodusio.it
+lcd "C:/Users/samue/Documents/Coding/Web/studio-dusio/frontend"
+synchronize remote -delete -criteria=date ./dist /httpdocs
+exit

@@ -13,71 +13,30 @@ import Icon from "../../components/Typography/Icon.astro";
 <Layout>
     <PageTitle
         breadcrumbs={[{ text: "Home", url: "/" }, { text: "Servizi", url: "/servizi" }, { text: "Visite Ambulatoriali", url: "/servizi/visite-ambulatoriali" }]}
-        title="Cos'è una visita ambulatoriale?"
+        title="Cosa sono le visite ambulatoriali?"
     >
-        La visita ambulatoriale è un <span class="font-bold"
-            >controllo medico</span
-        > importante per valutare <span class="font-bold"
-            >il tuo stato di salute generale</span
-        >, individuare eventuali <span class="font-bold">disturbi</span> e creare
-        un piano di <span class="font-bold">trattamento</span> su misura per te.
+La visite ambulatoriali sono un <strong>controllo medico</strong> importante per valutare <strong>il tuo stato di salute generale</strong>, individuare eventuali <strong>disturbi</strong> e creare un piano di <strong>trattamento</strong> su misura per te.
     </PageTitle>
     <section class="flex flex-col px-4 pt-8 xl:px-36 lg:px-18 md:px-9 md:pt-12">
-        <H3 class="mb-5">Cosa aspettarsi durante una visita ambulatoriale?</H3>
-        <ol class="list-decimal marker:font-bold list-inside">
-            <LI>
-                <span class="font-bold">Anamnesi:</span>
-                il medico ti farà alcune domande per raccogliere informazioni sulla
-                tua storia clinica, sui sintomi che stai avvertendo, sulle tue abitudini
-                quotidiane (alimentazione, attività fisica, consumo di alcol o fumo)
-                e sulle eventuali terapie che stai seguendo o hai seguito in passato.
-            </LI>
-            <LI>
-                <span class="font-bold">Esame obiettivo:</span>
-                verrà effettuato un controllo fisico per valutare il tuo stato generale.
-                Questo può includere la misurazione della pressione arteriosa, il
-                controllo del cuore e dei polmoni, e l’osservazione di eventuali
-                segni clinici legati ai sintomi che hai riportato.
-            </LI>
-            <LI>
-                <span class="font-bold">Esami diagnostici (se servono):</span>
-                se necessario, ti potranno essere prescritti esami di laboratorio
-                (come analisi del sangue o delle urine) oppure diagnostici, ad esempio
-                ecografie, radiografie o un elettrocardiogramma (ECG).
-            </LI>
-            <LI>
-                <span class="font-bold">Piano terapeutico:</span>
-                alla fine della visita, il medico ti proporrà un piano di cura personalizzato.
-                Questo potrebbe includere farmaci, consigli su come migliorare il
-                tuo stile di vita o la programmazione di ulteriori accertamenti.
-            </LI>
-        </ol>
+        <H3 class="mb-5"><span class="text-green">Cosa aspettarsi</span> durante le visite ambulatoriali?</H3>
+        <P>Durante la visite, dopo la raccolta dell’<strong>anamnesi</strong>, viene effettuata una valutazione generale dei vari apparati (cuore, polmoni, addome etc.) talvolta mirata in base ai <strong>disturbi riferiti dal paziente</strong>, al termine della quale il medico può formulare un’ipotesi diagnostica richiedendo eventuali <strong>indagini</strong> di conferma. </P>
     </section>
     <section class="flex flex-col px-4 pt-8 md:pt-12 xl:px-36 lg:px-18 md:px-9">
-        <H3 class="mb-5">Quando è importante farla?</H3>
-        <P>La visita ambulatoriale è consigliata:</P>
+        <H3 class="mb-5"><span class="text-green">Quando</span> è importante effettuarle?</H3>
+        <P>La visite ambulatoriali sono consigliate:</P>
         <ul class="list-disc marker:font-bold list-inside">
             <LI
-                ><span class="font-bold">In caso di sintomi persistenti</span> o
-                malesseri improvvisi</LI
+                ><strong>In caso di sintomi acuti</strong>  e/o <strong>persistenti invalidanti</strong> per il paziente;</LI
             >
             <LI
-                >Per i controlli periodici di <span class="font-bold"
-                    >prevenzione</span
-                ></LI
+                >Per monitorare <strong>patologie croniche</strong> (diabete mellito, BPCO);</LI
             >
             <LI
-                >Per monitorare <span class="font-bold">patologie croniche</span
-                > o gestire cure post-operatorie</LI
-            >
-            <LI
-                >Quando è necessario ottenere un <span class="font-bold"
-                    >certificato medico</span
-                ></LI
+                >Quando è necessario ottenere un <strong>certificato medico</strong>.</LI
             >
         </ul>
     </section>
-    <section class="flex flex-col px-4 pt-8 md:pt-12 xl:px-36 lg:px-18 md:px-9">
+    <!-- <section class="flex flex-col px-4 pt-8 md:pt-12 xl:px-36 lg:px-18 md:px-9">
         <div
             class="flex flex-col p-3 md:p-5 rounded-lg gap-3 md:gap-5 bg-blue-2"
         >
@@ -99,6 +58,6 @@ import Icon from "../../components/Typography/Icon.astro";
                 <i class="fas fa-chevron-right font-bold"></i>
             </Button>
         </div>
-    </section>
+    </section> -->
     <Services />
 </Layout>

@@ -19,13 +19,13 @@ const { class: className, ...rest } = Astro.props;
 >
     <div class="flex flex-col gap-5 self-start">
         <H4 icon="fa-circle-info">Contatti</H4>
-        <H3>Lorem ipsum dolor <span class="text-green">sit amet</span></H3>
+        <H3>Le informazioni di cui <span class="text-green">hai bisogno</span></H3>
     </div>
     <div class="grid md:grid-cols-2 xl:grid-cols-3 w-full gap-5">
         <div class="flex flex-col gap-4 bg-blue-2 p-5 rounded-lg">
             <div class="flex gap-4 items-center">
                 <Icon class="text-lg" icon="fa-phone" />
-                <a class="text-blue font-bold text-lg" href="tel:+390141351232">
+                <a class="text-blue font-bold text-lg md: md:text-xl" href="tel:+390141351232">
                     +39 014 135 1232
                 </a>
             </div>
@@ -38,19 +38,19 @@ const { class: className, ...rest } = Astro.props;
         <div class="flex flex-col gap-4 bg-blue-2 p-5 rounded-lg">
             <div class="flex gap-4 items-center">
                 <Icon class="text-lg" icon="fa-phone" />
-                <a class="text-blue font-bold text-lg" href="tel:+39360443191">
+                <a class="text-blue font-bold text-lg md:text-xl" href="tel:+39360443191">
                     +39 360 443 191
                 </a>
             </div>
             <P>
-                Per prenotare <span class="font-bold">visite domiciliari</span>
+                Per richiedere <span class="font-bold">visite domiciliari</span>
             </P>
         </div>
         <div class="flex flex-col gap-4 bg-blue-2 p-5 rounded-lg">
             <div class="flex gap-4 items-center">
                 <Icon class="text-lg" icon="fa-globe" />
                 <a
-                    class="text-blue font-bold text-lg"
+                    class="text-blue font-bold text-lg md:text-xl"
                     href="https://cupmedico.it"
                 >
                     Cupmedico.it

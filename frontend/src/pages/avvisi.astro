@@ -9,48 +9,50 @@ import illustration11 from "../assets/illustrations/11.png";
 ---
 
 <Layout>
-    <PageTitle
-        breadcrumbs={[
-            { text: "Home", url: "/" },
-            { text: "Avvisi", url: "/avvisi" },
-        ]}
-        title="Avvisi e Comunicazioni dallo Studio Dusio"
-    >
-Rimani aggiornato/a sulle <strong>ultime comunicazioni dello studio medico</strong>, variazioni di orario e iniziative per la tua salute.
-    </PageTitle>
-    <section
-        class="flex items-center flex-col-reverse lg:flex-row px-4 py-8 md:py-12 xl:px-36 lg:px-18 md:px-9 gap-4 md:gap-20"
-    >
-        <Image
-            class="max-h-96 lg:max-w-2/5 w-auto"
-            src={illustration11}
-            alt="Illustrazione 11"
-        />
-        <!-- Avviso in evidenza -->
-        <div id="featured-notice" class="flex flex-col gap-5"></div>
-    </section>
-    <Notices />
+  <PageTitle
+    breadcrumbs={[
+      { text: "Home", url: "/" },
+      { text: "Avvisi", url: "/avvisi" },
+    ]}
+    title="Avvisi e Comunicazioni dallo Studio Dusio"
+  >
+    Rimani aggiornato/a sulle <strong
+      >ultime comunicazioni dello studio medico</strong
+    >, variazioni di orario e iniziative per la tua salute.
+  </PageTitle>
+  <section
+    class="flex items-center flex-col-reverse lg:flex-row px-4 py-8 md:py-12 xl:px-36 lg:px-18 md:px-9 gap-4 md:gap-20"
+  >
+    <Image
+      class="max-h-96 lg:max-w-2/5 w-auto"
+      src={illustration11}
+      alt="Illustrazione 11"
+    />
+    <!-- Avviso in evidenza -->
+    <div id="featured-notice" class="flex flex-col gap-5"></div>
+  </section>
+  <Notices />
 </Layout>
 
 <script>
-    let featuredNotice = null;
-    async function fetchFeaturedNotice() {
-        const response = await fetch(
-            "https://www.studiodusio.it/get.php?what=featured-alert",
-        );
-        featuredNotice = await response.json();
-        renderFeaturedNotice();
-    }
+  let featuredNotice = null;
+  async function fetchFeaturedNotice() {
+    const response = await fetch(
+      "https://www.studiodusio.it/get.php?what=featured-alert"
+    );
+    featuredNotice = await response.json();
+    renderFeaturedNotice();
+  }
 
-    function renderFeaturedNotice() {
-        const container = document.getElementById("featured-notice");
-        const date = new Date(featuredNotice.date).toLocaleDateString("it-IT", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-        });
+  function renderFeaturedNotice() {
+    const container = document.getElementById("featured-notice");
+    const date = new Date(featuredNotice.date).toLocaleDateString("it-IT", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
 
-        container.innerHTML = `
+    container.innerHTML = `
             <div class="flex gap-4 items-center">
                 <i class="fas text-blue font-bold text-xl md:text-2xl fa-bell"></i>
                 <h4 class="text-blue font-display text-xl md:text-2xl">
@@ -67,7 +69,7 @@ Rimani aggiornato/a sulle <strong>ultime comunicazioni dello studio medico</stro
                 ${featuredNotice.text}
             </p>
         `;
-    }
+  }
 
-    document.addEventListener("DOMContentLoaded", fetchFeaturedNotice);
+  document.addEventListener("DOMContentLoaded", fetchFeaturedNotice);
 </script>

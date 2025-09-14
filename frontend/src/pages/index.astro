@@ -22,113 +22,129 @@ import illustration3 from "../assets/illustrations/3.png";
 ---
 
 <Layout>
-    <Hero />
-    <section
-        class="flex flex-col md:flex-row px-4 xl:px-36 lg:px-18 md:px-9 py-8 md:py-12 gap-2 bg-blue items-center"
-    >
-        <div class="flex flex-col gap-2">
-            <Icon class="text-2xl md:text-3xl text-white" icon="fa-heart" />
-            <H3 class="text-white">Ascolto e Attenzione</H3>
-            <P class="text-white">
-                Ci prendiamo cura di ogni paziente come di una <strong
-                    >persona unica</strong
-                >, con ascolto e attenzione dedicata.
-            </P>
-        </div>
-        <div class="flex flex-col gap-2">
-            <Icon
-                class="text-2xl md:text-3xl text-white"
-                icon="fa-comment-medical"
-            />
-            <H3 class="text-white">Fiducia e Esperienza</H3>
-            <P class="text-white">
-                Il rapporto di <strong>fiducia</strong> con il paziente è lo spazio
-                della nostra professionalità
-            </P>
-        </div>
-    </section>
-    <section
-        class="flex flex-col md:flex-row px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 gap-10 md:gap-20 bg-blue-2 items-center"
-    >
-        <div class="flex flex-col gap-4">
-            <H4 icon="fa-timeline">Percorso professionale</H4>
-            <H3>
-                Ferruccio Dusio: <span class="text-green">il mio percorso</span>
-            </H3>
-            <P>
-                Mi sono laureato e abilitato nel <strong>1988</strong>. Dopo
-                aver iniziato come
-                <strong>medico di guardia</strong> nel <strong>1990</strong>,
-                sono diventato <strong>Medico di Medicina Generale</strong> nel 1994.
-            </P>
-            <P>
-                Ho conseguito anche un diploma in diagnosi e terapia delle
-                <strong>cefalee</strong>, e ho lavorato in <strong
-                    >Geriatria</strong
-                > all’Ospedale di Asti.
-            </P>
-        </div>
-        <Image
-            class="max-h-96 w-auto md:max-w-1/2 lg:max-w-1/2"
-            src={illustration1}
-            alt="Illustrazione 1"
-        />
-    </section>
-    <section
-        class="flex flex-col-reverse md:flex-row px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 gap-0 md:gap-20 bg-blue-2 items-center"
-    >
-        <Image
-            class="max-h-96 w-auto md:max-w-2/5 lg:max-w-1/2"
-            src={illustration2}
-            alt="Illustrazione 2"
-        />
-        <div class="flex flex-col gap-4">
-            <H4 icon="fa-comment">La mia filosofia</H4>
-            <H3>
-                Curare il <span class="text-green">malato</span> e non la <span
-                    class="text-green">malattia</span
-                >
-            </H3>
-            <P>
-                Considero l'attività di cura simile al "<strong
-                    >confezionamento sartoriale di un abito su misura</strong
-                >" perché ogni paziente è una persona diversa. In un'epoca di
-                tecnologie moderne, metto sempre alla base un <strong
-                    >rapporto umano diretto e personale</strong
-                >.
-            </P>
-            <Button href="https://cupmedico.it" primary>
-                PRENOTA UNA VISITA
-                <i class="fas fa-chevron-right font-bold"></i>
-            </Button>
-        </div>
-    </section>
-    <Services />
-    <section
-        class="flex flex-col md:flex-row px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 gap-8 bg-blue-2 items-center justify-between"
-    >
-        <div class="flex flex-col gap-4">
-            <H4>Ultimi avvisi</H4>
-            <H3>Lorem ipsum dolor <span class="text-green">sit amet</span></H3>
-            <P>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit
-                amet condimentum ante, Lorem ipsum dolor sit amet...
-            </P>
-            <Button href="/avvisi" primary>
-                LEGGI TUTTO
-                <i class="fas fa-chevron-right font-bold"></i>
-            </Button>
-        </div>
-        <Image
-            class="max-h-60 w-auto"
-            src={illustration3}
-            alt="Illustrazione 3"
-        />
-    </section>
-    <FAQ />
-    <BookingInfo />
-    <Certifications />
-    <Contacts class="bg-blue-2" />
-    <Hours />
-    <Reviews />
+  <Hero />
+  <section
+    class="flex flex-col md:flex-row px-4 xl:px-36 lg:px-18 md:px-9 py-8 md:py-12 gap-2 bg-blue items-center"
+  >
+    <div class="flex flex-col gap-2">
+      <Icon class="text-2xl md:text-3xl text-white" icon="fa-heart" />
+      <H3 class="text-white">Ascolto e Attenzione</H3>
+      <P class="text-white">
+        Ci prendiamo cura di ogni paziente come di una <strong
+          >persona unica</strong
+        >, con ascolto e attenzione dedicata.
+      </P>
+    </div>
+    <div class="flex flex-col gap-2">
+      <Icon class="text-2xl md:text-3xl text-white" icon="fa-comment-medical" />
+      <H3 class="text-white">Fiducia e Esperienza</H3>
+      <P class="text-white">
+        Il rapporto di <strong>fiducia</strong> con il paziente è lo spazio della
+        nostra professionalità
+      </P>
+    </div>
+  </section>
+  <section
+    class="flex flex-col md:flex-row px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 gap-10 md:gap-20 bg-blue-2 items-center"
+  >
+    <div class="flex flex-col gap-4">
+      <H4 icon="fa-timeline">Percorso professionale</H4>
+      <H3>
+        Ferruccio Dusio: <span class="text-green">il mio percorso</span>
+      </H3>
+      <P>
+        Mi sono laureato e abilitato nel <strong>1988</strong>. Dopo aver
+        iniziato come
+        <strong>medico di guardia</strong> nel <strong>1990</strong>, sono
+        diventato <strong>Medico di Medicina Generale</strong> nel 1994.
+      </P>
+      <P>
+        Ho conseguito anche un diploma in diagnosi e terapia delle
+        <strong>cefalee</strong>, e ho lavorato in <strong>Geriatria</strong> all’Ospedale
+        di Asti.
+      </P>
+    </div>
+    <Image
+      class="max-h-96 w-auto md:max-w-1/2 lg:max-w-1/2"
+      src={illustration1}
+      alt="Illustrazione 1"
+    />
+  </section>
+  <section
+    class="flex flex-col-reverse md:flex-row px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 gap-0 md:gap-20 bg-blue-2 items-center"
+  >
+    <Image
+      class="max-h-96 w-auto md:max-w-2/5 lg:max-w-1/2"
+      src={illustration2}
+      alt="Illustrazione 2"
+    />
+    <div class="flex flex-col gap-4">
+      <H4 icon="fa-comment">La mia filosofia</H4>
+      <H3>
+        Curare il <span class="text-green">malato</span> e non la <span
+          class="text-green">malattia</span
+        >
+      </H3>
+      <P>
+        Considero l'attività di cura simile al "<strong
+          >confezionamento sartoriale di un abito su misura</strong
+        >" perché ogni paziente è una persona diversa. In un'epoca di tecnologie
+        moderne, metto sempre alla base un <strong
+          >rapporto umano diretto e personale</strong
+        >.
+      </P>
+      <Button href="https://cupmedico.it" primary>
+        PRENOTA UNA VISITA
+        <i class="fas fa-chevron-right font-bold"></i>
+      </Button>
+    </div>
+  </section>
+  <Services />
+  <section
+    class="flex flex-col md:flex-row px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 gap-8 bg-blue-2 items-center justify-between"
+  >
+    <div class="flex flex-col gap-4">
+      <H4>Ultimi avvisi</H4>
+      <div id="featured-notice" class="flex flex-col gap-4">
+        <H3 id="featured-notice-title"
+          >Lorem ipsum dolor <span class="text-green">sit amet</span></H3
+        >
+        <P id="featured-notice-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet
+          condimentum ante, Lorem ipsum dolor sit amet...
+        </P>
+      </div>
+      <Button href="/avvisi" primary>
+        LEGGI TUTTO
+        <i class="fas fa-chevron-right font-bold"></i>
+      </Button>
+    </div>
+    <Image class="max-h-60 w-auto" src={illustration3} alt="Illustrazione 3" />
+  </section>
+  <FAQ />
+  <BookingInfo />
+  <Certifications />
+  <Contacts class="bg-blue-2" />
+  <Hours />
+  <Reviews />
 </Layout>
+
+<script>
+  let featuredNotice = null;
+  async function fetchFeaturedNotice() {
+    const response = await fetch(
+      "https://www.studiodusio.it/get.php?what=featured-alert"
+    );
+    featuredNotice = await response.json();
+    renderFeaturedNotice();
+  }
+
+  function renderFeaturedNotice() {
+    const noticeTitle = document.getElementById("featured-notice-title");
+    const noticeText = document.getElementById("featured-notice-text");
+    noticeTitle.innerHTML = featuredNotice.title;
+    noticeText.innerHTML = featuredNotice.text;
+  }
+
+  document.addEventListener("DOMContentLoaded", fetchFeaturedNotice);
+</script>

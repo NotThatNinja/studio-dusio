@@ -26,157 +26,175 @@ import photo9 from "../assets/people/5.jpg";
 ---
 
 <Layout>
-    <PageTitle
-        breadcrumbs={[
-            { text: "HOME", url: "/" },
-            { text: "LO STUDIO", url: "/lo-studio" },
+  <PageTitle
+    breadcrumbs={[
+      { text: "HOME", url: "/" },
+      { text: "LO STUDIO", url: "/lo-studio" },
+    ]}
+    title="Lo Studio Medico Dusio"
+  >
+    Un punto di riferimento per la <strong>tua salute</strong>, dove oltre <strong
+      >30</strong
+    > anni di esperienza medica si uniscono all'attenzione per la persona.
+  </PageTitle>
+  <section
+    class="flex flex-col-reverse md:flex-row px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 gap-10 md:gap-20 items-center"
+  >
+    <Image
+      class="rounded-lg max-h-96 md:max-w-1/2 lg:max-w-1/2 object-cover"
+      src={photo1}
+      alt="Il Dottor Dusio"
+    />
+    <div class="flex flex-col gap-5">
+      <H4 icon="fa-book-bible">La mia storia</H4>
+      <H3>Sono il <span class="text-green">Dottor Dusio</span></H3>
+      <P>
+        Mi sono laureato e abilitato nel <strong>1988</strong>. Dopo aver
+        iniziato come
+        <strong>medico di guardia</strong> nel <strong>1990</strong>, ho
+        lavorato per un periodo nel reparto di <strong>Geriatria</strong> all’Ospedale
+        di Asti nel 1991.
+      </P>
+      <P>
+        <strong>Nel 1993</strong> ho conseguito presso la facoltà di <strong>
+          Medicina dell’Università di Torino
+        </strong> il diploma di perfezionamento in diagnosi e terapia delle
+        <strong>cefalee</strong>. Nel <strong>1994</strong> sono diventato
+        <strong> Medico di Medicina Generale </strong>.
+      </P>
+      <Image
+        class="hidden lg:block"
+        src={illustration6}
+        alt="Illustrazione 6"
+        width="267"
+        height="150"
+      />
+    </div>
+  </section>
+  <Certifications />
+  <section
+    class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 bg-blue-2 relative"
+  >
+    <Image
+      class="absolute -left-10 -z-1 bottom-0 opacity-30"
+      src={illustration7}
+      alt="Illustrazione 7"
+      width="373"
+    />
+    <Image
+      class="absolute right-0 -z-1 bottom-0 opacity-30 hidden md:block"
+      src={illustration8}
+      alt="Illustrazione 8"
+      width="373"
+    />
+    <H3 class="text-center max-w-6xl mx-auto">
+      Il mio obiettivo è costruire un <span class="text-green"
+        >rapporto di fiducia</span
+      > con ogni paziente, creando <span class="text-green"
+        >cure personalizzate</span
+      >
+    </H3>
+  </section>
+  <section
+    class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 flex flex-col gap-5 items-center"
+  >
+    <H4 icon="fa-hand-holding-medical">Il Team dello Studio</H4>
+    <H3>I miei <span class="text-green">collaboratori</span></H3>
+    <div class="grid md:grid-cols-2 mt-2 md:mt-7 gap-10">
+      <PersonCard
+        class="h-96 w-64"
+        title="Fabrizio Baglieri"
+        subtitle="INFERMIERE"
+        image={photo3}
+        alt="Fabrizio Baglieri"
+        skills={[
+          "Diploma di Infermiere",
+          "Certificazione BLSD",
+          "Assistenza al medico",
+          "Gestione ambulatorio",
+          "Esperienza in cure palliative",
         ]}
-        title="Lo Studio Medico Dusio"
-    >
-        Un punto di riferimento per la <strong>tua salute</strong>, dove oltre <strong
-            >30</strong
-        > anni di esperienza medica si uniscono all'attenzione per la persona.
-    </PageTitle>
-    <section
-        class="flex flex-col-reverse md:flex-row px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 gap-10 md:gap-20 items-center"
-    >
-        <Image
-            class="rounded-lg max-h-96 md:max-w-1/2 lg:max-w-1/2 object-cover"
-            src={photo1}
-            alt="Il Dottor Dusio"
-        />
-        <div class="flex flex-col gap-5">
-            <H4 icon="fa-book-bible">La mia storia</H4>
-            <H3>Sono il <span class="text-green">Dottor Dusio</span></H3>
-            <P>
-                Mi sono laureato e abilitato nel <strong>1988</strong>. Dopo
-                aver iniziato come
-                <strong>medico di guardia</strong> nel <strong>1990</strong>, ho
-                lavorato per un periodo nel reparto di <strong>Geriatria</strong
-                > all’Ospedale di Asti nel 1991.
-            </P>
-            <P>
-                <strong>Nel 1993</strong> ho conseguito presso la facoltà di <strong
-                >
-                    Medicina dell’Università di Torino
-                </strong> il diploma di perfezionamento in diagnosi e terapia delle
-                <strong>cefalee</strong>. Nel <strong>1994</strong> sono diventato
-                <strong> Medico di Medicina Generale </strong>.
-            </P>
-            <Image
-                class="hidden lg:block"
-                src={illustration6}
-                alt="Illustrazione 6"
-                width="267"
-                height="150"
-            />
-        </div>
-    </section>
-    <Certifications />
-    <section
-        class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 bg-blue-2 relative"
-    >
-        <Image
-            class="absolute -left-10 -z-1 bottom-0 opacity-30"
-            src={illustration7}
-            alt="Illustrazione 7"
-            width="373"
-        />
-        <Image
-            class="absolute right-0 -z-1 bottom-0 opacity-30 hidden md:block"
-            src={illustration8}
-            alt="Illustrazione 8"
-            width="373"
-        />
-        <H3 class="text-center max-w-6xl mx-auto">
-            Il mio obiettivo è costruire un <span class="text-green"
-                >rapporto di fiducia</span
-            > con ogni paziente, offrendo <span class="text-green"
-                >cure personalizzate</span
-            >
-        </H3>
-    </section>
-    <section
-        class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 flex flex-col gap-5 items-center"
-    >
-        <H4 icon="fa-hand-holding-medical">Il Team dello Studio</H4>
-        <H3>I miei <span class="text-green">collaboratori</span></H3>
-        <div class="grid md:grid-cols-2 mt-2 md:mt-7 gap-10">
-            <PersonCard
-                class="h-96 w-64"
-                title="Fabrizio Baglieri"
-                subtitle="INFERMIERE"
-                image={photo3}
-                alt="Fabrizio Baglieri"
-                description="Fabrizio accoglie i pazienti dello Studio Medico del Dott. Dusio con professionalità e competenza, frutto di oltre 25 anni di esperienza in ambito infermieristico. La sua presenza garantisce assistenza qualificata e continuità nelle cure. Con un approccio empatico e rassicurante, Fabrizio si occupa della gestione integrata dei pazienti diabetici che monitorizza personalmente in collaborazione con il Dott. Dusio. Si occupa inoltre di terapie iniettive, vaccinazioni, medicazioni e supporto alle attività cliniche quotidiane. Nella gestione del paziente cerca un rapporto personale attento alle esigenze specifiche di ognuno, in un ambiente confortevole e professionale."
-                skills={[
-                    "Diploma di Infermiere",
-                    "Certificazione BLSD",
-                    "Assistenza al medico",
-                    "Gestione ambulatorio",
-                    "Esperienza in cure palliative",
-                ]}
-                phone="+39 333 4444 202"
-            />
-            <PersonCard
-                class="h-96 w-64"
-                title="Sara Ferraris"
-                subtitle="SEGRETARIA"
-                image={photo9}
-                alt="Sara Ferraris"
-                description="Sara è il volto accogliente che vi darà il benvenuto presso lo Studio Medico del Dott. Dusio. Come segretaria, coordina con efficienza gli appuntamenti e accoglie i pazienti con gentilezza e professionalità. La sua formazione in podologia e le certificazioni specialistiche le permettono di comprendere appieno le loro esigenze, offrendo informazioni precise. Grazie alla sua esperienza in ambito sanitario e al suo approccio empatico, Sara rende ogni accesso allo studio un'esperienza confortevole, dove i pazienti si sentono ascoltati e ben assistiti fin dal primo contatto."
-                skills={[
-                    "Laura Podologia",
-                    "Capacità comunicative",
-                    "Coordinamento pazienti",
-                    "Certificazioni in ambito salute",
-                    "Esperienza in diabetologia",
-                ]}
-                phone="+39 0141 351232"
-            />
-        </div>
-    </section>
-    <section
-        class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 flex flex-col md:flex-row gap-5 md:gap-20 items-center bg-blue-2"
-    >
-        <div class="flex flex-col gap-5 md:max-w-1/3 lg:max-w-1/2">
-            <H4 icon="fa-house-chimney-medical">Lo studio medico</H4>
-            <H3>Il nostro <span class="text-green">ambulatorio</span></H3>
-            <P>
-                Lo Studio Medico Dusio è progettato per offrirti un ambiente
-                <strong>professionale e accogliente</strong>. Le visite si
-                svolgono in un ambiente confortevole e <strong>riservato</strong
-                >.
-            </P>
-        </div>
-        <Gallery photos={[photo2, photo6, photo4, photo5, photo8]} />
-    </section>
-    <section
-        class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 flex flex-col gap-4 items-center relative justify-center"
-    >
-        <H4 icon="fa-suitcase-medical">Scopri i nostri servizi</H4>
-        <H3 class="text-center max-w-4xl">
-            Con la <span class="text-green">medicina generale</span> e <span
-                class="text-green">l’assistenza infermieristica</span
-            > un approccio completo alla <span class="text-green"
-                >tua salute</span
-            >
-        </H3>
-        <Button class="md:mt-8" href="/servizi" primary>
-            GUARDA TUTTO
-            <i class="fas fa-chevron-right font-bold"></i>
-        </Button>
-        <Image
-            class="absolute left-0 hidden xl:block"
-            src={illustration9}
-            alt="Illustrazione 9"
-            width="320"
-        />
-        <Image
-            class="absolute right-0 hidden xl:block"
-            src={illustration9}
-            alt="Illustrazione 9"
-            width="320"
-        />
-    </section>
+        phone="+39 333 4444 202"
+      >
+        Fabrizio accoglie i pazienti dello Studio Medico del Dott. Dusio con
+        <strong>professionalità e competenza</strong>, frutto di oltre <strong
+          >25 anni</strong
+        > di esperienza in ambito infermieristico. La sua presenza garantisce assistenza
+        qualificata e continuità nelle cure. Con un <strong>
+          approccio empatico e rassicurante
+        </strong>, Fabrizio si occupa della gestione integrata dei pazienti
+        diabetici che monitorizza personalmente in collaborazione con il Dott.
+        Dusio. Si occupa inoltre di terapie iniettive, vaccinazioni, medicazioni
+        e <strong>supporto alle attività cliniche quotidiane</strong>. Nella
+        gestione del paziente cerca un <strong>rapporto personale</strong> attento
+        alle esigenze specifiche di ognuno, in un ambiente confortevole e professionale.
+      </PersonCard>
+      <PersonCard
+        class="h-96 w-64"
+        title="Sara Ferraris"
+        subtitle="SEGRETARIA"
+        image={photo9}
+        alt="Sara Ferraris"
+        skills={[
+          "Laura Podologia",
+          "Capacità comunicative",
+          "Coordinamento pazienti",
+          "Certificazioni in ambito salute",
+          "Esperienza in diabetologia",
+        ]}
+        phone="+39 0141 351232"
+      >
+        Sara è il volto <strong>accogliente</strong> che vi darà il benvenuto presso
+        lo Studio Medico del Dott. Dusio. Come segretaria, coordina con efficienza
+        gli appuntamenti e accoglie i pazienti con <strong
+          >gentilezza e professionalità</strong
+        >. La sua formazione in <strong>podologia</strong> e le certificazioni specialistiche
+        le permettono di comprendere appieno le loro <strong>esigenze</strong>,
+        offrendo informazioni precise. Grazie alla sua esperienza in ambito
+        sanitario e al suo approccio empatico, Sara rende ogni accesso allo
+        studio un'esperienza confortevole, dove i pazienti si sentono ascoltati
+        e ben assistiti fin dal primo contatto.
+      </PersonCard>
+    </div>
+  </section>
+  <section
+    class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 flex flex-col md:flex-row gap-5 md:gap-20 items-center bg-blue-2"
+  >
+    <div class="flex flex-col gap-5 md:max-w-1/3 lg:max-w-1/2">
+      <H4 icon="fa-house-chimney-medical">Lo studio medico</H4>
+      <H3>Il nostro <span class="text-green">ambulatorio</span></H3>
+      <P>
+        Lo Studio Medico Dusio è progettato per offrirti un ambiente
+        <strong>professionale e accogliente</strong>. Le visite si svolgono in
+        un ambiente confortevole e <strong>riservato</strong>.
+      </P>
+    </div>
+    <Gallery photos={[photo2, photo6, photo4, photo5, photo8]} />
+  </section>
+  <section
+    class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 flex flex-col gap-4 items-center relative justify-center"
+  >
+    <H4 icon="fa-suitcase-medical">Scopri i nostri servizi</H4>
+    <H3 class="text-center max-w-4xl">
+      Con la <span class="text-green">medicina generale</span> e <span
+        class="text-green">l’assistenza infermieristica</span
+      > un approccio completo alla <span class="text-green">tua salute</span>
+    </H3>
+    <Button class="md:mt-8" href="/servizi" primary>
+      GUARDA TUTTO
+      <i class="fas fa-chevron-right font-bold"></i>
+    </Button>
+    <Image
+      class="absolute left-0 hidden xl:block"
+      src={illustration9}
+      alt="Illustrazione 9"
+      width="320"
+    />
+    <Image
+      class="absolute right-0 hidden xl:block"
+      src={illustration9}
+      alt="Illustrazione 9"
+      width="320"
+    />
+  </section>
 </Layout>

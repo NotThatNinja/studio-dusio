@@ -7,81 +7,81 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <section
-    class:list={[
-        "flex flex-col gap-4 px-4 py-8 md:py-12 xl:px-36 lg:px-18 md:px-9 items-center",
-        className,
-    ]}
-    {...rest}
+  class:list={[
+    "flex flex-col gap-4 px-4 py-8 md:py-12 xl:px-36 lg:px-18 md:px-9 items-center",
+    className,
+  ]}
+  {...rest}
 >
-    <H3 class="text-center">
-        Prenota il tuo <span class="text-green">appuntamento online</span>
-    </H3>
-    <div class="flex gap-7">
-        <button
-            id="userNotRegisteredButton"
-            class="text-white bg-green px-5 py-2 rounded-2xl cursor-pointer"
-            type="button">Non sono registrato/a</button
-        >
-        <button
-            id="userRegisteredButton"
-            class="text-blue bg-blue-2 px-5 py-2 rounded-2xl cursor-pointer"
-            type="button">Sono registrato/a</button
-        >
-    </div>
-    <div class="md:w-3/4 px-5 py-2 rounded-lg border border-green">
-        <P id="userRegisteredText">
-            Se è la <strong>prima volta</strong> che prenoti una visita in ambulatorio
-            (come <strong> non registrato</strong>), devi recarti in studio
-            negli orari di segreteria presentando alla segretaria il nuovo <strong
-                >tesserino sanitario cartaceo</strong
-            >. Dopo la registrazione puoi utilizzare il link <strong
-                >cupmedico.it</strong
-            >.
-        </P>
-    </div>
+  <H3 class="text-center">
+    Prenota il tuo <span class="text-green">appuntamento online</span>
+  </H3>
+  <div class="flex gap-7">
+    <button
+      id="userNotRegisteredButton"
+      class="text-white bg-green px-5 py-2 rounded-2xl cursor-pointer"
+      type="button">Non sono registrato/a</button
+    >
+    <button
+      id="userRegisteredButton"
+      class="text-blue bg-blue-2 px-5 py-2 rounded-2xl cursor-pointer"
+      type="button">Sono registrato/a</button
+    >
+  </div>
+  <div class="md:w-3/4 px-5 py-2 rounded-lg border border-green">
+    <P id="userRegisteredText">
+      Se è la <strong>prima volta</strong> che prenoti una visita in ambulatorio
+      (come <strong> non registrato</strong>), devi recarti in studio negli
+      orari di segreteria presentando alla segretaria il nuovo <strong
+        >tesserino sanitario cartaceo</strong
+      >. Dopo la registrazione puoi utilizzare il link <strong
+        >cupmedico.it</strong
+      >.
+    </P>
+  </div>
 </section>
 
 <script>
-    // Text that appears when the user selects "Sono registrato/a" and "Non sono registrato/a"
-    function changeUserRegistered(registered: boolean) {
-        const userNotRegistered =
-            "Se è la <strong>prima volta</strong> che prenoti una visita in ambulatorio (come <strong> non registrato</strong>), devi recarti in studio negli orari di segreteria presentando alla segretaria il nuovo <strong>tesserino sanitario cartaceo</strong>. Dopo la registrazione puoi utilizzare il link <strong>cupmedico.it</strong>.";
-        const userRegistered =
-            "Puoi utilizzare <strong>cupmedico.it</strong> per <strong>prenotare</strong> online visite ambulatoriali, <strong>visualizzare</strong> il tuo appuntamento, modificarlo o <strong>disdirlo</strong> e controllare la <strong>disponibilità</strong> del dottore. Non sai come si fa? Guarda la guida <strong>QUI</strong>.";
-        const activeButtonStyle =
-            "bg-green text-white px-5 py-2 rounded-2xl cursor-pointer";
-        const inactiveButtonStyle =
-            "bg-blue-2 text-blue px-5 py-2 rounded-2xl cursor-pointer";
+  // Text that appears when the user selects "Sono registrato/a" and "Non sono registrato/a"
+  function changeUserRegistered(registered: boolean) {
+    const userNotRegistered =
+      "Se è la <strong>prima volta</strong> che prenoti una visita in ambulatorio (come <strong> non registrato</strong>), devi recarti in studio negli orari di segreteria presentando alla segretaria il nuovo <strong>tesserino sanitario cartaceo</strong>. Dopo la registrazione puoi utilizzare il link <strong>cupmedico.it</strong>.";
+    const userRegistered =
+      'Puoi utilizzare <strong>cupmedico.it</strong> per <strong>prenotare</strong> online visite ambulatoriali, <strong>visualizzare</strong> il tuo appuntamento, modificarlo o <strong>disdirlo</strong> e controllare la <strong>disponibilità</strong> del dottore. Non sai come si fa? Guarda la guida <a class="underline" href="/static/tutorial-cap-medico-studio-dusio.mp4" target="_blank"><strong>QUI</strong></a>.';
+    const activeButtonStyle =
+      "bg-green text-white px-5 py-2 rounded-2xl cursor-pointer";
+    const inactiveButtonStyle =
+      "bg-blue-2 text-blue px-5 py-2 rounded-2xl cursor-pointer";
 
-        const p = document.getElementById(
-            "userRegisteredText",
-        ) as HTMLParagraphElement;
-        const userRegisteredButton = document.getElementById(
-            "userRegisteredButton",
-        ) as HTMLButtonElement;
-        const userNotRegisteredButton = document.getElementById(
-            "userNotRegisteredButton",
-        ) as HTMLButtonElement;
+    const p = document.getElementById(
+      "userRegisteredText"
+    ) as HTMLParagraphElement;
+    const userRegisteredButton = document.getElementById(
+      "userRegisteredButton"
+    ) as HTMLButtonElement;
+    const userNotRegisteredButton = document.getElementById(
+      "userNotRegisteredButton"
+    ) as HTMLButtonElement;
 
-        if (registered) {
-            p.innerHTML = userRegistered;
-            userRegisteredButton.className = activeButtonStyle;
-            userNotRegisteredButton.className = inactiveButtonStyle;
-        } else {
-            p.innerHTML = userNotRegistered;
-            userRegisteredButton.className = inactiveButtonStyle;
-            userNotRegisteredButton.className = activeButtonStyle;
-        }
+    if (registered) {
+      p.innerHTML = userRegistered;
+      userRegisteredButton.className = activeButtonStyle;
+      userNotRegisteredButton.className = inactiveButtonStyle;
+    } else {
+      p.innerHTML = userNotRegistered;
+      userRegisteredButton.className = inactiveButtonStyle;
+      userNotRegisteredButton.className = activeButtonStyle;
     }
+  }
 
-    document
-        .getElementById("userRegisteredButton")
-        ?.addEventListener("click", () => {
-            changeUserRegistered(true);
-        });
-    document
-        .getElementById("userNotRegisteredButton")
-        ?.addEventListener("click", () => {
-            changeUserRegistered(false);
-        });
+  document
+    .getElementById("userRegisteredButton")
+    ?.addEventListener("click", () => {
+      changeUserRegistered(true);
+    });
+  document
+    .getElementById("userNotRegisteredButton")
+    ?.addEventListener("click", () => {
+      changeUserRegistered(false);
+    });
 </script>

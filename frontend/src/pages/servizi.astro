@@ -12,105 +12,107 @@ import photo7 from "../assets/photos/7.jpg";
 ---
 
 <Layout>
-    <PageTitle
-        breadcrumbs={[
-            { text: "Home", url: "/" },
-            { text: "Servizi", url: "/servizi" },
-        ]}
-        title="Servizi Sanitari"
-    >
-        Un approccio <strong>personalizzato</strong> ad ogni <strong>tua esigenza</strong> di salute
-    </PageTitle>
-    <section
-        class="flex flex-col gap-2 px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 items-center"
-    >
-        <H4 icon="fa-hospital-user">Pagina Servizi</H4>
-        <H3>Dedicata ai <span class="text-green">pazienti</span></H3>
-        <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-3 gap-10">
-            <Card
-                class="w-80 h-60"
-                title="Visite ambulatoriali"
-                href="/servizi/visite-ambulatoriali"
-                image={photo7}
-                alt="Visite ambulatoriali"
-            />
-            <Card
-                class="w-80 h-60"
-                title="Visite domiciliari"
-                href="#"
-                image={photo7}
-                alt="Visite domiciliari"
-            />
-            <Card
-                class="w-80 h-60"
-                title="Ricette"
-                href="#"
-                image={photo7}
-                alt="Ricette"
-            />
-            <Card
-                class="w-80 h-60"
-                title="Certificati"
-                href="#"
-                image={photo7}
-                alt="Certificati"
-            />
-            <Card
-                class="w-80 h-60"
-                title="Vaccinazioni"
-                href="#"
-                image={photo7}
-                alt="Vaccinazioni"
-            />
-            <Card
-                class="w-80 h-60"
-                title="Attività infermieristica"
-                href="#"
-                image={photo7}
-                alt="Attività infermieristica"
-            />
-            <Card
-                class="w-80 h-60"
-                title="Terapia delle Cefalee"
-                href="#"
-                image={photo7}
-                alt="Terapia delle Cefalee"
-            />
-            <Card
-                class="w-80 h-60"
-                title="Spirometria"
-                href="#"
-                image={photo7}
-                alt="Spirometria"
-            />
-        </div>
-        <H3 class="mt-8 text-center">
-            Attività <span class="text-green">Professionali</span> e Collaborazioni
-        </H3>
-        <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-3 gap-10">
-            <Card
-                class="w-80 h-60"
-                title="Tutor scuola di Medicina Generale"
-                href="#"
-                image={photo7}
-                alt="Tutor scuola di Medicina Generale"
-            />
-            <Card
-                class="w-80 h-60"
-                title="Medicina di Gruppo"
-                href="#"
-                image={photo7}
-                alt="Medicina di Gruppo"
-            />
-            <Card
-                class="w-80 h-60"
-                title="Medico Sentinella Influenza"
-                href="#"
-                image={photo7}
-                alt="Medico Sentinella Influenza"
-            />
-        </div>
-    </section>
-    <BookingInfo class="bg-blue-2" />
-    <Reviews />
+  <PageTitle
+    breadcrumbs={[
+      { text: "Home", url: "/" },
+      { text: "Servizi", url: "/servizi" },
+    ]}
+    title="Servizi Sanitari"
+  >
+    Un approccio <strong>personalizzato</strong> ad ogni <strong
+      >tua esigenza</strong
+    > di salute
+  </PageTitle>
+  <section
+    class="flex flex-col gap-2 px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 items-center"
+  >
+    <H4 icon="fa-hospital-user">Pagina Servizi</H4>
+    <H3>Dedicata ai <span class="text-green">pazienti</span></H3>
+    <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-3 gap-10">
+      <Card
+        class="w-80 h-60"
+        title="Visite ambulatoriali"
+        href="/servizi/visite-ambulatoriali"
+        image={photo7}
+        alt="Visite ambulatoriali"
+      />
+      <Card
+        class="w-80 h-60"
+        title="Visite domiciliari"
+        href="/servizi/visite-domiciliari"
+        image={photo7}
+        alt="Visite domiciliari"
+      />
+      <Card
+        class="w-80 h-60"
+        title="Ricette"
+        href="/servizi/ricette"
+        image={photo7}
+        alt="Ricette"
+      />
+      <Card
+        class="w-80 h-60"
+        title="Certificati"
+        href="/servizi/certificati"
+        image={photo7}
+        alt="Certificati"
+      />
+      <Card
+        class="w-80 h-60"
+        title="Vaccinazioni"
+        href="/servizi/vaccinazioni"
+        image={photo7}
+        alt="Vaccinazioni"
+      />
+      <Card
+        class="w-80 h-60"
+        title="Attività infermieristica"
+        href="/servizi/attivita-infermieristiche"
+        image={photo7}
+        alt="Attività infermieristica"
+      />
+      <Card
+        class="w-80 h-60"
+        title="Terapia delle Cefalee"
+        href="/servizi/terapie-cefalee"
+        image={photo7}
+        alt="Terapia delle Cefalee"
+      />
+      <Card
+        class="w-80 h-60"
+        title="Spirometria"
+        href="/servizi/spirometrie"
+        image={photo7}
+        alt="Spirometria"
+      />
+    </div>
+    <H3 class="mt-8 text-center">
+      Attività <span class="text-green">Professionali</span> e Collaborazioni
+    </H3>
+    <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-3 gap-10">
+      <Card
+        class="w-80 h-60"
+        title="Tutor scuola di Medicina Generale"
+        href="/servizi/tutor-medicina-generale"
+        image={photo7}
+        alt="Tutor scuola di Medicina Generale"
+      />
+      <Card
+        class="w-80 h-60"
+        title="Medicina di Gruppo"
+        href="/servizi/medicina-di-gruppo"
+        image={photo7}
+        alt="Medicina di Gruppo"
+      />
+      <Card
+        class="w-80 h-60"
+        title="Medico Sentinella Influenza"
+        href="/servizi/medico-sentinella"
+        image={photo7}
+        alt="Medico Sentinella Influenza"
+      />
+    </div>
+  </section>
+  <BookingInfo class="bg-blue-2" />
+  <Reviews />
 </Layout>

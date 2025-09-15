@@ -1,0 +1,27 @@
+---
+import Layout from "./Layout.astro";
+
+import PageTitle from "../components/PageTitle.astro";
+import Services from "../components/Sections/Services.astro";
+
+const { frontmatter } = Astro.props;
+
+import "../styles/servicePage.css";
+---
+
+<Layout>
+  <PageTitle
+    breadcrumbs={[
+      { text: "Home", url: "/" },
+      { text: "Servizi", url: "/servizi" },
+      { text: "Visite Ambulatoriali", url: frontmatter.url },
+    ]}
+    title={frontmatter.title}
+  >
+    {frontmatter.subtitle}
+  </PageTitle>
+  <section class="flex flex-col px-4 pt-8 xl:px-36 lg:px-18 md:px-9 md:pt-12">
+    <slot />
+  </section>
+  <Services />
+</Layout>

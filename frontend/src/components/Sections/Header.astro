@@ -8,138 +8,154 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="fixed w-full top-0 bg-white z-20">
-    <div
-        id="topBar"
-        class="bg-green py-2 align-middle justify-center gap-11 hidden md:flex"
-    >
-        <div class="flex gap-3.5 items-baseline">
-            <i class="fas fa-phone text-white"></i>
-            <a
-                class="text-white hover:text-blue font-semibold"
-                href="tel:+3903315783369">0331 578 3369</a
-            >
+  <div
+    id="topBar"
+    class="bg-green py-2 align-middle justify-center gap-11 hidden md:flex"
+  >
+    <div class="flex gap-3.5 items-baseline">
+      <i class="fas fa-phone text-white"></i>
+      <a
+        class="text-white hover:text-blue font-semibold"
+        href="tel:+3903315783369">0331 578 3369</a
+      >
+    </div>
+    <div class="flex gap-3.5 items-baseline">
+      <i class="fas fa-map-marker-alt text-white"></i>
+      <a
+        class="text-white hover:text-blue font-semibold"
+        href="https://maps.app.goo.gl/3facDQu1PB8XQHCm6"
+        >Corso Savona 14100 Asti</a
+      >
+    </div>
+  </div>
+
+  <div
+    class="flex flex-col md:flex-row gap-8 md:gap-0 items-center md:justify-around py-2 px-5 xl:px-36 lg:px-18"
+  >
+    <div class="flex flex-row justify-between w-full md:w-auto">
+      <a href="/">
+        <Image
+          class="lg:w-[192px] lg:h-[64px] w-[154px] h-[51px]"
+          src={logo}
+          alt="Studio Dusio"
+        />
+      </a>
+
+      <button
+        id="nav-toggle"
+        type="button"
+        class="md:hidden p-2"
+        aria-label="Toggle navigation"
+      >
+        <div class="hamburger w-6 flex flex-col gap-[5px]">
+          <span
+            class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"
+          ></span>
+          <span
+            class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"
+          ></span>
+          <span
+            class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"
+          ></span>
         </div>
-        <div class="flex gap-3.5 items-baseline">
-            <i class="fas fa-map-marker-alt text-white"></i>
-            <a
-                class="text-white hover:text-blue font-semibold"
-                href="https://maps.app.goo.gl/3facDQu1PB8XQHCm6"
-                >Corso Savona 14100 Asti</a
-            >
-        </div>
+      </button>
     </div>
 
-    <div
-        class="flex flex-col md:flex-row gap-8 md:gap-0 items-center md:justify-around py-2 px-5 xl:px-36 lg:px-18"
+    <nav
+      class="top-[67px] absolute md:static py-4 md:py-0 bg-blue md:bg-white flex-col md:flex-row gap-8 items-center hidden md:flex w-full md:w-auto"
     >
-        <div class="flex flex-row justify-between w-full md:w-auto">
-            <a href="/">
-                <Image
-                    class="lg:w-[192px] lg:h-[64px] w-[154px] h-[51px]"
-                    src={logo}
-                    alt="Studio Dusio"
-                />
-            </a>
-
-            <button
-                id="nav-toggle"
-                type="button"
-                class="md:hidden p-2"
-                aria-label="Toggle navigation"
-            >
-                <div class="hamburger w-6 flex flex-col gap-[5px]">
-                    <span
-                        class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"
-                    ></span>
-                    <span
-                        class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"
-                    ></span>
-                    <span
-                        class="hamburger-line bg-blue h-[3px] w-full transition-all duration-300 ease-in-out rounded-4xl"
-                    ></span>
-                </div>
-            </button>
-        </div>
-
-        <nav
-            class="top-[67px] absolute md:static py-4 md:py-0 bg-blue md:bg-white flex-col md:flex-row gap-8 items-center hidden md:flex w-full md:w-auto"
-        >
-            <a
-                class:list={[
-                    "text-white md:text-blue font-bold text-lg hover:text-green",
-                    { "md:text-green md:underline md:decoration-[1.5px] underline-offset-7": currentPath === "/lo-studio/" },
-                ]}
-                href="/lo-studio">LO STUDIO</a
-            >
-            <a
-                class:list={[
-                    "text-white md:text-blue font-bold text-lg hover:text-green",
-                    { "md:text-green md:underline md:decoration-[1.5px] underline-offset-7": currentPath === "/servizi/" },
-                ]}
-                href="/servizi">SERVIZI</a
-            >
-            <a
-                class:list={[
-                    "text-white md:text-blue font-bold text-lg hover:text-green",
-                    { "md:text-green md:underline md:decoration-[1.5px] underline-offset-7": currentPath === "/avvisi/" },
-                ]}
-                href="/avvisi">AVVISI</a
-            >
-            <a
-                class:list={[
-                    "text-white md:text-blue font-bold text-lg hover:text-green",
-                    { "md:text-green md:underline md:decoration-[1.5px] underline-offset-7": currentPath === "/contatti/" },
-                ]}
-                href="/contatti">CONTATTI</a
-            >
-            <Button
-                class="bg-green md:bg-blue"
-                href="https://www.cupmedico.it/"
-                primary>PRENOTA</Button
-            >
-        </nav>
-    </div>
+      <a
+        class:list={[
+          "text-white md:text-blue font-bold text-lg hover:text-green",
+          {
+            "md:text-green md:underline md:decoration-[1.5px] underline-offset-7":
+              currentPath === "/lo-studio/",
+          },
+        ]}
+        href="/lo-studio">LO STUDIO</a
+      >
+      <a
+        class:list={[
+          "text-white md:text-blue font-bold text-lg hover:text-green",
+          {
+            "md:text-green md:underline md:decoration-[1.5px] underline-offset-7":
+              currentPath === "/servizi/",
+          },
+        ]}
+        href="/servizi">SERVIZI</a
+      >
+      <a
+        class:list={[
+          "text-white md:text-blue font-bold text-lg hover:text-green",
+          {
+            "md:text-green md:underline md:decoration-[1.5px] underline-offset-7":
+              currentPath === "/avvisi/",
+          },
+        ]}
+        href="/avvisi">AVVISI</a
+      >
+      <a
+        class:list={[
+          "text-white md:text-blue font-bold text-lg hover:text-green",
+          {
+            "md:text-green md:underline md:decoration-[1.5px] underline-offset-7":
+              currentPath === "/contatti/",
+          },
+        ]}
+        href="/contatti">CONTATTI</a
+      >
+      <Button
+        class="bg-green md:bg-blue"
+        href="https://www.cupmedico.it/"
+        primary>PRENOTA</Button
+      >
+    </nav>
+  </div>
 </header>
 
 <style>
-    .hamburger.open .hamburger-line:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 5px);
-    }
+  .hamburger.open .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 5px);
+  }
 
-    .hamburger.open .hamburger-line:nth-child(2) {
-        opacity: 0;
-    }
+  .hamburger.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
 
-    .hamburger.open .hamburger-line:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -5px);
-    }
+  .hamburger.open .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -5px);
+  }
+
+  .shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+  }
 </style>
 
 <script>
-    document.getElementById("nav-toggle")?.addEventListener("click", () => {
-        const nav = document.querySelector("nav");
-        const hamburger = document.querySelector(".hamburger");
+  document.getElementById("nav-toggle")?.addEventListener("click", () => {
+    const nav = document.querySelector("nav");
+    const hamburger = document.querySelector(".hamburger");
 
-        nav?.classList.toggle("hidden");
-        nav?.classList.toggle("flex");
+    nav?.classList.toggle("hidden");
+    nav?.classList.toggle("flex");
 
-        // Toggle hamburger animation
-        hamburger?.classList.toggle("open");
-    });
+    // Toggle hamburger animation
+    hamburger?.classList.toggle("open");
+  });
 
-    const header = document.querySelector("header");
-    const topDiv = document.getElementById("topBar");
+  const header = document.querySelector("header");
+  const topDiv = document.getElementById("topBar");
 
-    window.onscroll = () => {
-        if (window.scrollY === 0) {
-            header.classList.remove("shadow-2xl");
+  window.onscroll = () => {
+    if (window.scrollY === 0) {
+      header.classList.remove("shadow-2xl");
 
-            if (window.innerWidth >= 1000) {
-                topDiv.style.display = "flex";
-            }
-        } else {
-            topDiv.style.display = "none";
-            header.classList.add("shadow-2xl");
-        }
-    };
+      if (window.innerWidth >= 1000) {
+        topDiv.style.display = "flex";
+      }
+    } else {
+      topDiv.style.display = "none";
+      header.classList.add("shadow-2xl");
+    }
+  };
 </script>

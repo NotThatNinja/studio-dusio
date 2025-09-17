@@ -133,7 +133,7 @@ import illustration3 from "../assets/illustrations/3.png";
   let featuredNotice = null;
   async function fetchFeaturedNotice() {
     const response = await fetch(
-      "https://www.studiodusio.it/get.php?what=featured-alert"
+      "https://www.studiodusio.it/get.php?what=featured-alert",
     );
     featuredNotice = await response.json();
     renderFeaturedNotice();
@@ -143,7 +143,10 @@ import illustration3 from "../assets/illustrations/3.png";
     const noticeTitle = document.getElementById("featured-notice-title");
     const noticeText = document.getElementById("featured-notice-text");
     noticeTitle.innerHTML = featuredNotice.title;
-    noticeText.innerHTML = featuredNotice.text;
+    noticeText.innerHTML =
+      featuredNotice.text.length > 150
+        ? featuredNotice.text.slice(0, 150) + "..."
+        : featuredNotice.text;
   }
 
   document.addEventListener("DOMContentLoaded", fetchFeaturedNotice);

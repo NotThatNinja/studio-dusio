@@ -44,9 +44,10 @@ import illustration11 from "../assets/illustrations/11.png";
   async function fetchFeaturedNotice() {
     try {
       const response = await fetch(
-        "https://www.studiodusio.it/get.php?what=featured-alert",
+        "https://www.studiodusio.it/get.php?what=featured-alert"
       );
       featuredNotice = await response.json();
+      featuredNotice.text = featuredNotice.text.replace(/\n/g, "<br>");
     } finally {
       renderFeaturedNotice();
     }

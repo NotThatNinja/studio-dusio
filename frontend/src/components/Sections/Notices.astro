@@ -5,12 +5,12 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <section
-    id="noticesSection"
-    class:list={[
-        "flex flex-col gap-4 px-4 py-8 md:py-12 xl:px-36 lg:px-18 md:px-9 items-center",
-        className,
-    ]}
-    {...rest}
+  id="noticesSection"
+  class:list={[
+    "flex flex-col gap-4 px-4 py-8 md:py-12 xl:px-36 lg:px-18 md:px-9 items-center",
+    className,
+  ]}
+  {...rest}
 >
   <H3>Tutti gli avvisi</H3>
   <div class="flex gap-7">
@@ -138,26 +138,23 @@ const { class: className, ...rest } = Astro.props;
     });
   }
 
-    let notices = [];
-    async function fetchNotices() {
-        try {
-            // Fetch alerts from the PHP endpoint
-            const response = await fetch(
-                "https://www.studiodusio.it/get.php?what=alerts",
-            );
-            notices = await response.json();
-            notices = notices.map((notice) => ({
-              ...notice,
-              text: notice.text.replace(/\n/g, "<br>"),
-            }));
-        } catch (error) {
-            console.error("Errore nel recupero degli avvisi:", error);
-        } finally {
-            renderNotices();
-        }
+  let notices = [];
+  async function fetchNotices() {
+    try {
+      // Fetch alerts from the PHP endpoint
+      const response = await fetch(
+        "https://www.studiodusio.it/get.php?what=alerts"
+      );
+      notices = await response.json();
+      notices = notices.map((notice) => ({
+        ...notice,
+        text: notice.text.replace(/\n/g, "<br>"),
+      }));
+    } catch (error) {
+      console.error("Errore nel recupero degli avvisi:", error);
+    } finally {
+      renderNotices();
     }
-
-    renderNotices();
   }
 
   function renderNotices() {
@@ -168,30 +165,10 @@ const { class: className, ...rest } = Astro.props;
     const recentNotices = notices.slice(0, 3);
     const pastNotices = notices.slice(3);
 
-        // Display past notices
-        pastNotices.forEach((notice) => {
-            const card = createNoticeCard(notice);
-            pastNoticesContainer.appendChild(card);
-        });
-
-        if (recentNotices.length === 0) {
-            recentNoticesContainer.className = "mt-5";
-            recentNoticesContainer.innerHTML =
-                '<p class="text-center text-blue">Nessun avviso recente disponibile.</p>';
-        }
-
-        if (pastNotices.length === 0) {
-            pastNoticesContainer.className = "mt-5 hidden";
-            pastNoticesContainer.innerHTML =
-                '<p class="text-center text-blue">Nessun avviso passato disponibile.</p>';
-        }
-
-        // Show recent notices by default
-        recentNoticesContainer.classList.remove("hidden");
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        fetchNotices();
+    // Display recent notices
+    recentNotices.forEach((notice) => {
+      const card = createNoticeCard(notice);
+      recentNoticesContainer.appendChild(card);
     });
 
     // Display past notices
@@ -199,6 +176,18 @@ const { class: className, ...rest } = Astro.props;
       const card = createNoticeCard(notice);
       pastNoticesContainer.appendChild(card);
     });
+
+    if (recentNotices.length === 0) {
+      recentNoticesContainer.className = "mt-5";
+      recentNoticesContainer.innerHTML =
+        '<p class="text-center text-blue">Nessun avviso recente disponibile.</p>';
+    }
+
+    if (pastNotices.length === 0) {
+      pastNoticesContainer.className = "mt-5 hidden";
+      pastNoticesContainer.innerHTML =
+        '<p class="text-center text-blue">Nessun avviso passato disponibile.</p>';
+    }
 
     // Show recent notices by default
     recentNoticesContainer.classList.remove("hidden");

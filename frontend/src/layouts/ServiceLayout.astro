@@ -14,13 +14,19 @@ import "../styles/servicePage.css";
     breadcrumbs={[
       { text: "Home", url: "/" },
       { text: "Servizi", url: "/servizi" },
-      { text: "Visite Ambulatoriali", url: frontmatter.url },
+      {
+        text: frontmatter.url.split("/").pop().replace(/-/g, " "),
+        url: frontmatter.url,
+      },
     ]}
     title={frontmatter.title}
   >
     {frontmatter.subtitle}
   </PageTitle>
-  <section class="flex flex-col px-4 pt-8 xl:px-36 lg:px-18 md:px-9 md:pt-12">
+  <section
+    id="content"
+    class="flex flex-col px-4 pt-8 xl:px-36 lg:px-18 md:px-9 md:pt-12"
+  >
     <slot />
   </section>
   <Services />

@@ -12,61 +12,59 @@ import FAQ from "../components/Sections/FAQ.astro";
 ---
 
 <Layout>
-    <PageTitle
-        breadcrumbs={[
-            { text: "Home", url: "/" },
-            { text: "Contatti", url: "/contatti" },
-        ]}
-        title="Tutte le informazioni di contatto"
-    >
-        Siamo qui per rispondere alle <strong>tue domande</strong> e fissare il <strong>tuo appuntamento</strong>.
-    </PageTitle>
-    <Contacts />
-    <Hours />
-    <section
-        class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 flex flex-col gap-5"
-    >
-        <H4>Dove siamo</H4>
-        <H3
-            >Informazioni ipsum dolor <span class="text-green">sit amet</span
-            ></H3
+  <PageTitle
+    breadcrumbs={[
+      { text: "Home", url: "/" },
+      { text: "Contatti", url: "/contatti" },
+    ]}
+    title="Tutte le informazioni di contatto"
+  >
+    Siamo qui per rispondere alle <strong>tue domande</strong> e fissare il <strong
+      >tuo appuntamento</strong
+    >.
+  </PageTitle>
+  <Contacts />
+  <Hours />
+  <section
+    class="px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 flex flex-col gap-5"
+  >
+    <H4>Dove siamo</H4>
+    <H3><span class="text-green">Informazioni</span> utili per raggiungerci</H3>
+    <div class="flex flex-col gap-6 md:gap-12 mt-2 md:mt-11">
+      <div class="flex gap-4 items-center">
+        <Icon class="text-xl" icon="fa-map" />
+        <P class="font-bold">Siamo in Corso Savona 14100 Asti</P>
+      </div>
+      <div class="flex gap-4 items-center">
+        <Icon class="text-xl" icon="fa-bus" />
+        <P class="font-bold">
+          Si può arrivare facilmente sia in auto che con autobus
+        </P>
+      </div>
+      <div class="flex gap-4 items-center">
+        <Icon class="text-xl" icon="fa-parking" />
+        <P class="font-bold"
+          >Parcheggi gratuiti e a pagamento vicino allo studio</P
         >
-        <div class="flex flex-col gap-6 md:gap-12 mt-2 md:mt-11">
-            <div class="flex gap-4 items-center">
-                <Icon class="text-xl" icon="fa-map" />
-                <P class="font-bold">Siamo in Corso Savona 14100 Asti</P>
-            </div>
-            <div class="flex gap-4 items-center">
-                <Icon class="text-xl" icon="fa-bus" />
-                <P class="font-bold">
-                    Si può arrivare facilmente sia in auto che con autobus
-                </P>
-            </div>
-            <div class="flex gap-4 items-center">
-                <Icon class="text-xl" icon="fa-parking" />
-                <P class="font-bold"
-                    >Parcheggi gratuiti e a pagamento vicino allo studio</P
-                >
-            </div>
-            <div class="flex gap-4 items-center">
-                <Icon class="text-xl" icon="fa-wheelchair" />
-                <P class="font-bold">
-                    Per i pazienti diversamente abili è disponibile una pedana
-                    di accesso
-                </P>
-            </div>
-        </div>
-    </section>
-    <section>
-        <iframe
-            class="w-full h-96"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2826.849291439965!2d8.209471776605636!3d44.88571587184927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478792e41fb92e57%3A0xfeb61a3594dea9af!2sCorso%20Savona%2C%2014100%20Asti%20AT!5e0!3m2!1sen!2sit!4v1739830160030!5m2!1sen!2sit"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-        >
-        </iframe>
-    </section>
-    <FAQ />
+      </div>
+      <div class="flex gap-4 items-center">
+        <Icon class="text-xl" icon="fa-wheelchair" />
+        <P class="font-bold">
+          Per i pazienti diversamente abili è disponibile una pedana di accesso
+        </P>
+      </div>
+    </div>
+  </section>
+  <section>
+    <iframe
+      class="w-full h-96"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2826.849291439965!2d8.209471776605636!3d44.88571587184927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478792e41fb92e57%3A0xfeb61a3594dea9af!2sCorso%20Savona%2C%2014100%20Asti%20AT!5e0!3m2!1sen!2sit!4v1739830160030!5m2!1sen!2sit"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    >
+    </iframe>
+  </section>
+  <FAQ />
 </Layout>

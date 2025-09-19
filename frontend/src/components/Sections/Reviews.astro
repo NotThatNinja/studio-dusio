@@ -8,167 +8,151 @@ import FormCheckbox from "../FormCheckbox.astro";
 ---
 
 <reviews-section>
-    <section
-        class="flex flex-col px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 gap-5 md:gap-10 items-center"
+  <section
+    class="flex flex-col px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12 gap-5 md:gap-10 items-center"
+  >
+    <H3>Dicono <span class="text-green">di noi</span></H3>
+    <P class="text-center">
+      Leggi cosa <strong>scrivono i pazienti</strong> della loro esperienza con il
+      nostro studio. Ogni testimonianza rappresenta la fiducia che ci viene accordata
+      e ci motiva a <strong>migliorare</strong> costantemente la qualità delle nostre
+      cure.
+    </P>
+    <div
+      id="reviewsContainer"
+      class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10"
     >
-        <H3>Dicono <span class="text-green">di noi</span></H3>
-        <P class="text-center">
-            Leggi cosa <strong>scrivono i pazienti</strong> della loro esperienza
-            con il nostro studio. Ogni testimonianza rappresenta la fiducia che ci
-            viene accordata e ci motiva a <strong>migliorare</strong> costantemente
-            la qualità delle nostre cure.
-        </P>
-        <div
-            id="reviewsContainer"
-            class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10"
-        >
-            <!-- Reviews will appear here -->
-        </div>
-        <JSButton id="openModalButton" primary>SCRIVI UNA RECENSIONE</JSButton>
+      <!-- This is here to force Tailwind to load bg-gray class -->
+      <div class="hidden bg-gray"></div>
+      <!-- Reviews will appear here -->
+    </div>
+    <JSButton id="openModalButton" primary>SCRIVI UNA RECENSIONE</JSButton>
 
-        <!-- Modal -->
-        <div
-            id="modal"
-            class="fixed w-full h-full top-0 left-0 bg-[rgba(0,0,0,0.5)] z-100 hidden"
+    <!-- Modal -->
+    <div
+      id="modal"
+      class="fixed w-full h-full top-0 left-0 bg-[rgba(0,0,0,0.5)] z-100 hidden"
+    >
+      <div
+        class="flex flex-col gap-5 absolute w-full top-1/2 -translate-y-1/2 left-0 bg-white px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12"
+      >
+        <button
+          id="closeModalButton"
+          class="absolute top-5 right-5 text-3xl md:text-4xl text-blue cursor-pointer"
+          type="button"
+          aria-label="Chiudi"
         >
-            <div
-                class="flex flex-col gap-5 absolute w-full top-1/2 -translate-y-1/2 left-0 bg-white px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12"
+          <i class="fas fa-times"></i>
+        </button>
+
+        <h5 class="max-w-5/6 text-3xl md:text-4xl text-blue font-display">
+          Lascia la tua recensione
+        </h5>
+        <p class="md:text-xl text-blue">
+          Chiediamo cortesemente ai pazienti dello Studi Medico G di lasciare
+          una recensione per aiutare a capire meglio capacità, professionalità
+          ed empatia dei medici.
+        </p>
+
+        <form id="reviewForm" class="flex flex-col gap-4">
+          <div class="flex flex-col md:flex-row gap-4">
+            <FormInput name="review-name" placeholder="Nome" required />
+            <FormInput name="review-surname" placeholder="Cognome" required />
+          </div>
+          <FormTextArea name="review-text" placeholder="Recensione" required />
+          <FormCheckbox name="review-gdpr" required>
+            Accetto la <a href="/privacy" class="underline text-blue"
+              >privacy policy</a
             >
-                <button
-                    id="closeModalButton"
-                    class="absolute top-5 right-5 text-3xl md:text-4xl text-blue cursor-pointer"
-                    type="button"
-                    aria-label="Chiudi"
-                >
-                    <i class="fas fa-times"></i>
-                </button>
-
-                <h5
-                    class="max-w-5/6 text-3xl md:text-4xl text-blue font-display"
-                >
-                    Lascia la tua recensione
-                </h5>
-                <p class="md:text-xl text-blue">
-                    Chiediamo cortesemente ai pazienti dello Studi Medico G di
-                    lasciare una recensione per aiutare a capire meglio
-                    capacità, professionalità ed empatia dei medici.
-                </p>
-
-                <form id="reviewForm" class="flex flex-col gap-4">
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <FormInput
-                            name="review-name"
-                            placeholder="Nome"
-                            required
-                        />
-                        <FormInput
-                            name="review-surname"
-                            placeholder="Cognome"
-                            required
-                        />
-                    </div>
-                    <FormTextArea
-                        name="review-text"
-                        placeholder="Recensione"
-                        required
-                    />
-                    <FormCheckbox name="review-gdpr" required>
-                        Accetto la <a href="/privacy" class="underline text-blue">privacy policy</a>
-                    </FormCheckbox>
-                    <JSButton type="submit" primary>INVIA</JSButton>
-                </form>
-            </div>
-        </div>
-    </section>
+          </FormCheckbox>
+          <JSButton type="submit" primary>INVIA</JSButton>
+        </form>
+      </div>
+    </div>
+  </section>
 </reviews-section>
 
 <script>
-    // Modal
-    class Reviews extends HTMLElement {
-        connectedCallback() {
-            this.querySelector("#openModalButton")?.addEventListener(
-                "click",
-                () => {
-                    this.querySelector("#modal")?.classList.remove("hidden");
-                },
-            );
+  // Modal
+  class Reviews extends HTMLElement {
+    connectedCallback() {
+      this.querySelector("#openModalButton")?.addEventListener("click", () => {
+        this.querySelector("#modal")?.classList.remove("hidden");
+      });
 
-            this.querySelector("#closeModalButton")?.addEventListener(
-                "click",
-                () => {
-                    this.querySelector("#modal")?.classList.add("hidden");
-                },
-            );
-        }
+      this.querySelector("#closeModalButton")?.addEventListener("click", () => {
+        this.querySelector("#modal")?.classList.add("hidden");
+      });
     }
-    customElements.define("reviews-section", Reviews);
+  }
+  customElements.define("reviews-section", Reviews);
 
-    // Form submission
-    const form = document.getElementById("reviewForm");
+  // Form submission
+  const form = document.getElementById("reviewForm");
 
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-        // Get form data
-        const formData = {
-            name: document.getElementById("review-name").value,
-            surname: document.getElementById("review-surname").value,
-            reviewText: document.getElementById("review-text").value,
-            gdprConsent: document.getElementById("review-gdpr").checked ? 1 : 0,
-        };
+    // Get form data
+    const formData = {
+      name: document.getElementById("review-name").value,
+      surname: document.getElementById("review-surname").value,
+      reviewText: document.getElementById("review-text").value,
+      gdprConsent: document.getElementById("review-gdpr").checked ? 1 : 0,
+    };
 
-        try {
-            // Send data to the API
-            const response = await fetch(
-                "https://www.studiodusio.it/submit-review.php",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(formData),
-                },
-            );
-
-            const result = await response.json();
-
-            if (result.success) {
-                // Show success message
-                alert(result.message);
-                form.reset();
-            } else {
-                // Show error message
-                alert(result.message || "Errore nell'invio della recensione.");
-            }
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Si è verificato un problema. Riprova più tardi.");
+    try {
+      // Send data to the API
+      const response = await fetch(
+        "https://www.studiodusio.it/submit-review.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         }
-    });
+      );
 
-    // Fetch reviews
-    let reviews = [];
-    async function fetchReviews() {
-        const response = await fetch(
-            "https://www.studiodusio.it/get.php?what=reviews",
-        );
-        reviews = await response.json();
-        renderReviews();
+      const result = await response.json();
+
+      if (result.success) {
+        // Show success message
+        alert(result.message);
+        form.reset();
+      } else {
+        // Show error message
+        alert(result.message || "Errore nell'invio della recensione.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Si è verificato un problema. Riprova più tardi.");
     }
+  });
 
-    function renderReviews() {
-        const container = document.getElementById("reviewsContainer");
-        container.innerHTML = "";
+  // Fetch reviews
+  let reviews = [];
+  async function fetchReviews() {
+    const response = await fetch(
+      "https://www.studiodusio.it/get.php?what=reviews"
+    );
+    reviews = await response.json();
+    renderReviews();
+  }
 
-        reviews.forEach((review) => {
-            container.innerHTML += `
+  function renderReviews() {
+    const container = document.getElementById("reviewsContainer");
+    container.innerHTML = "";
+
+    reviews.forEach((review) => {
+      container.innerHTML += `
             <div class="flex flex-col gap-2 p-5 bg-gray rounded-2xl items-center">
                 <p class="text-blue md:text-xl">${review.text}</p>
                 <p class="text-blue-3 text-lg">${review.name} ${review.surname.charAt(0)}</p>
             </div>
             `;
-        });
-    }
+    });
+  }
 
-    document.addEventListener("DOMContentLoaded", fetchReviews);
+  document.addEventListener("DOMContentLoaded", fetchReviews);
 </script>

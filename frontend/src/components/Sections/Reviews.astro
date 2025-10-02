@@ -111,7 +111,7 @@ import FormCheckbox from "../FormCheckbox.astro";
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        }
+        },
       );
 
       const result = await response.json();
@@ -134,9 +134,16 @@ import FormCheckbox from "../FormCheckbox.astro";
   let reviews = [];
   async function fetchReviews() {
     const response = await fetch(
-      "https://www.studiodusio.it/get.php?what=reviews"
+      "https://www.studiodusio.it/get.php?what=reviews",
     );
     reviews = await response.json();
+    if (reviews.length === 0) {
+      let reviewsContainer = document.getElementById("reviewsContainer");
+      reviewsContainer?.classList.remove("grid");
+      reviewsContainer.innerHTML =
+        "<p class='text-blue md:text-xl'>Nessuna recensione disponibile.</p>";
+      return;
+    }
     renderReviews();
   }
 

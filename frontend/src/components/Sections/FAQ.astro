@@ -5,106 +5,95 @@ import P from "../Typography/P.astro";
 ---
 
 <section
-    class="flex flex-col gap-4 bg-blue-2 px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12"
+  class="flex flex-col gap-4 bg-blue-2 px-4 py-8 xl:px-36 lg:px-18 md:px-9 md:py-12"
 >
-    <H4 icon="fa-question">Domande frequenti</H4>
-    <H3>
-        Le domande più richieste <span class="text-green"
-            >negli ultimi anni</span
-        >
-    </H3>
+  <H4 icon="fa-question">Domande frequenti</H4>
+  <H3>
+    Le domande più richieste <span class="text-green">negli ultimi anni</span>
+  </H3>
 
-    <details name="faq">
-        <summary
-            class="md:text-lg text-blue px-5 py-2 border border-blue rounded-lg"
-            >Come posso richiedere le ricette?</summary
+  <details name="faq">
+    <summary
+      class="md:text-lg text-blue px-5 py-2 border border-blue rounded-lg"
+      >Come posso richiedere le ricette?</summary
+    >
+    <P class="mt-4 md:mt-7 p-4 md:p-12 bg-blue-2 rounded-lg">
+      In questo momento ({
+        new Date().toLocaleString("it-IT", { month: "long", year: "numeric" })
+      }) per richiedere le ricette è sufficiente <strong>telefonare</strong> in orario
+      di segreteria al numero
+      <strong>
+        <a href="tel:0141351232" target="_blank" rel="noopener noreferrer"
+          >0141 351 232</a
         >
-        <P class="mt-4 md:mt-7 p-4 md:p-12 bg-blue-2 rounded-lg">
-            In questo momento (agosto 2025) per richiedere le ricette è
-            sufficiente <strong>telefonare</strong> in orario di segreteria al numero
-            <strong>
-                <a
-                    href="tel:0141351232"
-                    target="_blank"
-                    rel="noopener noreferrer">0141 351 232</a
-                >
-            </strong>
-            oppure <strong>recarsi personalmente</strong>
-            in studio nello stesso orario.
-        </P>
-    </details>
-    <details name="faq">
-        <summary
-            class="md:text-lg text-blue px-5 py-2 border border-blue rounded-lg"
-            >Come faccio a prendere appuntamento per una visita ambulatoriale?</summary
+      </strong>
+      oppure <strong>recarsi personalmente</strong>
+      in studio nello stesso orario.
+    </P>
+  </details>
+  <details name="faq">
+    <summary
+      class="md:text-lg text-blue px-5 py-2 border border-blue rounded-lg"
+      >Come faccio a prendere appuntamento per una visita ambulatoriale?</summary
+    >
+    <P class="mt-4 md:mt-7 p-4 md:p-12 bg-blue-2 rounded-lg">
+      Per fissare un appuntamento è possibile utilizzare
+      <strong>
+        <a href="https://cupmedico.it" target="_blank" rel="noopener noreferrer"
+          >cupmedico.it</a
         >
-        <P class="mt-4 md:mt-7 p-4 md:p-12 bg-blue-2 rounded-lg">
-            Per fissare un appuntamento è possibile utilizzare
-            <strong>
-                <a
-                    href="https://cupmedico.it"
-                    target="_blank"
-                    rel="noopener noreferrer">cupmedico.it</a
-                >
-            </strong>
-            oppure telefonare alla <strong>segretaria</strong> al numero
-            <strong>
-                <a
-                    href="tel:0141351232"
-                    target="_blank"
-                    rel="noopener noreferrer">0141 351 232</a
-                >
-            </strong>
-            negli orari di segreteria.
-        </P>
-    </details>
-    <details name="faq">
-        <summary
-            class="md:text-lg text-blue px-5 py-2 border border-blue rounded-lg"
-            >Posso richiedere una prescrizione senza un appuntamento?</summary
+      </strong>
+      oppure telefonare alla <strong>segretaria</strong> al numero
+      <strong>
+        <a href="tel:0141351232" target="_blank" rel="noopener noreferrer"
+          >0141 351 232</a
         >
-        <P class="mt-4 md:mt-7 p-4 md:p-12 bg-blue-2 rounded-lg">
-            È possibile richiedere una prescrizione senza appuntamento parlando
-            al <strong>telefono</strong> o personalmente con la <strong
-                >segretaria</strong
-            >
-            negli orari di segreteria.
-        </P>
-    </details>
-    <details name="faq">
-        <summary
-            class="md:text-lg text-blue px-5 py-2 border border-blue rounded-lg"
-            >Come funziona il rilascio dei certificati per assenza lavorativa o
-            scolastica?</summary
+      </strong>
+      negli orari di segreteria.
+    </P>
+  </details>
+  <details name="faq">
+    <summary
+      class="md:text-lg text-blue px-5 py-2 border border-blue rounded-lg"
+      >Posso richiedere una prescrizione senza un appuntamento?</summary
+    >
+    <P class="mt-4 md:mt-7 p-4 md:p-12 bg-blue-2 rounded-lg">
+      È possibile richiedere una prescrizione senza appuntamento parlando al <strong
+        >telefono</strong
+      > o personalmente con la <strong>segretaria</strong>
+      negli orari di segreteria.
+    </P>
+  </details>
+  <details name="faq">
+    <summary
+      class="md:text-lg text-blue px-5 py-2 border border-blue rounded-lg"
+      >Come funziona il rilascio dei certificati per assenza lavorativa o
+      scolastica?</summary
+    >
+    <P class="mt-4 md:mt-7 p-4 md:p-12 bg-blue-2 rounded-lg">
+      Per tali certificati è necessaria la <strong
+        >visita da parte del medico</strong
+      >
+      perché in quel momento il medico valuterà le tue condizioni di salute e, se
+      necessario, rilascerà il <strong>certificato</strong> con l'indicazione dei
+      giorni di riposo consigliati.
+    </P>
+  </details>
+  <details name="faq">
+    <summary
+      class="md:text-lg text-blue px-5 py-2 border border-blue rounded-lg"
+      >Come faccio a richiedere una visita domiciliare?</summary
+    >
+    <P class="mt-4 md:mt-7 p-4 md:p-12 bg-blue-2 rounded-lg">
+      Per tale richiesta è necessario telefonare al <strong>Dottor Dusio</strong
+      >
+      al cellulare
+      <strong>
+        <a href="tel:360443191" target="_blank" rel="noopener noreferrer"
+          >360 443 191</a
         >
-        <P class="mt-4 md:mt-7 p-4 md:p-12 bg-blue-2 rounded-lg">
-            Per tali certificati è necessaria la <strong
-                >visita da parte del medico</strong
-            >
-            perché in quel momento il medico valuterà le tue condizioni di salute
-            e, se necessario, rilascerà il <strong>certificato</strong> con l'indicazione
-            dei giorni di riposo consigliati.
-        </P>
-    </details>
-    <details name="faq">
-        <summary
-            class="md:text-lg text-blue px-5 py-2 border border-blue rounded-lg"
-            >Come faccio a richiedere una visita domiciliare?</summary
-        >
-        <P class="mt-4 md:mt-7 p-4 md:p-12 bg-blue-2 rounded-lg">
-            Per tale richiesta è necessario telefonare al <strong
-                >Dottor Dusio</strong
-            >
-            al cellulare
-            <strong>
-                <a
-                    href="tel:360443191"
-                    target="_blank"
-                    rel="noopener noreferrer">360 443 191</a
-                >
-            </strong>. In caso di urgenza la visita verrà effettuata in
-            giornata, viceversa potrà essere assolta entro le ore 12 del giorno
-            successivo.
-        </P>
-    </details>
+      </strong>. In caso di urgenza la visita verrà effettuata in giornata,
+      viceversa potrà essere assolta entro le ore 12 del giorno successivo.
+    </P>
+  </details>
 </section>

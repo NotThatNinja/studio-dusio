@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/ServiceLayout.astro
 title: "Cosa sono le ricette?"
-subtitle: "Le ricette mediche sono prescrizioni farmaceutiche rilasciate dal medico che ti permettono di acquistare farmaci in farmacia o eseguire indagini diagnostiche nell’ambito del SSN oppure in centri privati."
+subtitle: "Le ricette mediche sono prescrizioni rilasciate dal medico che ti permettono di acquistare farmaci in farmacia, eseguire indagini diagnostiche o visite specialistiche nell’ambito del SSN."
 ---
 
-### **Cosa aspettarsi** quando richiedi le ricette?
-Le ricette possono essere prescritte per una **nuova terapia oppure per una terapia in corso da tempo**. Nel primo caso solitamente il medico, in base all’**anamnesi** e alla conoscenza della storia clinica del paziente e alle eventuali terapie già in atto, può scegliere il **farmaco più adeguato** per il soggetto interessato.
+### **Per approfondire**
+In genere vengono compilate dal medico al momento della **visita ambulatoriale** o domiciliare, oppure, nel caso di terapie croniche o di indagini diagnostiche di follow up, possono essere redatte periodicamente su **richiesta del paziente**.

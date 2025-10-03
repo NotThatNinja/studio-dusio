@@ -14,7 +14,7 @@ import illustration11 from "../assets/illustrations/11.png";
       { text: "Home", url: "/" },
       { text: "Avvisi", url: "/avvisi" },
     ]}
-    title="Avvisi e Comunicazioni dallo Studio Dusio"
+    title="Avvisi e Comunicazioni"
   >
     Rimani aggiornato/a sulle <strong
       >ultime comunicazioni dello studio medico</strong
@@ -46,6 +46,9 @@ import illustration11 from "../assets/illustrations/11.png";
       const response = await fetch(
         "https://www.studiodusio.it/get.php?what=featured-alert"
       );
+      if (response === null) {
+        return;
+      }
       featuredNotice = await response.json();
       featuredNotice.text = featuredNotice.text.replace(/\n/g, "<br>");
     } finally {

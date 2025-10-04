@@ -138,13 +138,16 @@ import illustration3 from "../assets/illustrations/3.png";
     date: new Date().toISOString(),
   };
 
-  let featuredNotice = null;
+  let featuredNotice = defaultNotice;
   async function fetchFeaturedNotice() {
     try {
       const response = await fetch(
         "https://www.studiodusio.it/get.php?what=featured-alert"
       );
       featuredNotice = await response.json();
+      if (featuredNotice.text === null || featuredNotice.text === undefined) {
+        featuredNotice = defaultNotice;
+      }
     } catch (e) {
       featuredNotice = defaultNotice;
     } finally {

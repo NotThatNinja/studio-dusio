@@ -132,13 +132,24 @@ import illustration3 from "../assets/illustrations/3.png";
 </Layout>
 
 <script>
+  const defaultNotice = {
+    title: "Nessun Avviso",
+    text: "Nessun avviso in evidenza.",
+    date: new Date().toISOString(),
+  };
+
   let featuredNotice = null;
   async function fetchFeaturedNotice() {
-    const response = await fetch(
-      "https://www.studiodusio.it/get.php?what=featured-alert"
-    );
-    featuredNotice = await response.json();
-    renderFeaturedNotice();
+    try {
+      const response = await fetch(
+        "https://www.studiodusio.it/get.php?what=featured-alert"
+      );
+      featuredNotice = await response.json();
+    } catch (e) {
+      featuredNotice = defaultNotice;
+    } finally {
+      renderFeaturedNotice();
+    }
   }
 
   function renderFeaturedNotice() {

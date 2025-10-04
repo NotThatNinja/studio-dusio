@@ -7,6 +7,6 @@ subtitle: "Le vaccinazioni sono trattamenti preventivi che stimolano il tuo sist
 ### **Perché** è importante effettuarle?
 Le vaccinazioni sono consigliate per:
 - Prevenzione di **malattie stagionali** (influenza)
-- Protezione da **patologie endemica** durante viaggi all'estero
+- Protezione da **patologie endemiche** durante viaggi all'estero
 - Prevenzione **patologie potenzialmente letali** (tetano e difterite)
 - Profilassi per **categorie a rischio** (anziani, immunodepressi, gravidanza)

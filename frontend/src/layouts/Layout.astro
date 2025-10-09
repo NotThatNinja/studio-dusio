@@ -9,24 +9,22 @@ import Footer from "../components/Sections/Footer.astro";
 
 <!doctype html>
 <html lang="it">
-	<head>
-		<!-- TODO: REMOVE FOR PRODUCTION -->
-		<meta name="robots" content="noindex" />
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/favicon.png" />
-		<meta name="generator" content={Astro.generator} />
-		<meta
-			name="description"
-			content="Studio Medico Dusio - Il tuo partner per la salute"
-		/>
-		<title>Studio Dusio</title>
-	</head>
-	<body>
-		<Header />
-		<main class="mt-[67px] lg:mt-[120px]">
-			<slot />
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Studio Medico Dusio - Il tuo partner per la salute"
+    />
+    <title>Studio Dusio</title>
+  </head>
+  <body>
+    <Header />
+    <main class="mt-[67px] lg:mt-[120px]">
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
